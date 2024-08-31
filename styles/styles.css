@@ -30,6 +30,10 @@ footer {
     column-gap: 30px;
 }
 
+footer p {
+    font-size: 14px;
+}
+
 #tfr-logo {
     height: 20px; 
 }
