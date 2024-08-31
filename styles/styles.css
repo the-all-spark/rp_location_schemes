@@ -251,4 +251,9 @@ h1 {
     padding-bottom: 15px;
 }
 
-/* TODO Эффекты при наведении на объект */
+/* Эффекты при наведении на объект */
+
+.outside-block polygon:hover,
+#hover {
+    fill: rgba(163, 216, 237, 0.188);
+}
