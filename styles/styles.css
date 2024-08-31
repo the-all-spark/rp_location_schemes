@@ -16,10 +16,10 @@
     min-height: 100vh; /*отображаем блок на весь экран*/
 } 
 
-main {
+/*main {
     flex: 1;
-    /*margin-bottom: 30px;*/
-}
+    margin-bottom: 30px;
+}*/
 
 footer {
     padding: 30px;
