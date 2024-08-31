@@ -8,7 +8,7 @@
     src: url(../fonts/notoSans_regular.ttf);
 }
 
-/* Общие */
+/* ----------- Общие ----------- */
 
 .container {
     display: flex; 
@@ -26,7 +26,7 @@ footer {
     text-align: center;
 }
 
-/* Шапка, Меню */
+/* ----------- Шапка, Меню ----------- */
 
 ul {
     padding-left: 30px;
@@ -53,14 +53,9 @@ ul {
     border-radius: 2px;
     color: white;
     text-align: center;
-    font-family: Times New Roman;
+    font-family: 'Noto Sans Regular';
+    font-size: 14px;
     border: 1px solid rgb(21, 21, 21); /*при наведении кнопки не скачут*/
-}
-
-.nav a:hover{
-    background-color: #505050;
-    border: 1px solid transparent; /*при наведении кнопки не скачут*/
-    color: white;
 }
 
 .active a {
@@ -69,7 +64,25 @@ ul {
     border: 1px solid black;
 }
 
-/* Текст */
+/* Разработанные блоки */
+.developed a:hover{
+    background-color: #505050;
+    border: 1px solid transparent; /*при наведении кнопки не скачут*/
+    color: white;
+}
+
+/* Пока недоступные (неразработанные) блоки */
+.disabled a {
+    background-color: rgb(204, 203, 203);
+    color: rgb(113, 113, 113);
+    border: 1px solid rgb(204, 203, 203);
+}
+
+.nav .disabled a:hover {
+    cursor: not-allowed;
+}
+
+/* ----------- Текст ----------- */
 
 body {
     font-family: "Noto Sans Regular", sans-serif;
@@ -86,7 +99,7 @@ h1 {
     font-size: 14px;
 }
 
-/* Условные обозначения, иконка */
+/* ----------- Условные обозначения, иконка ----------- */
 
 .sign-block {
     width: 1000px;
@@ -140,7 +153,7 @@ h1 {
     display: block;
 }
 
-/* Блок "Окрестности базы" */
+/* ----------- Блок "Окрестности базы" ----------- */
 
 /* Иконки объектов */
 
@@ -260,7 +273,7 @@ h1 {
     padding-bottom: 15px;
 }
 
-/* Эффекты при наведении на объект */
+/* ----------- Эффекты при наведении на объект ----------- */
 
 .outside-block polygon:hover,
 #hover {
