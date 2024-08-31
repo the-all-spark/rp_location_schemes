@@ -26,6 +26,48 @@ footer {
     text-align: center;
 }
 
+/* ----------- Текст ----------- */
+
+body {
+    font-family: "Noto Sans Regular", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Spectral Bold", serif;
+    font-size: 32px;
+}
+
+.help-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 7px;
+}
+
+.help-text {
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: center;
+    font-size: 14px;
+}
+
+.icon-in-text {
+    display: inline-block;
+    /*position: absolute;
+    top: 180px;
+    right: 240px;*/
+}
+
+a:visited {
+    color: rgb(144, 34, 162);
+}
+
+a:hover {
+    color: rgb(185, 4, 16);
+}
+
+
 /* ----------- Шапка, Меню ----------- */
 
 ul {
@@ -80,23 +122,6 @@ ul {
 
 .nav .disabled a:hover {
     cursor: not-allowed;
-}
-
-/* ----------- Текст ----------- */
-
-body {
-    font-family: "Noto Sans Regular", sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-family: "Spectral Bold", serif;
-}
-
-.help-text {
-    margin-bottom: 8px;
-    text-align: center;
-    font-size: 14px;
 }
 
 /* ----------- Условные обозначения, иконка ----------- */
@@ -159,7 +184,6 @@ h1 {
 
 .info-icon {
     position: absolute;
-    z-index: 999;
 }
 
 .base-info-icon {
@@ -238,7 +262,7 @@ h1 {
     border: 2px solid #1b1b1b;
     padding: 10px;
     position: absolute;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 18px;
     background-color: #fff;
     z-index: 99;
@@ -246,10 +270,14 @@ h1 {
     text-align: left;
 }
 
+.outside-item-info ul {
+    list-style-type: circle;
+}
+
 /* Объекты */
 
 .base-info {
-    width: 320px;
+    width: 350px;
     /*height: 200px;*/
 }
 
