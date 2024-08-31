@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TFR: База и ее окрестности</title>
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <!-- TODO script-->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <!-- Навигация по страницам со схемами -->
+            <ul class="nav">
+                <li class="active"><a href="#">Окрестности базы</a></li>
+                <li><a href="#">База: уровень -2</a></li>
+                <li><a href="#">База: уровень -1</a></li>
+                <li><a href="#">База: уровень 1</a></li>
+                <li><a href="#">База: уровень 2</a></li>
+                <li><a href="#">База: уровень 3</a></li>
+                <li><a href="#">База: крыша</a></li>
+            </ul>
+        </header>
+
+        <main>
+            <h1>База и ее окрестности</h1>
+            <p class="help-text"><i>Дополнительная информация доступна при клике на подсвеченный объект или иконку "i"</i></p>
+
+            <!-- TODO signs-->
+            
+            <!-- Окрестности базы -->
+
+            <div class="outside-block">
+
+                <!-- * Изображение-подложка - width: 1000px -->
+                <img src="./assets/outside_general_1000.jpg" alt="Окрестности базы">
+
+                <!-- TODO info icons-->
+
+                <!-- * Объекты с координатами -->
+                <!-- Холст <svg> с элементами <polygon> (каждый объект базы со своими координатами)
+                    Атрибут data-object="..." - для связки объекта и информации -->
+                <svg>
+                    <polygon data-object="base" points="365,203,381,209,406,209,439,220,471,220,481,218,499,239,494,
+                        279,503,303,502,316,496,334,493,353,471,373,440,376,410,381,389,384,357,374,344,375,318,320,333,
+                        292,334,256,343,236,341,218,357,216"></polygon>
+                    <polygon data-object="arena" points="323,430,536,430,536,617,322,618"></polygon>
+                    <polygon data-object="arena-barrier" points="300,628,610,628,609,847,300,848"></polygon>
+                    <polygon data-object="tir" points="624,626,903,627,903,845,624,845"></polygon>
+                </svg>
+
+                <!-- * Информация по объектам -->
+                <!-- Каждый блок с информацией по объекту размещается в <div class="outside-item"> с абсолютным позиционированием; 
+                    top и left - для его позиционирования около своего полигона.
+                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon> -->
+                <div class="outside-item" data-object="base" style="top: 180px; left: 509px;">
+                    <div class="outside-item-info base-info">
+                        <div class="outside-item-name">База</div>
+                        Включает <b>уровни</b>:
+                        <ul>
+                            <li><b><a href="">-2 этаж</a></b> (цокольный)</li>
+                            <li><b><a href="">-1 этаж</a></b> (цокольный)</li>
+                            <li><b><a href="">1 этаж</a></b> (основные служебные помещения, выезд для колесных)</li>
+                            <li><b><a href="">2 этаж</a></b> (служебные и жилые помещения)</li>
+                            <li><b><a href="">3 этаж</a></b> (выход для летных)</li>
+                            <li><b><a href="">крыша</a></b></li>
+                        </ul>
+                        Подробнее - по ссылкам выше.
+                    </div>
+                </div>
+
+                <div class="outside-item" data-object="arena" style="top: 430px; left: 540px;">
+                    <div class="outside-item-info arena-info">
+                        <div class="outside-item-name">Арена</div>
+                        Полигон, на котором можно от всей души поснимать друг с друга стружку. Поговаривают, за это даже ничего
+                        не будет.
+                    </div>
+                </div>
+
+                <div class="outside-item" data-object="arena-barrier" style="top: 629px; left: 115px;">
+                    <div class="outside-item-info arena-barrier-info">
+                        <div class="outside-item-name">Арена с препятствиями</div>
+                        Очень с препятствиями, прям совсем. Сюда вообще кто-нибудь ходил?
+                    </div>
+                </div>
+
+                <div class="outside-item" data-object="tir" style="top: 544px; left: 622px;">
+                    <div class="outside-item-info tir-info">
+                        <div class="outside-item-name">Стрельбище</div>
+                        Еще одно тайное место... 
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    
+        <footer>
+            © Transformers: Refraction |RP|
+        </footer>
+
+    </div>
+    
+</body>
+
+</html>

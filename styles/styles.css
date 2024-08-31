@@ -1,0 +1,186 @@
+@font-face {
+    font-family: 'Spectral Bold';
+    src: url(../fonts/spectral_bold.ttf);
+}
+
+@font-face {
+    font-family: 'Noto Sans Regular';
+    src: url(../fonts/notoSans_regular.ttf);
+}
+
+/* Общие */
+
+.container {
+    display: flex; 
+    flex-direction: column; /*выстраиваем элементы сверху вниз*/
+    min-height: 100vh; /*отображаем блок на весь экран*/
+} 
+
+main {
+    flex: 1;
+    /*margin-bottom: 30px;*/
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+}
+
+/* Шапка, Меню */
+
+ul {
+    padding-left: 30px;
+}
+
+.nav {
+    padding: 30px;
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+
+.nav li {
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.nav a {
+    display: inline-block;
+    width: 130px;
+    padding: 10px;
+    background-color: rgb(21, 21, 21);
+    text-decoration: none;
+    border-radius: 2px;
+    color: white;
+    text-align: center;
+    font-family: Times New Roman;
+    border: 1px solid rgb(21, 21, 21); /*при наведении кнопки не скачут*/
+}
+
+.nav a:hover{
+    background-color: #505050;
+    border: 1px solid transparent; /*при наведении кнопки не скачут*/
+    color: white;
+}
+
+.active a {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Текст */
+
+body {
+    font-family: "Noto Sans Regular", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Spectral Bold", serif;
+}
+
+.help-text {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+/* TODO Условные обозначения, иконка */
+
+/* Блок "Окрестности базы" */
+
+/* TODO Иконки объектов */
+
+/* Блок */
+
+.outside-block {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid #1b1b1b;
+}
+
+.outside-block svg {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 1000px;
+    height: 1000px;
+}
+
+.outside-block polygon {
+    fill: rgba(70, 70, 70, 0);
+    cursor: pointer;
+}
+
+/* Информация по объектам - общая */
+
+.outside-item {
+    position: absolute;
+    display: none;
+}
+
+.shown-outside-item {
+    display: block;
+}
+
+.outside-item-name {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 10px;
+    border-left: 2px solid #1b1b1b;
+    border-bottom: 2px solid #1b1b1b;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 6px 15px;
+}
+
+.arena-barrier-info .outside-item-name {
+    border-left: 2px solid transparent;
+}
+
+.outside-item-info {
+    border: 2px solid #1b1b1b;
+    padding: 10px;
+    position: absolute;
+    font-size: 16px;
+    line-height: 18px;
+    background-color: #fff;
+    z-index: 99;
+    box-shadow: 0 0 15px rgba(35, 35, 35, 0.69);
+    text-align: left;
+}
+
+/* Объекты */
+
+.base-info {
+    width: 320px;
+    /*height: 200px;*/
+}
+
+.arena-info {
+    width: 180px;
+    /*height: 90px;*/
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.arena-barrier-info {
+    width: 160px;
+    /*height: 150px;*/
+    padding-top: 65px;
+    padding-bottom: 15px;
+}
+
+.tir-info {
+    width: 250px;
+    /*height: 100px;*/
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+/* TODO Эффекты при наведении на объект */
