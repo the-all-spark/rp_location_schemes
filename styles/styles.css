@@ -133,7 +133,31 @@ h1 {
 
 /* Блок "Окрестности базы" */
 
-/* TODO Иконки объектов */
+/* Иконки объектов */
+
+.base-info-icon {
+    position: absolute;
+    top: 230px;
+    left: 457px;
+}
+
+.arena-info-icon {
+    position: absolute;
+    top: 442px;
+    left: 499px;
+}
+
+.arena-bar-info-icon {
+    position: absolute;
+    top: 640px;
+    left: 569px;
+}
+
+.tir-info-icon {
+    position: absolute;
+    top: 640px;
+    left: 862px;
+}
 
 /* Блок */
 
