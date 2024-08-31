@@ -24,6 +24,19 @@ main {
 footer {
     padding: 30px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 30px;
+}
+
+#tfr-logo {
+    height: 20px; 
+}
+
+#tfr-logo:hover {
+    cursor: pointer;
+    filter: contrast(100);
 }
 
 /* ----------- Текст ----------- */
