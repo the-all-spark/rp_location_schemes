@@ -83,9 +83,53 @@ h1 {
 .help-text {
     margin-bottom: 8px;
     text-align: center;
+    font-size: 14px;
 }
 
-/* TODO Условные обозначения, иконка */
+/* Условные обозначения, иконка */
+
+.sign-block {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.signs-icon {
+    padding: 7px 7px 0 0;
+    position: relative;
+    height: 40px;
+}
+
+.signs-icon img {
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    z-index: 9999;
+}
+
+.signs-outside-image {
+    display: none;
+    padding-top: 35px;
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    right: -2px;
+    border: 2px solid #1b1b1b;
+    background-color: white;
+}
+
+.signs-outside-image img {
+    width: 300px;
+    
+}
+
+.signs-icon img:hover {
+    cursor: pointer;
+}
+
+.shown-signs {
+    display: block;
+}
 
 /* Блок "Окрестности базы" */
 
