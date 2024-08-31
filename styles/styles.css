@@ -157,26 +157,27 @@ h1 {
 
 /* Иконки объектов */
 
-.base-info-icon {
+.info-icon {
     position: absolute;
+    z-index: 999;
+}
+
+.base-info-icon {
     top: 230px;
     left: 457px;
 }
 
 .arena-info-icon {
-    position: absolute;
     top: 442px;
     left: 499px;
 }
 
 .arena-bar-info-icon {
-    position: absolute;
     top: 640px;
     left: 569px;
 }
 
 .tir-info-icon {
-    position: absolute;
     top: 640px;
     left: 862px;
 }
