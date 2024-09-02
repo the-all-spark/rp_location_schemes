@@ -90,6 +90,10 @@ h1 {
     right: 240px;*/
 }
 
+a:link {
+    color: rgb(62, 62, 62);
+}
+
 a:visited {
     color: rgb(144, 34, 162);
 }
@@ -97,7 +101,6 @@ a:visited {
 a:hover {
     color: rgb(185, 4, 16);
 }
-
 
 /* ----------- Шапка, Меню ----------- */
 
@@ -153,6 +156,31 @@ ul {
 
 .nav .disabled a:hover {
     cursor: not-allowed;
+}
+
+/* -----------  Список локаций на схеме -----------  */
+
+.location-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.location-list li {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.location-list a {
+    display: inline-block;
+    text-decoration: none;
+    height: 20px;
+    padding: 8px 20px;
+    border: 1px solid rgb(190, 190, 190);
+    border-radius: 2px;
+    text-align: center;
+    font-family: 'Noto Sans Regular';
+    font-size: 16px;
+    font-weight: bold;
 }
 
 /* ----------- Условные обозначения, иконка ----------- */

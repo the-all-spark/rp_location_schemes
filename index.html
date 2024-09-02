@@ -38,13 +38,22 @@
                     без интеллекта и сознания с единственной потребностью - добывать себе для пропитания живой металл и топливо.
                     </p>
                 </div>
+
+                <!-- Список локаций на схеме -->
+                <ul class="location-list">
+                    <li><a href="#base" title="Перейти к базе">База</a></li>
+                    <li><a href="#arena" title="Перейти к арене">Арена</a></li>
+                    <li><a href="#arena-barrier" title="Перейти к арене с препятствиями">Арена с препятствиями</a></li>
+                    <li><a href="#tir" title="Перейти к стрельбищу">Стрельбище</a></li>
+                </ul>
+
                 <div class="help-block">
                     <p class="help-text"><i>Дополнительная информация доступна при клике на подсвеченный объект или иконку</i></p>
                     <img class="icon-in-text" src="./assets/info-icon.svg" alt="i" width="20">
                 </div>
             </div>
 
-           <!-- Условные обозначения к схеме-->
+            <!-- Условные обозначения к схеме-->
             <div class="sign-block">
                 <div class="signs-icon">
                     <img src="./assets/signs_icon.svg" alt="Иконка для открытия условных обозначений" title="Условные знаки к схеме">
@@ -80,12 +89,12 @@
                 <!-- Холст <svg> с элементами <polygon> (каждый объект базы со своими координатами)
                     Атрибут data-object="..." - для связки объекта и информации -->
                 <svg>
-                    <polygon data-object="base" points="365,203,381,209,406,209,439,220,471,220,481,218,499,239,494,
+                    <polygon data-object="base" id="base" points="365,203,381,209,406,209,439,220,471,220,481,218,499,239,494,
                         279,503,303,502,316,496,334,493,353,471,373,440,376,410,381,389,384,357,374,344,375,318,320,333,
                         292,334,256,343,236,341,218,357,216"></polygon>
-                    <polygon data-object="arena" points="323,430,536,430,536,617,322,618"></polygon>
-                    <polygon data-object="arena-barrier" points="300,628,610,628,609,847,300,848"></polygon>
-                    <polygon data-object="tir" points="624,626,903,627,903,845,624,845"></polygon>
+                    <polygon data-object="arena" id="arena" points="323,430,536,430,536,617,322,618"></polygon>
+                    <polygon data-object="arena-barrier" id="arena-barrier" points="300,628,610,628,609,847,300,848"></polygon>
+                    <polygon data-object="tir" id="tir" points="624,626,903,627,903,845,624,845"></polygon>
                 </svg>
 
                 <!-- * Информация по объектам -->
