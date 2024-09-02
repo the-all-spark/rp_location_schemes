@@ -22,6 +22,33 @@ window.onload = function() {
         });
 	}
 
+	// * при переходе (клике) по ссылке из списка локаций подсвечивается нужный объект 
+
+	let locationListItems = document.querySelectorAll(".location-list a");
+	let arrLocationListItems = Array.from(locationListItems);
+	//console.log(arrLocationListItems);
+
+	for(let i = 0; i < arrLocationListItems.length; i++) {
+		//console.log(arrLocationListItems[i]);
+
+		let idName = arrLocationListItems[i].hash.slice(1); // значение в href без символа #
+		arrLocationListItems[i].addEventListener("click", function() { switchToObject(idName) });
+	}
+
+	// функция выделяет границей полигон, на который совершен переход (по имени id)
+	function switchToObject(id) {
+		console.log(id);
+
+		let polygons = document.querySelectorAll(".outside-block polygon");
+		for(let i = 0; i < polygons.length; i++) {
+			polygons[i].classList.remove("active-polygon");
+
+			if(polygons[i].id === id) {
+				polygons[i].classList.add("active-polygon");
+			}
+		}
+	}
+
 	// * При клике на объект открывается информация по нему
 
     let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)

@@ -64,7 +64,7 @@ h1 {
 
 .general-info {
     font-size: 16px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .help-block {
@@ -78,7 +78,7 @@ h1 {
 .help-text {
     margin-bottom: 0;
     margin-top: 0;
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     color: rgb(113, 113, 113);
 }
@@ -163,6 +163,7 @@ ul {
 .location-list {
     list-style-type: none;
     padding-left: 0;
+    margin-top: 10px;
 }
 
 .location-list li {
@@ -363,7 +364,11 @@ ul {
 
 /* ----------- Эффекты при наведении на объект ----------- */
 
-.outside-block polygon:hover,
-#hover {
+.outside-block polygon:hover {
     fill: rgba(163, 216, 237, 0.188);
+}
+
+.active-polygon {
+    stroke: rgb(185, 4, 16);
+	stroke-width: 6;
 }
