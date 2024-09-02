@@ -256,7 +256,7 @@ ul {
     left: 499px;
 }
 
-.arena-bar-info-icon {
+.arena-barrier-info-icon {
     top: 640px;
     left: 569px;
 }
@@ -264,6 +264,10 @@ ul {
 .tir-info-icon {
     top: 640px;
     left: 862px;
+}
+
+.hidden-info-icon {
+    display: none;
 }
 
 /* Блок */

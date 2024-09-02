@@ -53,7 +53,7 @@ window.onload = function() {
 
 	}
 
-	// * ----- При клике на объект открывается информация по нему
+	// * ----- При клике на объект открывается информация по нему, прячется иконка i
 
     let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)
 	let arrObjects = Array.from(objects);
@@ -61,10 +61,13 @@ window.onload = function() {
 	let objectsInfo = document.querySelectorAll(".outside-item"); // спозиционированные блоки с информацией
 	let arrObjectsInfo = Array.from(objectsInfo);
 
+    let infoIcons = document.querySelectorAll(".info-icon"); // иконки i над блоком
+	let arrInfoIcons =  Array.from(infoIcons);
+
 	// перебор объектов
 	for(let i = 0; i < arrObjects.length; i++) {
 		
-		arrObjects[i].addEventListener("click", function(e) {
+		arrObjects[i].addEventListener("click", function() {
 			
 			//console.log(e.target);
 			console.log(this);
@@ -83,17 +86,34 @@ window.onload = function() {
 			}
 
 			let selectedObj = this.dataset.object; // значение атрибута объекта, по которому кликнули
+			//console.log(selectedObj);
+
+			// для всех объектов: если иконка i не показана - показываем
+			for(let k = 0; k < arrInfoIcons.length; k++) {
+				if(arrInfoIcons[k].classList.contains("hidden-info-icon")) {
+					arrInfoIcons[k].classList.remove("hidden-info-icon");
+				} 
+			}
 
 			// перебор блоков с информацией
 			for(let j = 0; j < arrObjectsInfo.length; j++) {
 
 				if(arrObjectsInfo[j].dataset.object === selectedObj) {
-					// выбираем блок с совпадающим с объектом атрибутом
-					let selectedObjInfo = document.querySelector('.outside-item[data-object = "' + selectedObj + '"]');
-					//console.log(selectedObjInfo);
 
-					selectedObjInfo.classList.toggle("shown-outside-item");
-					//console.log(objectsInfo);
+					// выбираем блок с совпадающим атрибутом (с объектом)
+					let selectedObjInfo = document.querySelector('.outside-item[data-object = "' + selectedObj + '"]');
+					let infoIcon = document.querySelector('.' + selectedObj + '-info-icon'); // иконка i выбранного объекта
+					
+					// перещелкивание между показом и скрытием блока с информацией
+					if(selectedObjInfo.classList.contains("shown-outside-item")) {
+						// если информация не отображается - показываем иконку i (удаляем класс hidden-info-icon)
+						selectedObjInfo.classList.remove("shown-outside-item");
+						infoIcon.classList.remove("hidden-info-icon");
+					} else {
+						// если показана информация - убираем иконку i (добавляем класс hidden-info-icon)
+						selectedObjInfo.classList.add("shown-outside-item");
+						infoIcon.classList.add("hidden-info-icon");
+					}
 
 				} else {
 					// * скрытие предыдущих отображенных блоков с информацией
@@ -104,8 +124,9 @@ window.onload = function() {
 					}
 				}
 			}
-		});
-	}
 
+		});
+		
+	}
 	
 }
