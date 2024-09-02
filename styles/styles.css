@@ -294,6 +294,7 @@ ul {
 .outside-item {
     position: absolute;
     display: none;
+    font-style: normal;
 }
 
 .shown-outside-item {
@@ -362,7 +363,7 @@ ul {
     padding-bottom: 15px;
 }
 
-/* ----------- Эффекты при наведении на объект ----------- */
+/* ----------- Эффекты при наведении на объект и выделении ----------- */
 
 .outside-block polygon:hover {
     fill: rgba(163, 216, 237, 0.188);

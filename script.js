@@ -1,6 +1,6 @@
 window.onload = function() {
 
-	// *Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
+	// * --- Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
 
 	let questionIcon = document.querySelector(".signs-icon img:nth-of-type(1)");
 	questionIcon.addEventListener("click", showHideSigns);
@@ -22,7 +22,9 @@ window.onload = function() {
         });
 	}
 
-	// * при переходе (клике) по ссылке из списка локаций подсвечивается нужный объект 
+	// * ---- При переходе (клике) по ссылке из списка локаций подсвечивается нужный объект 
+
+	// TODO - должны закрываться все блоки в информацией по всем объектам
 
 	let locationListItems = document.querySelectorAll(".location-list a");
 	let arrLocationListItems = Array.from(locationListItems);
@@ -30,7 +32,6 @@ window.onload = function() {
 
 	for(let i = 0; i < arrLocationListItems.length; i++) {
 		//console.log(arrLocationListItems[i]);
-
 		let idName = arrLocationListItems[i].hash.slice(1); // значение в href без символа #
 		arrLocationListItems[i].addEventListener("click", function() { switchToObject(idName) });
 	}
@@ -45,11 +46,14 @@ window.onload = function() {
 
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-polygon");
+
+				//flag = true; (далее проверяем - если true выделение не снимаем)
 			}
 		}
+
 	}
 
-	// * При клике на объект открывается информация по нему
+	// * ----- При клике на объект открывается информация по нему
 
     let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)
 	let arrObjects = Array.from(objects);
@@ -59,7 +63,25 @@ window.onload = function() {
 
 	// перебор объектов
 	for(let i = 0; i < arrObjects.length; i++) {
-		arrObjects[i].addEventListener("click", function() {
+		
+		arrObjects[i].addEventListener("click", function(e) {
+			
+			//console.log(e.target);
+			console.log(this);
+
+			// перебор элементов массива объектов
+			for(let elem of arrObjects) {
+				//console.log(elem);
+				// TODO - при клике на уже выделенный объект выделение пропадает, а должно оставаться
+
+				if(elem !== this || elem.classList.contains("active-polygon")) {
+					elem.classList.remove("active-polygon");
+				} else {
+					this.classList.add("active-polygon");
+				}
+
+			}
+
 			let selectedObj = this.dataset.object; // значение атрибута объекта, по которому кликнули
 
 			// перебор блоков с информацией
@@ -85,4 +107,5 @@ window.onload = function() {
 		});
 	}
 
+	
 }
