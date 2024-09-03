@@ -70,9 +70,18 @@ window.onload = function() {
 		arrObjects[i].addEventListener("click", function() {
 			
 			//console.log(e.target);
-			console.log(this);
+			//console.log(this);
 
-			// перебор элементов массива объектов
+			let selectedObj = this.dataset.object; // значение атрибута объекта, по которому кликнули
+
+			// для всех объектов: если иконка i не показана - показываем
+			for(let k = 0; k < arrInfoIcons.length; k++) {
+				if(arrInfoIcons[k].classList.contains("hidden-info-icon")) {
+					arrInfoIcons[k].classList.remove("hidden-info-icon");
+				} 
+			}
+
+			// выделение выбранного полигона (перебор элементов массива объектов)
 			for(let elem of arrObjects) {
 				//console.log(elem);
 				// TODO - при клике на уже выделенный объект выделение пропадает, а должно оставаться
@@ -83,16 +92,6 @@ window.onload = function() {
 					this.classList.add("active-polygon");
 				}
 
-			}
-
-			let selectedObj = this.dataset.object; // значение атрибута объекта, по которому кликнули
-			//console.log(selectedObj);
-
-			// для всех объектов: если иконка i не показана - показываем
-			for(let k = 0; k < arrInfoIcons.length; k++) {
-				if(arrInfoIcons[k].classList.contains("hidden-info-icon")) {
-					arrInfoIcons[k].classList.remove("hidden-info-icon");
-				} 
 			}
 
 			// перебор блоков с информацией
@@ -128,5 +127,5 @@ window.onload = function() {
 		});
 		
 	}
-	
+
 }

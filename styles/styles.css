@@ -10,6 +10,10 @@
 
 /* ----------- Общие ----------- */
 
+html {
+    scroll-behavior: smooth;
+}
+
 .container {
     display: flex; 
     flex-direction: column; /*выстраиваем элементы сверху вниз*/
