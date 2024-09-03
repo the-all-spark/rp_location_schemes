@@ -381,3 +381,8 @@ ul {
     stroke: rgb(185, 4, 16);
 	stroke-width: 6;
 }
+
+.active-selected-polygon {
+    stroke: rgb(185, 4, 16);
+	stroke-width: 6;
+}
