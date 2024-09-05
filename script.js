@@ -40,26 +40,44 @@ window.onload = function() {
 	for(let i = 0; i < arrLocationListItems.length; i++) {
 		//console.log(arrLocationListItems[i]);
 		let idName = arrLocationListItems[i].hash.slice(1); // значение в href без символа #
-		// выделение полигона при клике
-		arrLocationListItems[i].addEventListener("click", function() { switchToObject(idName) }); 
+
+		// выделение полигона при клике, прокручивание страницы до него
+		arrLocationListItems[i].onclick = function (e) {
+			e.preventDefault();
+			switchToObject(idName);
+		};
+
 		// скрытие всей предыдущей инф-ции при наведении
 		arrLocationListItems[i].addEventListener("mouseover", function() { hidePreviousInfo() }); 
 	}
 
-	// * функция выделяет границей полигон, на который совершен переход (по имени id)
+	// * функция выделяет границей полигон, на который совершен переход; прокручивает страницу
 	function switchToObject(id) {
 		//console.log(id);
 
 		let polygons = document.querySelectorAll(".outside-block polygon");
+		
 		for(let i = 0; i < polygons.length; i++) {
 			polygons[i].classList.remove("active-polygon");
 
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
+
+				// прокручивание страницы до полигона
+				let bodyRect = document.body.getBoundingClientRect();
+   				let elemRect = polygons[i].getBoundingClientRect();
+    			let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
+				let offsetTop = offset - 70; // смещение с учетом зафиксированного меню 
+				//console.log(offsetTop);
+
+				scrollTo({ 
+					top: `${offsetTop}`, 
+					behavior: 'smooth' 
+				});
+
 				polygons[i].addEventListener("click", function() { showInfoSelectedObj(this) });
 			}
 		}
-
 	}
 
 	// при клике на уже выделенный через список объект
