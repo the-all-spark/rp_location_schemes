@@ -38,17 +38,30 @@
                 без интеллекта и сознания с единственной потребностью - добывать себе для пропитания живой металл и топливо.
             </div>
 
-            <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику (через якорь и id)-->
+            <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
             <div class="help-block">
                 <p class="common-help-text"><i>Чтобы посмотреть местоположение объекта <ins>кликните</ins> на его название ниже:</i></p>
             </div>            
-            
-            <ul class="location-list">
-                <li><a href="#base" title="Перейти к базе">База</a></li>
-                <li><a href="#arena" title="Перейти к арене">Арена</a></li>
-                <li><a href="#arena-barrier" title="Перейти к арене с препятствиями">Арена с препятствиями</a></li>
-                <li><a href="#tir" title="Перейти к стрельбищу">Стрельбище</a></li>
-            </ul>
+
+            <div class="submenu">
+                <ul class="location-list">
+                    <li><a href="#base" title="Перейти к базе">База</a></li>
+                    <li><a href="#arena" title="Перейти к арене">Арена</a></li>
+                    <li><a href="#arena-barrier" title="Перейти к арене с препятствиями">Арена с препятствиями</a></li>
+                    <li><a href="#tir" title="Перейти к стрельбищу">Стрельбище</a></li>
+                </ul>
+
+                <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
+                <div class="submenu-switch-btn">
+                    <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
+                        title="Список объектов закреплен">
+                    <img class="unpinned-submenu" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
+                        title="Список объектов не закреплен. Закрепить?">
+                    <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
+                    <img class="hidden-eye-btn" src="./assets/hidden-eye.svg" alt="Список объектов скрыт"
+                        title="Кликните, чтобы скрыть список объектов">
+                </div>
+            </div>
 
             <div class="help-block">
                 <div class="map-help-text">
