@@ -165,20 +165,24 @@ ul {
     right: 240px;*/
 }
 
-.location-list {
+.submenu {
     width: 1000px;
     margin: 0 auto;
-    list-style-type: none;
-    padding-left: 2px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     position: sticky; 
     top: 0;
-    z-index: 9999;
-    border: 1px solid transparent;
+    z-index: 9999; 
+    border: 2px solid transparent;
     background-color: white;
-    
+}
+
+.location-list {
+    width: 95%;
+    list-style-type: none;
+    padding-left: 2px;
+    margin-bottom:0;
+    margin-top: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .location-list li {
@@ -199,6 +203,45 @@ ul {
     font-weight: bold;
     background-color: white;
 }
+
+/* --- Кнопки --- */
+
+.submenu-switch-btn {
+    position: absolute;
+    top: 15px;
+    right: 5px;
+}
+
+.submenu-switch-btn img:hover {
+    cursor: pointer;
+}
+
+.submenu-switch-btn .pinned-submenu:hover {
+    cursor: default;
+}
+
+.pinned-submenu {
+    display: block;
+}
+
+.hidden-eye-btn,
+.shown-eye-btn,
+.unpinned-submenu {
+    display: none;
+}
+
+.is-pinned  {
+    background-color: rgb(255, 255, 255);
+}
+
+.is-shown {
+    display: block;
+}
+
+.is-hidden {
+    display: none;
+}
+
 
 /* ----------- Условные обозначения, иконка ----------- */
 
@@ -222,7 +265,7 @@ ul {
 
 .signs-icon img:nth-of-type(1) { /* Иконка открытия*/
     display: block;
-    z-index: 9990;
+    z-index: 9000;
 }
 
 .signs-icon img:nth-of-type(2) { /* Иконка закрытия*/
