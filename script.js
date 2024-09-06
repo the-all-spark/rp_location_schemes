@@ -64,8 +64,19 @@ window.onload = function() {
 		{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
 	).observe(sentinel);
 
-	// TODO При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
+	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
+	shownEye.addEventListener("mouseover", switchEye);
 
+	function switchEye() {
+		if(shownEye.classList.contains("is-shown")) {
+			shownEye.classList.remove("is-shown");
+			hiddenEye.classList.add("is-shown");
+			hiddenEye.addEventListener("mouseout", switchEye);
+		} else {
+			shownEye.classList.add("is-shown");
+			hiddenEye.classList.remove("is-shown");
+		}
+	}
 
 	// TODO При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
 	
