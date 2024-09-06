@@ -11,15 +11,64 @@ window.onload = function() {
 
         let closeIcon = document.querySelector(".signs-icon img:nth-of-type(2)"); // иконка закрытия
         closeIcon.style.display = "block";
-        closeIcon.style.zIndex = "9999";
+        closeIcon.style.zIndex = "9000";
 
         closeIcon.addEventListener("click", function() {
             questionIcon.style.display = "block";
-            questionIcon.style.zIndex = "9999";
+            questionIcon.style.zIndex = "999";
             closeIcon.style.zIndex = "-1";
             document.querySelector(".signs-outside-image").classList.remove("shown-signs"); // скрыть усл. знаки
         });
 	}
+
+	// * ---- При залипании списка с объектами появляется иконка глаза (= панель отображается)
+	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
+	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
+	*/
+	
+	const submenu = document.querySelector(".submenu");
+	let shownEye = document.querySelector(".shown-eye-btn"); // открытый глаз
+	let hiddenEye = document.querySelector(".hidden-eye-btn"); // перечеркнутый глаз
+	let pinnedSubmenuIcon = document.querySelector(".pinned-submenu"); // кнопка
+	let unpinnedSubmenuIcon = document.querySelector(".unpinned-submenu"); // перечеркнутая кнопка
+
+	const sentinel = document.createElement('div');
+	submenu.before(sentinel);
+
+	new IntersectionObserver(
+		([entry]) => {
+			// "прилипание" блока (когда элемент не наблюдается)
+			if (!entry.isIntersecting) {
+				//console.log('Sticky-элемент активирован!');
+				submenu.classList.add("is-pinned");
+				pinnedSubmenuIcon.classList.add("is-hidden");
+				if(shownEye.classList.contains("unpinned-flag")) {
+					shownEye.classList.remove("is-shown");
+				} else {
+					shownEye.classList.add("is-shown");
+				}
+			}
+
+			// отмена "прилипания" блока
+			if (entry.isIntersecting) {
+				//console.log('Не активирован!');
+				submenu.classList.remove("is-pinned");
+				if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+					pinnedSubmenuIcon.classList.add("is-hidden");
+				} else {
+					pinnedSubmenuIcon.classList.remove("is-hidden");
+				}
+				shownEye.classList.remove("is-shown");
+			}
+		}, 
+		{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
+	).observe(sentinel);
+
+	// TODO При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
+
+
+	// TODO При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
+	
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
@@ -63,6 +112,7 @@ window.onload = function() {
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
 
+				// TODO выделить в отдельную функцию
 				// прокручивание страницы до полигона
 				let bodyRect = document.body.getBoundingClientRect();
    				let elemRect = polygons[i].getBoundingClientRect();
