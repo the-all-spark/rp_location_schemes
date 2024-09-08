@@ -111,8 +111,18 @@ window.onload = function() {
 		pinnedSubmenuIcon.classList.add("unpinned-flag");
 	}
 	
-	// TODO При клике на перечеркнутую кнопку список с объектами закрепляется
-	
+	// * При клике на перечеркнутую кнопку список с объектами закрепляется
+	unpinnedSubmenuIcon.addEventListener("click", function() {
+		unpinnedSubmenuIcon.classList.remove("is-shown");
+		pinnedSubmenuIcon.classList.remove("is-hidden");
+		pinnedSubmenuIcon.classList.remove("unpinned-flag");
+
+		submenu.style.position = "sticky";
+		shownEye.classList.remove("is-hidden");
+		shownEye.classList.remove("unpinned-flag");
+		
+		switchPinnedEffect();
+	});	
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
