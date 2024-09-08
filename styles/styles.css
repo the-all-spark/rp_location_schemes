@@ -261,7 +261,7 @@ ul {
 .signs-icon img {
     position: absolute;
     top: 7px;
-    right: 7px;
+    right: 4px;
 }
 
 .signs-icon img:nth-of-type(1) { /* Иконка открытия*/
