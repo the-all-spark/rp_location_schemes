@@ -95,12 +95,24 @@ window.onload = function() {
 		}
 	}
 
-	// TODO При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
-	
+	// * ---- При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
+	hiddenEye.addEventListener("click", hideSubmenu);
 
+	function hideSubmenu() {
+		//console.log('Скрыть панель со списком объектов');
+		submenu.style.position = "relative";
+		document.querySelector(".is-pinned").style.borderBottom = "2px solid transparent";
+
+		shownEye.classList.remove("is-shown");
+		shownEye.classList.add("is-hidden");
+		shownEye.classList.add("unpinned-flag");
+
+		unpinnedSubmenuIcon.classList.add("is-shown");
+		pinnedSubmenuIcon.classList.add("unpinned-flag");
+	}
+	
 	// TODO При клике на перечеркнутую кнопку список с объектами закрепляется
 	
-
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
