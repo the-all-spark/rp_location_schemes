@@ -21,12 +21,13 @@ window.onload = function() {
         });
 	}
 
-	// * ---- При залипании списка с объектами появляется иконка глаза (= панель отображается)
+	// * ---- Прилипание и отлипание списка объектов
+	// При прилипании списка с объектами появляется иконка глаза (= панель отображается)
 	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
 	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
 	*/
 	
-	const submenu = document.querySelector(".submenu");
+	let submenu = document.querySelector(".submenu");
 	let shownEye = document.querySelector(".shown-eye-btn"); // открытый глаз
 	let hiddenEye = document.querySelector(".hidden-eye-btn"); // перечеркнутый глаз
 	let pinnedSubmenuIcon = document.querySelector(".pinned-submenu"); // кнопка
@@ -35,34 +36,50 @@ window.onload = function() {
 	const sentinel = document.createElement('div');
 	submenu.before(sentinel);
 
-	new IntersectionObserver(
-		([entry]) => {
-			// "прилипание" блока (когда элемент не наблюдается)
-			if (!entry.isIntersecting) {
-				//console.log('Sticky-элемент активирован!');
-				submenu.classList.add("is-pinned");
-				pinnedSubmenuIcon.classList.add("is-hidden");
-				if(shownEye.classList.contains("unpinned-flag")) {
-					shownEye.classList.remove("is-shown");
-				} else {
-					shownEye.classList.add("is-shown");
-				}
-			}
+	switchPinnedEffect(); // вызов функции
 
-			// отмена "прилипания" блока
-			if (entry.isIntersecting) {
-				//console.log('Не активирован!');
-				submenu.classList.remove("is-pinned");
-				if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
-					pinnedSubmenuIcon.classList.add("is-hidden");
-				} else {
-					pinnedSubmenuIcon.classList.remove("is-hidden");
+	// функция переключения между реакцией элементов при прилипании и отлипании панели подменю/списка
+	function switchPinnedEffect() {
+		new IntersectionObserver(
+			([entry]) => {
+				// * "прилипание" блока (когда элемент не наблюдается)
+				if (!entry.isIntersecting) {
+					//console.log('Sticky-элемент активирован!');
+	
+					if(!pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+						console.log("Панель закреплена и ею можно управлять!");
+						//console.log(pinnedSubmenuIcon);
+	
+						submenu.classList.add("is-pinned");
+						document.querySelector(".is-pinned").style.borderBottom = "2px solid #1b1b1b";
+						pinnedSubmenuIcon.classList.add("is-hidden");
+						if(shownEye.classList.contains("unpinned-flag")) {
+							shownEye.classList.remove("is-shown");
+						} else {
+							shownEye.classList.add("is-shown");
+						}
+				
+					}   // иначе панель должна быть недоступна,т.к. откреплена
+	
 				}
-				shownEye.classList.remove("is-shown");
-			}
-		}, 
-		{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
-	).observe(sentinel);
+	
+				// * отмена "прилипания" блока
+				if (entry.isIntersecting) {
+					//console.log('Не активирован!');
+					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
+					submenu.classList.remove("is-pinned");
+					if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+						pinnedSubmenuIcon.classList.add("is-hidden");
+					} else {
+						pinnedSubmenuIcon.classList.remove("is-hidden");
+					}
+					shownEye.classList.remove("is-shown");
+				}
+			}, 
+			{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
+		).observe(sentinel);
+
+	}
 
 	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
 	shownEye.addEventListener("mouseover", switchEye);
@@ -80,6 +97,10 @@ window.onload = function() {
 
 	// TODO При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
 	
+
+	// TODO При клике на перечеркнутую кнопку список с объектами закрепляется
+	
+
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
