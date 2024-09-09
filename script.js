@@ -132,7 +132,6 @@ window.onload = function() {
 		switchPinnedEffect();
 	});	
 
-
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
 	let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)
