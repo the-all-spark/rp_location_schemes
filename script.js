@@ -26,7 +26,9 @@ window.onload = function() {
 	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
 	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
 	*/
-	
+
+	// * КНОПКИ УПРАВЛЕНИЯ ПАНЕЛЬЮ С ОБЪЕКТАМИ
+
 	let submenu = document.querySelector(".submenu");
 	let shownEye = document.querySelector(".shown-eye-btn"); // открытый глаз
 	let hiddenEye = document.querySelector(".hidden-eye-btn"); // перечеркнутый глаз
@@ -53,6 +55,7 @@ window.onload = function() {
 						submenu.classList.add("is-pinned");
 						document.querySelector(".is-pinned").style.borderBottom = "2px solid #1b1b1b";
 						pinnedSubmenuIcon.classList.add("is-hidden");
+
 						if(shownEye.classList.contains("unpinned-flag")) {
 							shownEye.classList.remove("is-shown");
 						} else {
@@ -68,12 +71,15 @@ window.onload = function() {
 					//console.log('Не активирован!');
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
 					submenu.classList.remove("is-pinned");
+					shownEye.classList.remove("is-shown");
+					hiddenEye.classList.remove("is-shown");
+
 					if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						pinnedSubmenuIcon.classList.add("is-hidden");
 					} else {
 						pinnedSubmenuIcon.classList.remove("is-hidden");
 					}
-					shownEye.classList.remove("is-shown");
+					
 				}
 			}, 
 			{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
@@ -85,13 +91,15 @@ window.onload = function() {
 	shownEye.addEventListener("mouseover", switchEye);
 
 	function switchEye() {
-		if(shownEye.classList.contains("is-shown")) {
-			shownEye.classList.remove("is-shown");
-			hiddenEye.classList.add("is-shown");
-			hiddenEye.addEventListener("mouseout", switchEye);
-		} else {
-			shownEye.classList.add("is-shown");
-			hiddenEye.classList.remove("is-shown");
+		if(submenu.classList.contains("is-pinned")) { // глазики появляются, только если панель закреплена
+			if(shownEye.classList.contains("is-shown")) {
+				shownEye.classList.remove("is-shown");
+				hiddenEye.classList.add("is-shown");
+				hiddenEye.addEventListener("mouseout", switchEye);
+			} else {
+				shownEye.classList.add("is-shown");
+				hiddenEye.classList.remove("is-shown");
+			}
 		}
 	}
 
@@ -123,6 +131,7 @@ window.onload = function() {
 		
 		switchPinnedEffect();
 	});	
+
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
