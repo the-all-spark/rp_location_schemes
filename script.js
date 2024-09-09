@@ -36,7 +36,9 @@ window.onload = function() {
 	let unpinnedSubmenuIcon = document.querySelector(".unpinned-submenu"); // перечеркнутая кнопка
 
 	const sentinel = document.createElement('div');
-	submenu.before(sentinel);
+	//submenu.before(sentinel);
+	//submenu.after(sentinel);
+	document.querySelector(".sign-block").before(sentinel);
 
 	switchPinnedEffect(); // вызов функции
 
