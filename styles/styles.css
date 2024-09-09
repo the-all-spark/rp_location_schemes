@@ -244,7 +244,6 @@ ul {
     display: none;
 }
 
-
 /* ----------- Условные обозначения, иконка ----------- */
 
 .sign-block {
@@ -275,7 +274,7 @@ ul {
     z-index: -1;
 }
 
-.signs-outside-image {
+.signs-image {
     display: none;
     padding-top: 35px;
     position: absolute;
@@ -286,9 +285,8 @@ ul {
     background-color: white;
 }
 
-.signs-outside-image img {
+.signs-image img {
     width: 300px;
-    
 }
 
 .signs-icon img:hover {
@@ -333,7 +331,7 @@ ul {
 
 /* Блок */
 
-.outside-block {
+.map-block {
     width: 1000px;
     height: 1000px;
     margin: 0 auto;
@@ -341,7 +339,7 @@ ul {
     border: 2px solid #1b1b1b;
 }
 
-.outside-block svg {
+.map-block svg {
     position: absolute;
     top: 0px;
     left: 0px;
@@ -349,24 +347,24 @@ ul {
     height: 1000px;
 }
 
-.outside-block polygon {
+.map-block polygon {
     fill: rgba(70, 70, 70, 0);
     cursor: pointer;
 }
 
 /* Информация по объектам - общая */
 
-.outside-item {
+.item-block {
     position: absolute;
     display: none;
     font-style: normal;
 }
 
-.shown-outside-item {
+.shown-item {
     display: block;
 }
 
-.outside-item-name {
+.item-name {
     font-weight: bold;
     font-size: 18px;
     text-align: center;
@@ -380,11 +378,11 @@ ul {
     padding: 6px 15px;
 }
 
-.arena-barrier-info .outside-item-name {
+.arena-barrier-info .item-name {
     border-left: 2px solid transparent;
 }
 
-.outside-item-info {
+.item-info {
     border: 2px solid #1b1b1b;
     padding: 10px;
     position: absolute;
@@ -396,7 +394,7 @@ ul {
     text-align: left;
 }
 
-.outside-item-info ul {
+.item-info ul {
     list-style-type: circle;
 }
 
@@ -430,7 +428,7 @@ ul {
 
 /* ----------- Эффекты при наведении на объект и выделении ----------- */
 
-.outside-block polygon:hover {
+.map-block polygon:hover {
     fill: rgba(163, 216, 237, 0.188);
 }
 

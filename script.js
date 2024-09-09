@@ -6,7 +6,7 @@ window.onload = function() {
 	questionIcon.addEventListener("click", showHideSigns);
 
 	function showHideSigns() {
-        document.querySelector(".signs-outside-image").classList.add("shown-signs"); // показать усл. знаки
+        document.querySelector(".signs-image").classList.add("shown-signs"); // показать усл. знаки
         questionIcon.style.display = "none";
 
         let closeIcon = document.querySelector(".signs-icon img:nth-of-type(2)"); // иконка закрытия
@@ -17,7 +17,7 @@ window.onload = function() {
             questionIcon.style.display = "block";
             questionIcon.style.zIndex = "999";
             closeIcon.style.zIndex = "-1";
-            document.querySelector(".signs-outside-image").classList.remove("shown-signs"); // скрыть усл. знаки
+            document.querySelector(".signs-image").classList.remove("shown-signs"); // скрыть усл. знаки
         });
 	}
 
@@ -139,7 +139,7 @@ window.onload = function() {
 	let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)
 	let arrObjects = Array.from(objects);
 
-	let objectsInfo = document.querySelectorAll(".outside-item"); // спозиционированные блоки с информацией
+	let objectsInfo = document.querySelectorAll(".item-block"); // спозиционированные блоки с информацией
 	let arrObjectsInfo = Array.from(objectsInfo);
 
     let infoIcons = document.querySelectorAll(".info-icon"); // иконки i над блоком
@@ -168,7 +168,7 @@ window.onload = function() {
 	function switchToObject(id) {
 		//console.log(id);
 
-		let polygons = document.querySelectorAll(".outside-block polygon");
+		let polygons = document.querySelectorAll(".map-block polygon");
 		
 		for(let i = 0; i < polygons.length; i++) {
 			polygons[i].classList.remove("active-polygon");
@@ -228,8 +228,8 @@ window.onload = function() {
 
 		// проверяем по инфо
 		for(let j = 0; j < arrObjectsInfo.length; j++) {
-			if(arrObjectsInfo[j].classList.contains("shown-outside-item")) {
-				arrObjectsInfo[j].classList.remove("shown-outside-item");
+			if(arrObjectsInfo[j].classList.contains("shown-item")) {
+				arrObjectsInfo[j].classList.remove("shown-item");
 			}
 		}
 
@@ -267,17 +267,17 @@ window.onload = function() {
 
 			if(arrObjectsInfo[j].dataset.object === selectedObj) {
 				// выбираем блок с совпадающим атрибутом (с объектом)
-				let selectedObjInfo = document.querySelector('.outside-item[data-object = "' + selectedObj + '"]');
+				let selectedObjInfo = document.querySelector('.item-block[data-object = "' + selectedObj + '"]');
 				let infoIcon = document.querySelector('.' + selectedObj + '-info-icon'); // иконка i выбранного объекта
 				
 				// перещелкивание между показом и скрытием блока с информацией
-				if(selectedObjInfo.classList.contains("shown-outside-item")) {
+				if(selectedObjInfo.classList.contains("shown-item")) {
 					// если информация не отображается - показываем иконку i (удаляем класс hidden-info-icon)
-					selectedObjInfo.classList.remove("shown-outside-item");
+					selectedObjInfo.classList.remove("shown-item");
 					infoIcon.classList.remove("hidden-info-icon");
 				} else {
 					// если показана информация - убираем иконку i (добавляем класс hidden-info-icon)
-					selectedObjInfo.classList.add("shown-outside-item");
+					selectedObjInfo.classList.add("shown-item");
 					infoIcon.classList.add("hidden-info-icon");
 				}
 
@@ -285,8 +285,8 @@ window.onload = function() {
 				// * скрытие предыдущих отображенных блоков с информацией
 				// если атрибут не совпадает, но элемент включает класс - удаляем этот класс
 
-				if(arrObjectsInfo[j].classList.contains("shown-outside-item")) {
-					arrObjectsInfo[j].classList.remove("shown-outside-item");
+				if(arrObjectsInfo[j].classList.contains("shown-item")) {
+					arrObjectsInfo[j].classList.remove("shown-item");
 				}
 			}
 		}

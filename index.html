@@ -70,25 +70,26 @@
                 </div>
             </div>
             
-            <!-- Условные обозначения к текущей схеме, иконки открытия и закрытия -->
+            <!-- Условные обозначения к _текущей_ схеме, иконки открытия и закрытия -->
             <div class="sign-block">
                 <div class="signs-icon">
                     <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
                     <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                 </div>
-                <div class="signs-outside-image">
+                <div class="signs-image">
                     <img src="./assets/signs_outside.jpg" alt='Условные обозначения к схеме "Окрестности"'>
                 </div>
             </div>
             
-            <!-- Окрестности базы -->
-
-            <div class="outside-block">
+            <!-- Блок текущей страницы: "Окрестности базы" -->
+            <div class="map-block">
 
                 <!-- * Изображение-подложка - width: 1000px -->
                 <img src="./assets/outside_general_1000.jpg" alt="Окрестности базы">
 
                 <!-- * Иконки "i" над каждый объектом -->
+                <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
+                    и информации по объектам в формате ___-info-icon --->
                 <div class="base-info-icon info-icon">
                     <img src="./assets/info-icon.svg" alt="Имеется информация по базе">
                 </div>
@@ -115,12 +116,13 @@
                 </svg>
 
                 <!-- * Информация по объектам -->
-                <!-- Каждый блок с информацией по объекту размещается в <div class="outside-item"> с абсолютным позиционированием; 
-                    top и left позиционируют его около своего полигона.
-                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon> -->
-                <div class="outside-item" data-object="base" style="top: 195px; left: 509px;">
-                    <div class="outside-item-info base-info">
-                        <div class="outside-item-name">База</div>
+                <!-- Каждый блок с информацией по объекту размещается в <div class="item-block"> с абсолютным позиционированием; 
+                    top и left позиционируют его около своего полигона (в необходимом месте).
+                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
+                    Класс вложенного блока включает в том числе значение data-object в формате ___-info --->
+                <div class="item-block" data-object="base" style="top: 195px; left: 509px;">
+                    <div class="item-info base-info">
+                        <div class="item-name">База</div>
                         Включает <b>уровни</b>:
                         <ul>
                             <li><b><a href="">-2 этаж</a></b> (цокольный)</li>
@@ -134,24 +136,24 @@
                     </div>
                 </div>
 
-                <div class="outside-item" data-object="arena" style="top: 428px; left: 541px;">
-                    <div class="outside-item-info arena-info">
-                        <div class="outside-item-name">Арена</div>
+                <div class="item-block" data-object="arena" style="top: 428px; left: 541px;">
+                    <div class="item-info arena-info">
+                        <div class="item-name">Арена</div>
                         Полигон, на котором можно от всей души поснимать друг с друга стружку. Поговаривают, за это даже ничего
                         не будет.
                     </div>
                 </div>
 
-                <div class="outside-item" data-object="arena-barrier" style="top: 625px; left: 114px;">
-                    <div class="outside-item-info arena-barrier-info">
-                        <div class="outside-item-name">Арена с препятствиями</div>
+                <div class="item-block" data-object="arena-barrier" style="top: 625px; left: 114px;">
+                    <div class="item-info arena-barrier-info">
+                        <div class="item-name">Арена с препятствиями</div>
                         Очень с препятствиями, прям совсем. Сюда вообще кто-нибудь ходил?
                     </div>
                 </div>
 
-                <div class="outside-item" data-object="tir" style="top: 542px; left: 621px;">
-                    <div class="outside-item-info tir-info">
-                        <div class="outside-item-name">Стрельбище</div>
+                <div class="item-block" data-object="tir" style="top: 542px; left: 621px;">
+                    <div class="item-info tir-info">
+                        <div class="item-name">Стрельбище</div>
                         Еще одно тайное место... 
                     </div>
                 </div>
@@ -162,6 +164,7 @@
                 </div>
 
             </div>
+            <!-- Конец блока -->
 
         </main>
     
