@@ -329,5 +329,16 @@ window.onload = function() {
 		}
 	}
 	
+	// Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
+	let upBtn = document.querySelector(".up-btn");
+	upBtn.addEventListener("click", function() {
+		//event.preventDefault();
+		const anchor = document.querySelector(".container");
+		anchor.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+			});
+
+	});
 
 }
