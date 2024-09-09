@@ -49,7 +49,7 @@ window.onload = function() {
 					//console.log('Sticky-элемент активирован!');
 	
 					if(!pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
-						console.log("Панель закреплена и ею можно управлять!");
+						//console.log("Панель закреплена и ею можно управлять!");
 						//console.log(pinnedSubmenuIcon);
 	
 						submenu.classList.add("is-pinned");
@@ -162,7 +162,7 @@ window.onload = function() {
 		arrLocationListItems[i].addEventListener("mouseover", function() { hidePreviousInfo() }); 
 	}
 
-	// * функция выделяет границей полигон, на который совершен переход; прокручивает страницу
+	// * функция выделяет границей полигон, на который совершен переход + прокручивает страницу
 	function switchToObject(id) {
 		//console.log(id);
 
@@ -173,23 +173,31 @@ window.onload = function() {
 
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
-
-				// TODO выделить в отдельную функцию
-				// прокручивание страницы до полигона
-				let bodyRect = document.body.getBoundingClientRect();
-   				let elemRect = polygons[i].getBoundingClientRect();
-    			let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
-				let offsetTop = offset - 70; // смещение с учетом зафиксированного меню 
-				//console.log(offsetTop);
-
-				scrollTo({ 
-					top: `${offsetTop}`, 
-					behavior: 'smooth' 
-				});
-
+				scrollPageToObj(polygons[i]); // вызов функции
 				polygons[i].addEventListener("click", function() { showInfoSelectedObj(this) });
 			}
 		}
+	}
+
+	// * функция прокручивания страницы до полигона (с учетом наличия или отсутствия зафиксированной панели)
+	function scrollPageToObj(obj) {
+		let bodyRect = document.body.getBoundingClientRect();
+		let elemRect = obj.getBoundingClientRect();
+		let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
+
+		let offsetTop;
+		if(submenu.classList.contains("is-pinned") || !pinnedSubmenuIcon.classList.contains("is-hidden")) {
+			offsetTop = offset - 70; // смещение с учетом зафиксированной панели 
+		} else {
+			offsetTop = offset - 10;	// если панель не зафиксирована
+		}
+		//console.log(offsetTop);
+
+		scrollTo({ 
+		top: `${offsetTop}`, 
+		behavior: 'smooth' 
+		});
+
 	}
 
 	// при клике на уже выделенный через список объект
