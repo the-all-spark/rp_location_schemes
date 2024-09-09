@@ -176,7 +176,13 @@ window.onload = function() {
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
 				scrollPageToObj(polygons[i]); // вызов функции
-				polygons[i].addEventListener("click", function() { showInfoSelectedObj(this) });
+
+				// при клике на уже выделенный объект
+				polygons[i].addEventListener("click", function() { 
+					if(this.classList.contains("active-selected-polygon")) {
+						this.classList.remove("active-selected-polygon");
+					}
+				});
 			}
 		}
 	}
@@ -200,16 +206,6 @@ window.onload = function() {
 		behavior: 'smooth' 
 		});
 
-	}
-
-	// при клике на уже выделенный через список объект
-	function showInfoSelectedObj(obj) {
-		//console.log("Кликаем на уже выделенный объект!");
-		//console.log(obj);
-
-		if(obj.classList.contains("active-selected-polygon")) {
-			obj.classList.remove("active-selected-polygon");
-		} 
 	}
 
 	// * функция скрывает все выделенные ранее объекты и открытые блоки с информацией, если есть
@@ -253,7 +249,7 @@ window.onload = function() {
 		arrObjects[i].addEventListener("click", showHideInfo);
 	}
 
-	// * функция показа/скрытия иконки "i" выбранного полигона, показа/скрытия информации о нем
+	// * Функция показа/скрытия иконки "i" выбранного полигона, показа/скрытия информации о нем
 	function showHideInfo() {
 		//console.log("Прячем / показываем инфу");
 		//console.log(e.target);
@@ -297,7 +293,7 @@ window.onload = function() {
 
 	}
 
-	// * функция выделения _выбранного_ полигона (перебор элементов массива объектов)
+	// * Функция выделения _выбранного_ полигона (перебор элементов массива объектов)
 	function highlightPolygon(obj) {
 		//console.log(obj);
 
@@ -318,7 +314,7 @@ window.onload = function() {
 
 	}
 
-	// * функция показа / скрытия иконки i над полигоном (объектом)
+	// * Функция показа / скрытия иконки i над полигоном (объектом)
 	function showHideIcon() {
 
 		// для всех объектов: если иконка i не показана - показываем
@@ -329,7 +325,7 @@ window.onload = function() {
 		}
 	}
 	
-	// Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
+	// * Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
 	let upBtn = document.querySelector(".up-btn");
 	upBtn.addEventListener("click", function() {
 		//event.preventDefault();
