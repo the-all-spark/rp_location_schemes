@@ -15,6 +15,7 @@ html {
 }
 
 .container {
+    position: relative;
     display: flex; 
     flex-direction: column; /*выстраиваем элементы сверху вниз*/
     min-height: 100vh; /*отображаем блок на весь экран*/
@@ -441,4 +442,14 @@ ul {
 .active-selected-polygon {
     stroke: rgb(185, 4, 16);
 	stroke-width: 6;
+}
+
+.up-btn {
+    position: sticky;
+    bottom: 30px;
+    margin-left: -70px;
+}
+
+.up-btn:hover {
+    cursor: pointer;
 }
