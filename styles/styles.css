@@ -75,6 +75,10 @@ a:hover {
 
 /* ----------- Шапка, Меню ----------- */
 
+.burgermenu-btn {
+    display: none;
+}
+
 ul {
     padding-left: 30px;
 }
