@@ -1,0 +1,57 @@
+/* ---------------------- Блок "Окрестности базы" (outside) ---------------------- */
+
+/* Иконки объектов */
+
+.base-info-icon {
+    top: 230px;
+    left: 457px;
+}
+
+.arena-info-icon {
+    top: 442px;
+    left: 499px;
+}
+
+.arena-barrier-info-icon {
+    top: 640px;
+    left: 569px;
+}
+
+.tir-info-icon {
+    top: 640px;
+    left: 862px;
+}
+
+/* Информация по объектам */
+
+.arena-barrier-info .item-name {
+    border-left: 2px solid transparent;
+}
+
+/* Объекты */
+
+.base-info {
+    width: 350px;
+    /*height: 200px;*/
+}
+
+.arena-info {
+    width: 180px;
+    /*height: 90px;*/
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.arena-barrier-info {
+    width: 160px;
+    /*height: 150px;*/
+    padding-top: 65px;
+    padding-bottom: 15px;
+}
+
+.tir-info {
+    width: 250px;
+    /*height: 100px;*/
+    padding-top: 45px;
+    padding-bottom: 15px;
+}

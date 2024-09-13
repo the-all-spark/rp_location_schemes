@@ -297,32 +297,12 @@ ul {
     display: block;
 }
 
-/* ----------- Блок "Окрестности базы" ----------- */
+/* ----------- Блок карты и информации ----------- */
 
-/* Иконки объектов */
+/* Иконки объектов - общее*/
 
 .info-icon {
     position: absolute;
-}
-
-.base-info-icon {
-    top: 230px;
-    left: 457px;
-}
-
-.arena-info-icon {
-    top: 442px;
-    left: 499px;
-}
-
-.arena-barrier-info-icon {
-    top: 640px;
-    left: 569px;
-}
-
-.tir-info-icon {
-    top: 640px;
-    left: 862px;
 }
 
 .hidden-info-icon {
@@ -378,10 +358,6 @@ ul {
     padding: 6px 15px;
 }
 
-.arena-barrier-info .item-name {
-    border-left: 2px solid transparent;
-}
-
 .item-info {
     border: 2px solid #1b1b1b;
     padding: 10px;
@@ -396,34 +372,6 @@ ul {
 
 .item-info ul {
     list-style-type: circle;
-}
-
-/* Объекты */
-
-.base-info {
-    width: 350px;
-    /*height: 200px;*/
-}
-
-.arena-info {
-    width: 180px;
-    /*height: 90px;*/
-    padding-top: 45px;
-    padding-bottom: 15px;
-}
-
-.arena-barrier-info {
-    width: 160px;
-    /*height: 150px;*/
-    padding-top: 65px;
-    padding-bottom: 15px;
-}
-
-.tir-info {
-    width: 250px;
-    /*height: 100px;*/
-    padding-top: 45px;
-    padding-bottom: 15px;
 }
 
 /* ----------- Эффекты при наведении на объект и выделении ----------- */
