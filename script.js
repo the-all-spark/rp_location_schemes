@@ -35,6 +35,10 @@ window.onload = function() {
 	let pinnedSubmenuIcon = document.querySelector(".pinned-submenu"); // кнопка
 	let unpinnedSubmenuIcon = document.querySelector(".unpinned-submenu"); // перечеркнутая кнопка
 
+	let burgermenuBlock = document.querySelector(".burgermenu"); // блок бургер-меню
+	let burgermenuBtn = document.querySelector(".burgermenu-btn"); // иконка бургер-меню
+	let burgermenu = document.querySelector(".burgermenu .nav"); // само бургер-меню
+
 	const sentinel = document.createElement('div');
 	//submenu.before(sentinel);
 	//submenu.after(sentinel);
@@ -49,6 +53,15 @@ window.onload = function() {
 				// * "прилипание" блока (когда элемент не наблюдается)
 				if (!entry.isIntersecting) {
 					//console.log('Sticky-элемент активирован!');
+
+					// отобразить иконку бургер-меню, скрыть основное меню в шапке
+					burgermenuBlock.style.display = "grid";
+					burgermenuBtn.classList.add("burgermenu-btn-shown");
+					burgermenuBtn.style.top = "15px"; // смещение кнопки бургер-меню
+					burgermenuBtn.style.left = "-70px";
+
+					document.querySelector(".nav").style.display = "none"; // основное меню
+					burgermenuBtn.addEventListener("click", showMenu);
 	
 					if(!pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						//console.log("Панель закреплена и ею можно управлять!");
@@ -63,14 +76,20 @@ window.onload = function() {
 						} else {
 							shownEye.classList.add("is-shown");
 						}
-				
+
 					}   // иначе панель должна быть недоступна,т.к. откреплена
-	
 				}
 	
 				// * отмена "прилипания" блока
 				if (entry.isIntersecting) {
 					//console.log('Не активирован!');
+
+					// скрыть иконку бургер-меню, само меню; показать основное меню в шапке
+					burgermenuBtn.classList.remove("burgermenu-btn-shown");
+					burgermenuBlock.classList.remove("burgermenu-shown");
+					burgermenu.classList.remove("burgermenu-nav-shown");
+					document.querySelector(".nav").style.display = "block";
+
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
 					submenu.classList.remove("is-pinned");
 					shownEye.classList.remove("is-shown");
@@ -81,12 +100,24 @@ window.onload = function() {
 					} else {
 						pinnedSubmenuIcon.classList.remove("is-hidden");
 					}
-					
 				}
 			}, 
 			{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
 		).observe(sentinel);
 
+	}
+
+	// функция отображения меню при клике на кнопку бургер-меню
+	function showMenu() {
+		//console.log('Показать меню!');
+		burgermenuBlock.classList.add("burgermenu-shown");
+		burgermenu.classList.add("burgermenu-nav-shown");
+
+		// смещение кнопки бургер-меню
+		burgermenuBtn.style.top = 0;
+		burgermenuBtn.style.left = 0;
+
+		// TODO поменять иконку на крестик
 	}
 
 	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
