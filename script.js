@@ -250,34 +250,22 @@ window.onload = function() {
 		let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
 
 		let offsetTop;
-		/*if(submenu.classList.contains("is-pinned") || !pinnedSubmenuIcon.classList.contains("is-hidden")) {
-			offsetTop = offset - 70; // смещение с учетом зафиксированной панели 
-			console.log("Смещение: 70");
+		// если панель не зафиксирована
+		if(!submenu.classList.contains("is-pinned")) {
+			if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+				offsetTop = offset - 10;	
+			} 
+			else {
+				offsetTop = offset - 175;	
+			}
+		} 
+		//если панель зафиксирована
+		else if (burgermenuBlock.style.display === "none") {
+			offsetTop = offset - 175; 
 		} else {
-			offsetTop = offset - 10;	// если панель не зафиксирована
-			console.log("Смещение: 10");
-		}*/
-
-		console.log(burgermenuBlock.style.display);
-
-		if( (submenu.classList.contains("is-pinned") && burgermenuBlock.style.display !== "none") || 
-		(!pinnedSubmenuIcon.classList.contains("is-hidden") && burgermenuBlock.style.display !== "none") ) {
-			offsetTop = offset - 70; // смещение с учетом зафиксированной панели 
-			console.log("Смещение: 70");
-		} else if(burgermenuBlock.style.display === "none") {
-			offsetTop = offset - 175;
-			console.log("Смещение: 175");
-		} else {
-			offsetTop = offset - 10;	// если панель не зафиксирована
-			console.log("Смещение: 10");
+			offsetTop = offset - 70;
 		}
 		//console.log(offsetTop);
-
-		
-		/*if(burgermenuBlock.style.display === "none") {
-			offsetTop = offset - 175; 
-			console.log("Смещение: 175");
-		}*/
 
 		scrollTo({ 
 		top: `${offsetTop}`, 
