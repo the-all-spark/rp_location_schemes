@@ -119,6 +119,7 @@ window.onload = function() {
 		// поменять кнопку на крестик
 		burgermenuCloseBtn.classList.add("burgermenu-btn-close-shown");
 		burgermenuBtn.classList.remove("burgermenu-btn-open-shown");
+		burgermenuCloseBtn.addEventListener("click", closeMenu);
 
 		burgermenuBlock.classList.add("burgermenu-shown");
 		burgermenu.classList.add("burgermenu-nav-shown");
@@ -126,8 +127,17 @@ window.onload = function() {
 		// смещение кнопки бургер-меню
 		burgermenuCloseBtn.style.top = 0;
 		burgermenuCloseBtn.style.left = 0;
+	}
 
-		// TODO поменять иконку на крестик
+	// функция скрытия меню при клике на крестик
+	function closeMenu() {
+		//console.log('Скрыть меню!');
+
+		burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
+		burgermenuBtn.classList.add("burgermenu-btn-open-shown");
+
+		burgermenuBlock.classList.remove("burgermenu-shown");
+		burgermenu.classList.remove("burgermenu-nav-shown");
 	}
 
 	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
