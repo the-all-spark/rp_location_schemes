@@ -55,15 +55,19 @@ window.onload = function() {
 				if (!entry.isIntersecting) {
 					//console.log('Sticky-элемент активирован!');
 
-					// отобразить иконку бургер-меню, скрыть основное меню в шапке
-					burgermenuBlock.style.display = "grid";
-					burgermenuBtn.classList.add("burgermenu-btn-open-shown");
-					burgermenuBtn.style.top = "15px"; // смещение кнопки бургер-меню
-					burgermenuBtn.style.left = "-70px";
+					if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+						burgermenuBlock.style.display = "none"; // если панель откреплена, стили блока бургер-меню "не скачут"
+					} else {
+						// отобразить иконку бургер-меню, скрыть основное меню в шапке
+						burgermenuBlock.style.display = "grid";
+						burgermenuBtn.classList.add("burgermenu-btn-open-shown");
+						burgermenuBtn.style.top = "15px"; // смещение кнопки бургер-меню
+						burgermenuBtn.style.left = "-70px";
 
-					document.querySelector(".nav").style.display = "none"; // основное меню
-					burgermenuBtn.addEventListener("click", showMenu);
-	
+						document.querySelector(".nav").style.display = "none"; // основное меню
+						burgermenuBtn.addEventListener("click", showMenu);
+					}
+					
 					if(!pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						//console.log("Панель закреплена и ею можно управлять!");
 						//console.log(pinnedSubmenuIcon);
@@ -112,7 +116,7 @@ window.onload = function() {
 
 	}
 
-	// функция отображения меню при клике на кнопку бургер-меню
+	// * функция отображения меню при клике на кнопку бургер-меню
 	function showMenu() {
 		//console.log('Показать меню!');
 
@@ -129,7 +133,7 @@ window.onload = function() {
 		burgermenuCloseBtn.style.left = 0;
 	}
 
-	// функция скрытия меню при клике на крестик
+	// * функция скрытия меню при клике на крестик
 	function closeMenu() {
 		//console.log('Скрыть меню!');
 
@@ -163,6 +167,7 @@ window.onload = function() {
 		//console.log('Скрыть панель со списком объектов');
 		submenu.style.position = "relative";
 		document.querySelector(".is-pinned").style.borderBottom = "2px solid transparent";
+		burgermenuBlock.style.display = "none";
 
 		shownEye.classList.remove("is-shown");
 		shownEye.classList.add("is-hidden");
@@ -245,18 +250,39 @@ window.onload = function() {
 		let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
 
 		let offsetTop;
-		if(submenu.classList.contains("is-pinned") || !pinnedSubmenuIcon.classList.contains("is-hidden")) {
+		/*if(submenu.classList.contains("is-pinned") || !pinnedSubmenuIcon.classList.contains("is-hidden")) {
 			offsetTop = offset - 70; // смещение с учетом зафиксированной панели 
+			console.log("Смещение: 70");
 		} else {
 			offsetTop = offset - 10;	// если панель не зафиксирована
+			console.log("Смещение: 10");
+		}*/
+
+		console.log(burgermenuBlock.style.display);
+
+		if( (submenu.classList.contains("is-pinned") && burgermenuBlock.style.display !== "none") || 
+		(!pinnedSubmenuIcon.classList.contains("is-hidden") && burgermenuBlock.style.display !== "none") ) {
+			offsetTop = offset - 70; // смещение с учетом зафиксированной панели 
+			console.log("Смещение: 70");
+		} else if(burgermenuBlock.style.display === "none") {
+			offsetTop = offset - 175;
+			console.log("Смещение: 175");
+		} else {
+			offsetTop = offset - 10;	// если панель не зафиксирована
+			console.log("Смещение: 10");
 		}
 		//console.log(offsetTop);
+
+		
+		/*if(burgermenuBlock.style.display === "none") {
+			offsetTop = offset - 175; 
+			console.log("Смещение: 175");
+		}*/
 
 		scrollTo({ 
 		top: `${offsetTop}`, 
 		behavior: 'smooth' 
 		});
-
 	}
 
 	// * функция скрывает все выделенные ранее объекты и открытые блоки с информацией, если есть
