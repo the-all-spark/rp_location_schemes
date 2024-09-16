@@ -16,13 +16,8 @@
     <div class="container">
 
         <header>
-            <!-- Навигация по страницам со схемами и кнопка бургер-меню -->
+            <!-- Навигация по страницам со схемами -->
             <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
-
-            <div class="burgermenu-btn">
-                <img src="./assets/burgermenu-btn.svg" alt="Меню">
-            </div>
-
             <ul class="nav">
                 <li class="active developed"><a href="#">Окрестности базы</a></li>
                 <li class="disabled"><a href="#">База: уровень -2</a></li>
@@ -48,9 +43,28 @@
             <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
             <div class="help-block">
                 <p class="common-help-text"><i>Чтобы посмотреть местоположение объекта <ins>кликните</ins> на его название ниже:</i></p>
-            </div>            
-
+            </div>         
+        
             <div class="submenu">
+
+                <!--Дубликат основного меню - Бургер-меню и кнопка -->
+                <div class="burgermenu">
+                    <div class="burgermenu-btn">
+                        <img src="./assets/burgermenu-btn.svg" alt="Меню">
+                    </div>
+                    
+                    <ul class="nav">
+                        <li class="active developed"><a href="#">Окрестности базы</a></li>
+                        <li class="disabled"><a href="#">База: уровень -2</a></li>
+                        <li class="disabled"><a href="#">База: уровень -1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 2</a></li>
+                        <li class="disabled"><a href="#">База: уровень 3</a></li>
+                        <li class="disabled"><a href="#">База: крыша</a></li>
+                    </ul>
+                </div>
+
+                <!-- Список локаций -->
                 <ul class="location-list">
                     <li><a href="#base" title="Перейти к базе">База</a></li>
                     <li><a href="#arena" title="Перейти к арене">Арена</a></li>

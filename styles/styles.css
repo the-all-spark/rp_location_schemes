@@ -75,10 +75,6 @@ a:hover {
 
 /* ----------- Шапка, Меню ----------- */
 
-.burgermenu-btn {
-    display: none;
-}
-
 ul {
     padding-left: 30px;
 }
@@ -207,6 +203,66 @@ ul {
     font-size: 16px;
     font-weight: bold;
     background-color: white;
+}
+
+/* --- Бургер-меню и кнопка --- */
+
+.burgermenu {
+    display: none;
+    /*display: inline-block;*/
+    /*border: 1px solid rgb(190, 190, 190);
+    width: auto;
+    padding: 15px 15px 0;*/
+}
+
+.burgermenu-btn {
+    display: none;
+    /*display: block;*/
+    text-align: right;
+}
+
+.burgermenu li {
+    display: block;
+}
+
+.burgermenu .nav {
+    display: none;
+    /*display: inline-block;*/
+    /*padding: 20px;*/
+}
+
+.burgermenu-shown {
+    grid-template-areas: "button"
+                         "menu";
+    grid-template-rows: 25px 1fr;
+    grid-template-columns: 100%;
+    border: 1px solid rgb(190, 190, 190);
+    width: 20%;
+    padding: 15px 15px 2px;
+    position: absolute;
+    z-index: 99;
+    top: -1px;
+    left: -86px;
+    background-color: white;
+}
+
+.burgermenu-btn-shown {
+    display: block;
+    grid-area: button;
+    position: absolute;
+    top: 15px;
+    left: -70px;
+}
+
+.nav.burgermenu-nav-shown {
+    display: block;
+    grid-area: menu;
+    padding: 20px;
+    text-align: center;
+}
+
+.burgermenu-btn-shown:hover {
+    cursor: pointer;
 }
 
 /* --- Кнопки --- */
