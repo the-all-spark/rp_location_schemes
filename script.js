@@ -36,7 +36,8 @@ window.onload = function() {
 	let unpinnedSubmenuIcon = document.querySelector(".unpinned-submenu"); // перечеркнутая кнопка
 
 	let burgermenuBlock = document.querySelector(".burgermenu"); // блок бургер-меню
-	let burgermenuBtn = document.querySelector(".burgermenu-btn"); // иконка бургер-меню
+	let burgermenuBtn = document.querySelector(".burgermenu-btn-open"); // иконка бургер-меню
+	let burgermenuCloseBtn = document.querySelector(".burgermenu-btn-close"); // крестик закрытия бургер-меню
 	let burgermenu = document.querySelector(".burgermenu .nav"); // само бургер-меню
 
 	const sentinel = document.createElement('div');
@@ -56,7 +57,7 @@ window.onload = function() {
 
 					// отобразить иконку бургер-меню, скрыть основное меню в шапке
 					burgermenuBlock.style.display = "grid";
-					burgermenuBtn.classList.add("burgermenu-btn-shown");
+					burgermenuBtn.classList.add("burgermenu-btn-open-shown");
 					burgermenuBtn.style.top = "15px"; // смещение кнопки бургер-меню
 					burgermenuBtn.style.left = "-70px";
 
@@ -84,10 +85,14 @@ window.onload = function() {
 				if (entry.isIntersecting) {
 					//console.log('Не активирован!');
 
-					// скрыть иконку бургер-меню, само меню; показать основное меню в шапке
-					burgermenuBtn.classList.remove("burgermenu-btn-shown");
+					// скрыть иконку бургер-меню, крестик, само меню
+					burgermenuBlock.style.display = "none";
+					burgermenuBtn.classList.remove("burgermenu-btn-open-shown");
+					burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
 					burgermenuBlock.classList.remove("burgermenu-shown");
 					burgermenu.classList.remove("burgermenu-nav-shown");
+
+					// показать основное меню в шапке
 					document.querySelector(".nav").style.display = "block";
 
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
@@ -110,12 +115,17 @@ window.onload = function() {
 	// функция отображения меню при клике на кнопку бургер-меню
 	function showMenu() {
 		//console.log('Показать меню!');
+
+		// поменять кнопку на крестик
+		burgermenuCloseBtn.classList.add("burgermenu-btn-close-shown");
+		burgermenuBtn.classList.remove("burgermenu-btn-open-shown");
+
 		burgermenuBlock.classList.add("burgermenu-shown");
 		burgermenu.classList.add("burgermenu-nav-shown");
 
 		// смещение кнопки бургер-меню
-		burgermenuBtn.style.top = 0;
-		burgermenuBtn.style.left = 0;
+		burgermenuCloseBtn.style.top = 0;
+		burgermenuCloseBtn.style.left = 0;
 
 		// TODO поменять иконку на крестик
 	}
