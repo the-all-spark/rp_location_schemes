@@ -36,16 +36,12 @@ The site includes basic information about the location of objects within the rol
 8. Clicking on the object again removes the selection by the frame/outline, displays the “i” icon, hides the block with information;
 9. Clicking on the _“Arrow” (Up)_ icon scrolls the page smoothly to the main menu. 
 
-## Functional demonstration
-“Sticking” of the panel with objects  
-<img src="./assets/screenshot/panel_is_sticky.jpg" width="500" alt='“Sticking” of the panel with objects'>  
-Opened burger menu and the effect when hovering over the “Hide Panel” icon  
-<img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="500" alt='Opened burger menu and the effect when hovering over the “Hide Panel” icon'>  
-The panel is not pinned. The pin icon has changed to a crossed out icon.     
-<img src="./assets/screenshot/panel_is_unsticked.jpg" width="500" alt='The panel is not pinned. The pin icon has changed to a crossed out icon.'>  
-Object highlighting and page scrolling (on the example of the base)      
-<img src="./assets/screenshot/move_to_base.jpg" width="500" alt='Object highlighting and page scrolling (on the base example)'>  
-Displaying information about an object (on the example of the base)  
-<img src="./assets/screenshot/object_info.jpg" width="500" alt='Displaying information about an object (on the example of the base)'>  
-Conditional sign image for the current page  
-<img src="./assets/screenshot/page_signs.jpg" width="500" alt='Conditional sign image for the current page'>
+## Functional demonstration  
+|         Description      |                Screenshot                 | 
+|--------------------------|-------------------------------------------|
+|“Sticking” of the panel with objects | <img src="./assets/screenshot/panel_is_sticky.jpg" width="500" alt='“Sticking” of the panel with objects'> |
+| Opened burger menu and the effect when hovering over the “Hide Panel” icon  | <img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="500" alt='Opened burger menu and the effect when hovering over the “Hide Panel” icon'> |
+| The panel is not pinned. The pin icon has changed to a crossed out icon. | <img src="./assets/screenshot/panel_is_unsticked.jpg" width="500" alt='The panel is not pinned. The pin icon has changed to a crossed out icon.'>  |
+| Object highlighting and page scrolling (on the example of the base) | <img src="./assets/screenshot/move_to_base.jpg" width="500" alt='Object highlighting and page scrolling (on the base example)'> |
+| Displaying information about an object (on the example of the base) | <img src="./assets/screenshot/object_info.jpg" width="500" alt='Displaying information about an object (on the example of the base)'>  
+| Conditional sign image for the current page | <img src="./assets/screenshot/page_signs.jpg" width="500" alt='Conditional sign image for the current page'> |
