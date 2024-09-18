@@ -14,7 +14,7 @@ The site includes basic information about the location of objects within the rol
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E "JS") 
 
 **Демо:** [Перейти на сайт](https://the-all-spark.github.io/rp_location_schemes/)  
-<img src="./assets/screenshot/main-page.jpg" width="400" alt="Главная страница">
+<img src="./assets/screenshot/main-page.jpg" width="600" alt="Главная страница">
 
 ## Realized functionality:
 1. _main menu_: navigation through the pages of the site - base levels;
@@ -38,14 +38,14 @@ The site includes basic information about the location of objects within the rol
 
 ## Functional demonstration
 “Sticking” of the panel with objects  
-<img src="./assets/screenshot/panel_is_sticky.jpg" width="400" alt='“Sticking” of the panel with objects'>  
+<img src="./assets/screenshot/panel_is_sticky.jpg" width="500" alt='“Sticking” of the panel with objects'>  
 Opened burger menu and the effect when hovering over the “Hide Panel” icon  
-<img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="400" alt='Opened burger menu and the effect when hovering over the “Hide Panel” icon'>  
+<img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="500" alt='Opened burger menu and the effect when hovering over the “Hide Panel” icon'>  
 The panel is not pinned. The pin icon has changed to a crossed out icon.     
-<img src="./assets/screenshot/panel_is_unsticked.jpg" width="400" alt='The panel is not pinned. The pin icon has changed to a crossed out icon.'>  
+<img src="./assets/screenshot/panel_is_unsticked.jpg" width="500" alt='The panel is not pinned. The pin icon has changed to a crossed out icon.'>  
 Object highlighting and page scrolling (on the example of the base)      
-<img src="./assets/screenshot/move_to_base.jpg" width="400" alt='Object highlighting and page scrolling (on the base example)'>  
+<img src="./assets/screenshot/move_to_base.jpg" width="500" alt='Object highlighting and page scrolling (on the base example)'>  
 Displaying information about an object (on the example of the base)  
-<img src="./assets/screenshot/object_info.jpg" width="400" alt='Displaying information about an object (on the example of the base)'>  
+<img src="./assets/screenshot/object_info.jpg" width="500" alt='Displaying information about an object (on the example of the base)'>  
 Conditional sign image for the current page  
-<img src="./assets/screenshot/page_signs.jpg" width="400" alt='Conditional sign image for the current page'>
+<img src="./assets/screenshot/page_signs.jpg" width="500" alt='Conditional sign image for the current page'>
