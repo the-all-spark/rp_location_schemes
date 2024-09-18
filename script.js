@@ -268,8 +268,8 @@ window.onload = function() {
 		//console.log(offsetTop);
 
 		scrollTo({ 
-		top: `${offsetTop}`, 
-		behavior: 'smooth' 
+			top: `${offsetTop}`, 
+			behavior: 'smooth'
 		});
 	}
 
@@ -304,7 +304,6 @@ window.onload = function() {
 				arrInfoIcons[k].classList.remove("hidden-info-icon");
 			}
 		}
-
 	}
 
 	// * ----- При клике на объект открывается информация по нему, прячется иконка i
@@ -381,7 +380,6 @@ window.onload = function() {
 
 	// * Функция показа / скрытия иконки i над полигоном (объектом)
 	function showHideIcon() {
-
 		// для всех объектов: если иконка i не показана - показываем
 		for(let i = 0; i < arrInfoIcons.length; i++) {
 			if(arrInfoIcons[i].classList.contains("hidden-info-icon")) {

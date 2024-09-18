@@ -10,9 +10,9 @@
 
 /* ----------- Общие ----------- */
 
-html {
+/*html {
     scroll-behavior: smooth;
-}
+}*/
 
 .container {
     position: relative;
@@ -167,7 +167,7 @@ ul {
 }
 
 .submenu {
-    width: 1000px;
+    width: 1002px;
     margin: 0 auto;
     position: sticky; 
     top: 0;
