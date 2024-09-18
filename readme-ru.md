@@ -14,7 +14,7 @@
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E "JS") 
 
 **Демо:** [Перейти на сайт](https://the-all-spark.github.io/rp_location_schemes/)  
-<img src="./assets/screenshot/main-page.jpg" width="400" alt="Главная страница">
+<img src="./assets/screenshot/main-page.jpg" width="600" alt="Главная страница">
 
 
 ## Реализованный функционал:
@@ -38,15 +38,11 @@
 9. При клике на иконку _"Стрелка" (Вверх)_ страница плавно прокручивается к главному меню. 
 
 ## Демонстрация функционала
-"Прилипание" панели с объектами  
-<img src="./assets/screenshot/panel_is_sticky.jpg" width="400" alt='"Прилипание" панели с объектами'>  
-Открытое бургер-меню и эффект при наведении на иконку "Скрыть панель"  
-<img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="400" alt='Открытое бургер-меню и эффект при наведении на иконку "Скрыть панель"'>  
-Панель не закреплена. Иконка кнопки поменялась на перечеркнутую    
-<img src="./assets/screenshot/panel_is_unsticked.jpg" width="400" alt='Панель не закреплена. Иконка кнопки поменялась на перечеркнутую'>  
-Подсвечивание объекта и прокручивание страницы (на примере базы)  
-<img src="./assets/screenshot/move_to_base.jpg" width="400" alt='Подсвечивание объекта и прокручивание страницы (на примере базы)'>  
-Отображение информации об объекте (на примере базы)  
-<img src="./assets/screenshot/object_info.jpg" width="400" alt='Отображение информации об объекте (на примере базы)'>  
-Изображение с условными знаками для текущей страницы   
-<img src="./assets/screenshot/page_signs.jpg" width="400" alt='Изображение с условными знаками для текущей страницы'>
+|      Description |   Screenshot   | 
+|------------------|----------------|
+| "Прилипание" панели с объектами | <img src="./assets/screenshot/panel_is_sticky.jpg" width="600" alt='"Прилипание" панели с объектами'>  |
+| Открытое бургер-меню и эффект при наведении на иконку "Скрыть панель"  | <img src="./assets/screenshot/burgermenu_hide_panel.jpg" width="600" alt='Открытое бургер-меню и эффект при наведении на иконку "Скрыть панель"'>  |
+| Панель не закреплена. Иконка кнопки поменялась на перечеркнутую  | <img src="./assets/screenshot/panel_is_unsticked.jpg" width="600" alt='Панель не закреплена. Иконка кнопки поменялась на перечеркнутую'>  |
+| Подсвечивание объекта и прокручивание страницы (на примере базы)  | <img src="./assets/screenshot/move_to_base.jpg" width="600" alt='Подсвечивание объекта и прокручивание страницы (на примере базы)'> | 
+| Отображение информации об объекте (на примере базы)  | <img src="./assets/screenshot/object_info.jpg" width="600" alt='Отображение информации об объекте (на примере базы)'>  
+| Изображение с условными знаками для текущей страницы  | <img src="./assets/screenshot/page_signs.jpg" width="600" alt='Изображение с условными знаками для текущей страницы'>  |
