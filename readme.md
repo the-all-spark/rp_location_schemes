@@ -35,6 +35,7 @@ The site includes basic information about the location of objects within the rol
     - a _block with information_ about the object is displayed.
 8. Clicking on the object again removes the selection by the frame/outline, displays the “i” icon, hides the block with information;
 9. Clicking on the _“Arrow” (Up)_ icon scrolls the page smoothly to the main menu. 
+10. Responsive layout.
 
 ## Functional demonstration  
 |      Description |   Screenshot   | 
