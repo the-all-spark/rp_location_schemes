@@ -73,6 +73,10 @@ a:hover {
     color: rgb(185, 4, 16);
 }
 
+a {
+    -webkit-tap-highlight-color: transparent; /* чтобы не мерцала рамка при клике*/
+}
+
 /* ----------- Шапка, Меню ----------- */
 
 ul {
@@ -390,6 +394,7 @@ ul {
 .map-block polygon {
     fill: rgba(70, 70, 70, 0);
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* чтобы не мерцала рамка при клике*/
 }
 
 /* Информация по объектам - общая */
