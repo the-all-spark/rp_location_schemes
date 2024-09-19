@@ -274,7 +274,7 @@ ul {
 .submenu-switch-btn {
     position: absolute;
     top: 15px;
-    right: 5px;
+    right: 0.3em;
 }
 
 .submenu-switch-btn img:hover {
@@ -394,7 +394,7 @@ ul {
 .map-block polygon {
     fill: rgba(70, 70, 70, 0);
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* чтобы не мерцала рамка при клике*/
+    -webkit-tap-highlight-color: transparent;  /*чтобы не мерцала рамка при клике*/
 }
 
 /* Информация по объектам - общая */
@@ -463,4 +463,63 @@ ul {
 
 .up-btn:hover {
     cursor: pointer;
+}
+
+/* --------------- Media Queries ----------------- */
+
+@media screen and (max-width: 1200px) {
+    .up-btn {
+        display: inline-block;
+        bottom: 10px;
+        margin-left: 10px;
+        padding: 10px 10px 7px 10px;
+        background-color: white;
+        border-radius: 50%;
+    }  
+}
+
+@media screen and (max-width: 1150px) {
+    .burgermenu-btn-open-shown {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .general-info {
+        width: auto;
+        margin: 0 4em 30px;
+    }
+    .help-block,
+    .sign-block {
+        width: auto;
+        margin: 0 4em;
+    }
+    .location-list {
+        text-align: center;
+    }
+    .submenu-switch-btn {
+        right: 2.2em;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .submenu-switch-btn {
+        right: 3.8em;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .general-info {
+        margin: 0 2em 30px;
+    }
+    .help-block,
+    .sign-block {
+        margin: 0 2em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    h1 {
+        margin: 0.67em 0.7em;
+    }
 }
