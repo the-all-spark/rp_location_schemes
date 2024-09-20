@@ -181,11 +181,10 @@ ul {
 }
 
 .location-list {
-    width: 95%;
+    width: 87%;
     list-style-type: none;
     padding-left: 2px;
-    margin-bottom:0;
-    margin-top: 0;
+    margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -476,9 +475,6 @@ ul {
         background-color: white;
         border-radius: 50%;
     }  
-    .burgermenu-btn-open-shown {
-        display: none;
-    }
     .location-list {
         text-align: center;
     }
