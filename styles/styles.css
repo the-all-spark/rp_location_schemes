@@ -476,11 +476,11 @@ ul {
         background-color: white;
         border-radius: 50%;
     }  
-}
-
-@media screen and (max-width: 1150px) {
     .burgermenu-btn-open-shown {
         display: none;
+    }
+    .location-list {
+        text-align: center;
     }
 }
 
@@ -493,9 +493,6 @@ ul {
     .sign-block {
         width: auto;
         margin: 0 4em;
-    }
-    .location-list {
-        text-align: center;
     }
     .submenu-switch-btn {
         right: 2.2em;
