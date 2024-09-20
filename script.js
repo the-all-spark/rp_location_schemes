@@ -40,6 +40,42 @@ window.onload = function() {
 	let burgermenuCloseBtn = document.querySelector(".burgermenu-btn-close"); // крестик закрытия бургер-меню
 	let burgermenu = document.querySelector(".burgermenu .nav"); // само бургер-меню
 
+	// * Отслеживание ширины окна браузера и изменение позиционирования бургер-меню и его иконок
+	function getBurgerMenuBtnOffset() {
+
+		// отслеживаем ширину экрана браузера (значение в px)
+		if(window.innerWidth <= 1170) {
+			burgermenuBtn.style.top = "15px"; // кнопка меню
+			burgermenuBtn.style.left = "15px";
+
+			burgermenuBlock.style.top = "-1px"; // само меню
+			burgermenuBlock.style.left = "-1px";
+
+			burgermenuCloseBtn.style.top = 0; // крестик закрытия
+			burgermenuCloseBtn.style.left = 0;
+
+		} else if(window.innerWidth <= 1200) {
+			burgermenuBtn.style.top = "15px"; 
+			burgermenuBtn.style.left = "15px";
+
+			burgermenuBlock.style.top = "-1px"; 
+			burgermenuBlock.style.left = "-86px";
+
+			burgermenuCloseBtn.style.top = 0;
+			burgermenuCloseBtn.style.left = "calc(50% - 16px)";
+
+		} else {
+			burgermenuBtn.style.top = "15px"; 
+			burgermenuBtn.style.left = "-70px";
+
+			burgermenuBlock.style.top = "-1px"; 
+			burgermenuBlock.style.left = "-86px";
+
+			burgermenuCloseBtn.style.top = 0;
+			burgermenuCloseBtn.style.left = 0;
+		}
+	}
+
 	const sentinel = document.createElement('div');
 	//submenu.before(sentinel);
 	//submenu.after(sentinel);
@@ -61,8 +97,9 @@ window.onload = function() {
 						// отобразить иконку бургер-меню, скрыть основное меню в шапке
 						burgermenuBlock.style.display = "grid";
 						burgermenuBtn.classList.add("burgermenu-btn-open-shown");
-						burgermenuBtn.style.top = "15px"; // смещение кнопки бургер-меню
-						burgermenuBtn.style.left = "-70px";
+
+						// определение смещения кнопки бургер-меню и крестика в зависимости от ширины окна
+						window.addEventListener("resize", getBurgerMenuBtnOffset);
 
 						document.querySelector(".nav").style.display = "none"; // основное меню
 						burgermenuBtn.addEventListener("click", showMenu);
@@ -128,9 +165,6 @@ window.onload = function() {
 		burgermenuBlock.classList.add("burgermenu-shown");
 		burgermenu.classList.add("burgermenu-nav-shown");
 
-		// смещение кнопки бургер-меню
-		burgermenuCloseBtn.style.top = 0;
-		burgermenuCloseBtn.style.left = 0;
 	}
 
 	// * функция скрытия меню при клике на крестик
