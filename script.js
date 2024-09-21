@@ -76,6 +76,8 @@ window.onload = function() {
 		}
 	}
 
+	getBurgerMenuBtnOffset();
+
 	const sentinel = document.createElement('div');
 	//submenu.before(sentinel);
 	//submenu.after(sentinel);
