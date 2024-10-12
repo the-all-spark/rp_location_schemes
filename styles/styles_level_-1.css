@@ -1,0 +1,107 @@
+/* ---------------------- Блок "База: этаж -1"---------------------- */
+
+.signs-image img {
+    width: 350px;
+}
+
+.map-block {
+    height: 600px;
+    border: 2px solid transparent;
+}
+
+.map-block svg {
+    height: 600px;
+}
+
+/* Иконки i объектов */
+
+.interrogation-room-info-icon {
+    top: 84px;
+    left: 690px;
+}
+
+.isolation-info-icon {
+    top: 84px;
+    left: 822px;
+}
+
+.forge-info-icon {    /* кузница */
+    top: 84px;
+    left: 450px;
+}
+
+.mini-melt-info-icon {
+    top: 52px;
+    left: 213px;
+}
+
+.morgue-info-icon {
+    top: 286px;
+    left: 402px;
+}
+
+.melt-info-icon {    /* плавильня */
+    top: 125px;
+    left: 145px;
+}
+
+.torture-room-info-icon { /* пыточная */
+    top: 290px;
+    left: 225px;
+}
+
+.prison-info-icon {
+    top: 290px;
+    left: 760px;
+}
+
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
+
+.interrogation-room-info {
+    width: 193px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.isolation-info {
+    width: 325px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.forge-info {
+    width: 210px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.mini-melt-info {
+    width: 190px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.morgue-info {
+    width: 240px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.melt-info {
+    width: 250px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.torture-room-info {
+    width: 240px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.prison-info {
+    width: 332px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}

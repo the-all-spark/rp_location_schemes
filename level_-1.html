@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- ! поменять title -->
+    <title>TF:R | База: уровень -1</title>
+    <link rel="icon" type="image/x-icon" href="./assets/tfr_favicon.svg">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css"> <!-- Стили общие -->
+    <link rel="stylesheet" href="./styles/styles_level_-1.css"> <!-- ! Стили страниц: "База: уровень -1" -->
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script_scroll_lev-1.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <!-- Навигация по страницам со схемами -->
+            <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
+            <!-- ! добавить ссылки + active (текущая) и developed -->
+            <ul class="nav">
+                <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                <li class="active developed"><a href="./level_-1.html" title="Текущая страница">База: уровень -1</a></li>
+                <li class="disabled"><a href="#">База: уровень 1</a></li>
+                <li class="disabled"><a href="#">База: уровень 2</a></li>
+                <li class="disabled"><a href="#">База: уровень 3</a></li>
+                <li class="disabled"><a href="#">База: крыша</a></li>
+            </ul>
+
+        </header>
+
+        <main>
+            <!-- ! поменять название -->
+            <h1>База: уровень -1</h1>
+
+            <!-- Вводный текст к странице / этажу -->
+            <!-- ! поменять текст + уровень доступа -->
+            <div class="general-info">
+                <b>Цокольный этаж.</b> <br>
+                Страшные мрачные помещения. Настоящий рай для садистов, мазохистов или просто жаждущих тишины и покоя несчастных, 
+                особенно если они техники, медики или служители порядка. 
+                
+                <div  class="access-level">
+                    <img src="./assets/lock-icon.svg" alt="Ограниченный доступ" title="Ограниченный доступ">
+                    <b><i>Уровень доступа:</i></b> ограниченный (разрешение на посещение необходимо запрашивать у главного по станции).
+                </div>
+            </div>
+
+            <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
+            <div class="help-block">
+                <p class="common-help-text"><i>Чтобы посмотреть местоположение объекта <ins>кликните</ins> на его название ниже:</i></p>
+            </div>         
+        
+            <div class="submenu">
+
+                <!--Дубликат основного меню - Бургер-меню и кнопка -->
+                <div class="burgermenu">
+                    <div class="burgermenu-btn-open">
+                        <img src="./assets/burgermenu-btn.svg" alt="Меню" title="Меню">
+                    </div>
+                    <div class="burgermenu-btn-close">
+                        <img src="./assets/cross_close_burgermenu_btn.svg" alt="Закрыть меню" title="Закрыть меню">
+                    </div>
+                    
+                    <!-- ! добавить ссылки + active (текущая) и developed -->
+                    <ul class="nav">
+                        <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                        <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                        <li class="active developed"><a href="./level_-1.html" title="Текущая страница">База: уровень -1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 2</a></li>
+                        <li class="disabled"><a href="#">База: уровень 3</a></li>
+                        <li class="disabled"><a href="#">База: крыша</a></li>
+                    </ul>
+                </div>
+
+                <!-- Список локаций -->
+                <!-- ! поменять список локаций на карте -->
+                <ul class="location-list">
+                    <li><a href="#interrogation-room" title="Перейти к допросной">Допросная</a></li>
+                    <li><a href="#isolation" title="Перейти к изоляторам">Изоляторы</a></li>
+                    <li><a href="#forge" title="Перейти к кузнице">Кузница</a></li>
+                    <li><a href="#mini-melt" title="Перейти к мини плавильне">Мини плавильня</a></li>
+                    <li><a href="#morgue" title="Перейти к моргу">Морг</a></li>
+                    <li><a href="#melt" title="Перейти к плавильне">Плавильня</a></li>
+                    <li><a href="#torture-room" title="Перейти к пыточной">Пыточная</a></li>
+                    <li><a href="#prison" title="Перейти к тюремному блоку">Тюремный блок</a></li>
+                </ul>
+
+                <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
+                <div class="submenu-switch-btn">
+                    <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
+                        title="Список объектов закреплен">
+                    <img class="unpinned-submenu" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
+                        title="Список объектов не закреплен. Закрепить?">
+                    <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
+                    <img class="hidden-eye-btn" src="./assets/hidden-eye.svg" alt="Список объектов скрыт"
+                        title="Кликните, чтобы скрыть список объектов">
+                </div>
+            </div>
+
+            <div class="help-block">
+                <div class="map-help-text">
+                    <p><i>Дополнительная информация доступна при <ins>клике</ins> на подсвеченный объект или иконку</i></p>
+                    <img class="icon-in-text" src="./assets/info-icon.svg" alt="i" width="20">
+                </div>
+            </div>
+            
+            <!-- Условные обозначения к _текущей_ схеме, иконки открытия и закрытия -->
+            <div class="sign-block">
+                <div class="signs-icon">
+                    <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
+                    <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
+                </div>
+                <div class="signs-image">
+                    <!-- ! поменять УЗ на новое изображение -->
+                    <img src="./assets/signs/signs_level_-1.jpg" alt='Условные обозначения к схеме "База: уровень -1"'>
+                </div>
+            </div>
+            
+            <!-- Блок текущей страницы: "База: уровень -2" -->
+            <div class="map-block">
+
+                <!-- * Изображение-подложка - width: 1000px -->
+                <!-- ! поменять изображение-карту -->
+                <img src="./assets/levels/level_-1.jpg" alt="База: уровень -1">
+
+                <!-- * Иконки "i" над каждый объектом -->
+                <!-- ! расставить иконки над объектами - поменять позиционирование в стилях страницы -->
+                <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
+                    и информации по объектам в формате ___-info-icon -->
+                <div class="interrogation-room-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по допросной">
+                </div>
+                <div class="isolation-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по изолятору">
+                </div>
+                <div class="forge-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по кузнице">
+                </div>
+                <div class="mini-melt-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по мини плавильне">
+                </div>
+                <div class="morgue-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по моргу">
+                </div>
+                <div class="melt-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по плавильне">
+                </div>
+                <div class="torture-room-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по пыточной">
+                </div>
+                <div class="prison-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по тюремному блоку">
+                </div>
+
+                <!-- * Объекты с координатами -->
+                <!-- ! отметить объекты на холсте - изменить data-object, id и point -->
+                <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
+                    атрибут data-object="..." - для связки объекта и информации о нем -->
+                <svg>
+                    <polygon data-object="melt" id="melt" points="54,120,180,120,177,207,54,206"></polygon>
+                    <polygon data-object="mini-melt" id="mini-melt" points="237,53,289,53,288,105,237,105"></polygon>
+                    <polygon data-object="forge" id="forge" points="293,53,519,53,518,208,291,207"></polygon>
+                    <polygon data-object="interrogation-room" id="interrogation-room" points="575,78,708,79,708,171,576,169"></polygon>
+                    <polygon data-object="isolation" id="isolation" points="767,79,857,78,857,217,766,217"></polygon>
+                    <polygon data-object="torture-room" id="torture-room" points="19,277,297,278,296,481,20,481"></polygon>
+                    <polygon data-object="morgue" id="morgue" points="300,278,440,278,439,441,300,441"></polygon>
+                    <polygon data-object="prison" id="prison" points="575,282,857,282,856,439,575,439"></polygon>
+                </svg>
+
+                <!-- * Информация по объектам -->
+                <!-- ! добавить информацию об объектах - поменять data-object, style, + class-->
+                <!-- Каждый блок с информацией по объекту размещается в <div class="item-block"> с абсолютным позиционированием; 
+                    top и left позиционируют его около своего полигона (в необходимом месте).
+                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
+                    Класс вложенного блока включает в том числе значение data-object в формате ___-info -->
+                <div class="item-block" data-object="interrogation-room" style="top: 73px; left: 357px;">
+                    <div class="item-info interrogation-room-info">
+                        <div class="item-name">Допросная</div>
+                        Обычно здесь выясняют отношения. Правда в основном говорит кто-то один,
+                        а второй всё пропускает мимо сенсоров и гордо молчит. Или активно спорит и попадает в изолятор. 
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="isolation" style="top: 220px; left: 644px;">
+                    <div class="item-info isolation-info">
+                        <div class="item-name">Изоляторы</div>
+                        Здесь содержатся буйные обитатели станции и не в меру разговорчивые наглецы. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        Для тех, кто уже задумался, как можно попасть в изолятор: 
+                        не забывайте и про наличие камер длительного содержания...
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="forge" style="top: 48px; left: 522px;">
+                    <div class="item-info forge-info">
+                        <div class="item-name">Кузница</div>
+                        Обитель главного техника всея базы. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        <span style="color:#B90410;"><b>Критично!</b></span> <br>
+                        Без острой надобности в ворота не стучать - опасно для жизни. 
+                        И да, отваливающиеся детали - <b>не</b> уважительная причина.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="mini-melt" style="top: 108px; left: 232px;">
+                    <div class="item-info mini-melt-info">
+                        <div class="item-name">Мини плавильня</div>
+                        Да, действительно "мини", но все же лучше сюда не соваться, чтобы потом не стоять под дверями кабинетов
+                        на прием к медику, кузнецу и заодно психологу.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="morgue" style="top: 274px; left: 442px;">
+                    <div class="item-info morgue-info">
+                        <div class="item-name">Морг</div>
+                        Сюда попадают те, кто злит техников, медиков, стражей порядка или просто не успевает вовремя 
+                        доползти до энергона и подзарядной платформы. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        Подзаряжайтесь вовремя!
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="melt" style="top: 115px; left: 180px;">
+                    <div class="item-info melt-info">
+                        <div class="item-name">Плавильня</div>
+                        Совсем большая плавильня. И очень жаркая. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        <span style="color:#B90410;"><b>Критично!</b></span> <br>
+                        Ни в коем случае не злите техника, иначе не успеете даже пискнуть, как полетите в эту яму.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="torture-room" style="top: 324px; left: 299px;">
+                    <div class="item-info torture-room-info">
+                        <div class="item-name">Пыточная</div>
+                        Понятия не имею, зачем это помещение на <b>мирной</b> базе. И проверять не хочу! <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание">
+                        Для желающих все же удовлетворить свое любопытство - обращаться к представителям противоположной фракции.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="prison" style="top: 327px; left: 217px;">
+                    <div class="item-info prison-info">
+                        <div class="item-name">Тюремный блок</div>
+                        Место для размышлений, куда - временно или надолго (как пойдет) - помещают
+                        самых отъявленных негодяев. Или тех, кому просто надо отдохнуть, сбежав от повседневности. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        Прежде чем замыслить что-то коварное, подумайте о том, что, возможно, 
+                        вам тоже придется задержаться в одном из этих отсеков (хотя когда это кого останавливало).
+                    </div>
+                </div>
+
+                <!-- Кнопка "Вверх" -->
+                <div class="up-btn">
+                    <img src="./assets/up-icon.svg" alt="Кнопка вверх" title="Вверх">
+                </div>
+
+            </div>
+            <!-- Конец блока -->
+
+        </main>
+    
+        <!-- Footer -->
+        <footer>
+            <a href="https://vk.com/transformersrefraction" target="_blank" title="Перейти на сайт">
+                <img id="tfr-logo" src="./assets/tf-r-logo.svg" alt="Логотип РП">
+            </a>
+            <p>© Transformers: Refraction |RP|, 2024</p>
+        </footer>
+
+    </div>
+    
+</body>
+
+</html>
