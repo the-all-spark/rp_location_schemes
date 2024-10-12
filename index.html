@@ -19,8 +19,8 @@
             <!-- Навигация по страницам со схемами -->
             <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
             <ul class="nav">
-                <li class="active developed"><a href="#">Окрестности базы</a></li>
-                <li class="disabled"><a href="#">База: уровень -2</a></li>
+                <li class="active developed"><a href="./index.html" title="Текущая страница">Окрестности базы</a></li>
+                <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
                 <li class="disabled"><a href="#">База: уровень -1</a></li>
                 <li class="disabled"><a href="#">База: уровень 1</a></li>
                 <li class="disabled"><a href="#">База: уровень 2</a></li>
@@ -35,7 +35,7 @@
 
             <!-- Вводный текст к странице / этажу -->
             <div class="general-info">
-                <b>Киберформированная Земля.</b> <br>
+                <b>Киберформированная Земля.</b> <br><br>
                 Большая часть планеты киберформирована. Все живые существа мутировали в роботизированных монстров 
                 без интеллекта и сознания с единственной потребностью - добывать себе для пропитания живой металл и топливо.
             </div>
@@ -57,8 +57,8 @@
                     </div>
                     
                     <ul class="nav">
-                        <li class="active developed"><a href="#">Окрестности базы</a></li>
-                        <li class="disabled"><a href="#">База: уровень -2</a></li>
+                        <li class="active developed"><a href="./index.html" title="Текущая страница">Окрестности базы</a></li>
+                        <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
                         <li class="disabled"><a href="#">База: уровень -1</a></li>
                         <li class="disabled"><a href="#">База: уровень 1</a></li>
                         <li class="disabled"><a href="#">База: уровень 2</a></li>
@@ -101,7 +101,7 @@
                     <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                 </div>
                 <div class="signs-image">
-                    <img src="./assets/signs_outside.jpg" alt='Условные обозначения к схеме "Окрестности"'>
+                    <img src="./assets/signs/signs_outside.jpg" alt='Условные обозначения к схеме "Окрестности"'>
                 </div>
             </div>
             
@@ -109,7 +109,7 @@
             <div class="map-block">
 
                 <!-- * Изображение-подложка - width: 1000px -->
-                <img src="./assets/outside_general_1000.jpg" alt="Окрестности базы">
+                <img src="./assets/levels/outside_general_1000.jpg" alt="Окрестности базы">
 
                 <!-- * Иконки "i" над каждый объектом -->
                 <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
@@ -147,9 +147,9 @@
                 <div class="item-block" data-object="base" style="top: 195px; left: 509px;">
                     <div class="item-info base-info">
                         <div class="item-name">База</div>
-                        Включает <b>уровни</b>:
+                        Включает <b>уровни (этажи)</b>:
                         <ul>
-                            <li><b><a href="">-2 этаж</a></b> (цокольный)</li>
+                            <li><b><a href="./level_-2.html">-2 этаж</a></b> (цокольный)</li>
                             <li><b><a href="">-1 этаж</a></b> (цокольный)</li>
                             <li><b><a href="">1 этаж</a></b> (основные служебные помещения, выезд для колесных)</li>
                             <li><b><a href="">2 этаж</a></b> (служебные и жилые помещения)</li>
