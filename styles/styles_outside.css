@@ -1,6 +1,15 @@
 /* ---------------------- Блок "Окрестности базы" (outside) ---------------------- */
 
-/* Иконки объектов */
+.map-block {
+    height: 1000px;
+    border: 2px solid #1b1b1b;
+}
+
+.map-block svg {
+    height: 1000px;
+}
+
+/* Иконки i объектов */
 
 .base-info-icon {
     top: 230px;
@@ -22,13 +31,12 @@
     left: 862px;
 }
 
-/* Информация по объектам */
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
 
 .arena-barrier-info .item-name {
     border-left: 2px solid transparent;
 }
-
-/* Объекты */
 
 .base-info {
     width: 350px;

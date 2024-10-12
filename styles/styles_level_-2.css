@@ -1,0 +1,39 @@
+/* ---------------------- Блок "База: этаж -2"---------------------- */
+
+.map-block {
+    height: 600px;
+    border: 2px solid transparent;
+}
+
+.map-block svg {
+    height: 600px;
+}
+
+/* Иконки i объектов */
+
+.fuel-store-info-icon {
+    top: 115px;
+    left: 400px;
+}
+
+.generator-info-icon {
+    top: 117px;
+    left: 694px;
+}
+
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
+
+.fuel-store-info {
+    width: 250px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+    /*height: 200px;*/
+}
+
+.generator-info {
+    width: 280px;
+    /*height: 90px;*/
+    padding-top: 45px;
+    padding-bottom: 15px;
+}

@@ -3,11 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TF:R | База и ее окрестности</title>
+    <!-- ! поменять title -->
+    <title>TF:R | База: уровень -2</title>
     <link rel="icon" type="image/x-icon" href="./assets/tfr_favicon.svg">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/styles.css"> <!-- Стили общие -->
-    <link rel="stylesheet" href="./styles/styles_outside.css"> <!-- Стили страниц: "Окрестности базы" -->
+    <link rel="stylesheet" href="./styles/styles_level_-2.css"> <!-- ! Стили страниц: "База: уровень -2" -->
     <script src="./script.js"></script>
 </head>
 
@@ -18,9 +19,10 @@
         <header>
             <!-- Навигация по страницам со схемами -->
             <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
+            <!-- ! добавить ссылки + active (текущая) и developed -->
             <ul class="nav">
-                <li class="active developed"><a href="./index.html" title="Текущая страница">Окрестности базы</a></li>
-                <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                <li class="active developed"><a href="./level_-2.html" title="Текущая страница">База: уровень -2</a></li>
                 <li class="disabled"><a href="#">База: уровень -1</a></li>
                 <li class="disabled"><a href="#">База: уровень 1</a></li>
                 <li class="disabled"><a href="#">База: уровень 2</a></li>
@@ -31,13 +33,19 @@
         </header>
 
         <main>
-            <h1>База и ее окрестности</h1>
+            <!-- ! поменять название -->
+            <h1>База: уровень -2</h1>
 
             <!-- Вводный текст к странице / этажу -->
+            <!-- ! поменять текст + уровень доступа -->
             <div class="general-info">
-                <b>Киберформированная Земля.</b> <br><br>
-                Большая часть планеты киберформирована. Все живые существа мутировали в роботизированных монстров 
-                без интеллекта и сознания с единственной потребностью - добывать себе для пропитания живой металл и топливо.
+                <b>Цокольный этаж.</b> <br>
+                Здесь располагаются важные для функционирования станции и её обитателей помещения (и их содержимое). 
+                
+                <div  class="access-level">
+                    <img src="./assets/lock-icon.svg" alt="Ограниченный доступ" title="Ограниченный доступ">
+                    <b><i>Уровень доступа:</i></b> ограниченный (разрешение на посещение необходимо запрашивать у главного по станции).
+                </div>
             </div>
 
             <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
@@ -56,9 +64,10 @@
                         <img src="./assets/cross_close_burgermenu_btn.svg" alt="Закрыть меню" title="Закрыть меню">
                     </div>
                     
+                    <!-- ! добавить ссылки + active (текущая) и developed -->
                     <ul class="nav">
-                        <li class="active developed"><a href="./index.html" title="Текущая страница">Окрестности базы</a></li>
-                        <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                        <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                        <li class="active developed"><a href="./level_-2.html" title="Текущая страница">База: уровень -2</a></li>
                         <li class="disabled"><a href="#">База: уровень -1</a></li>
                         <li class="disabled"><a href="#">База: уровень 1</a></li>
                         <li class="disabled"><a href="#">База: уровень 2</a></li>
@@ -68,11 +77,10 @@
                 </div>
 
                 <!-- Список локаций -->
+                <!-- ! поменять список локаций на карте -->
                 <ul class="location-list">
-                    <li><a href="#base" title="Перейти к базе">База</a></li>
-                    <li><a href="#arena" title="Перейти к арене">Арена</a></li>
-                    <li><a href="#arena-barrier" title="Перейти к арене с препятствиями">Арена с препятствиями</a></li>
-                    <li><a href="#tir" title="Перейти к стрельбищу">Стрельбище</a></li>
+                    <li><a href="#fuel-store" title="Перейти к складу топлива">Склад топлива</a></li>
+                    <li><a href="#generator" title="Перейти к генератору">Генератор</a></li>
                 </ul>
 
                 <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
@@ -101,84 +109,58 @@
                     <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                 </div>
                 <div class="signs-image">
-                    <img src="./assets/signs/signs_outside.jpg" alt='Условные обозначения к схеме "Окрестности"'>
+                    <!-- ! поменять УЗ на новое изображение -->
+                    <img src="./assets/signs/signs_level_-2.jpg" alt='Условные обозначения к схеме "База: уровень -2"'>
                 </div>
             </div>
             
-            <!-- Блок текущей страницы: "Окрестности базы" -->
+            <!-- Блок текущей страницы: "База: уровень -2" -->
             <div class="map-block">
 
                 <!-- * Изображение-подложка - width: 1000px -->
-                <img src="./assets/levels/outside_general_1000.jpg" alt="Окрестности базы">
+                <!-- ! поменять изображение-карту -->
+                <img src="./assets/levels/level_-2.jpg" alt="База: уровень -2">
 
                 <!-- * Иконки "i" над каждый объектом -->
+                <!-- ! расставить иконки над объектами - поменять позиционирование в стилях страницы -->
                 <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
                     и информации по объектам в формате ___-info-icon -->
-                <div class="base-info-icon info-icon">
-                    <img src="./assets/info-icon.svg" alt="Имеется информация по базе">
+                <div class="fuel-store-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по складу с топливом">
                 </div>
-                <div class="arena-info-icon info-icon">
-                    <img src="./assets/info-icon.svg" alt="Имеется информация по арене">
-                </div>
-                <div class="arena-barrier-info-icon info-icon">
-                    <img src="./assets/info-icon.svg" alt="Имеется информация по арене с препятствиями">
-                </div>
-                <div class="tir-info-icon info-icon">
-                    <img src="./assets/info-icon.svg" alt="Имеется информация по стрельбищу">
+                <div class="generator-info-icon info-icon">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по генератору">
                 </div>
 
                 <!-- * Объекты с координатами -->
+                <!-- ! отметить объекты на холсте - изменить data-object, id и point -->
                 <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
                     атрибут data-object="..." - для связки объекта и информации о нем -->
                 <svg>
-                    <polygon data-object="base" id="base" points="365,203,381,209,406,209,439,220,471,220,481,218,499,239,494,
-                        279,503,303,502,316,496,334,493,353,479,372,440,376,410,381,389,384,357,374,344,375,318,320,333,
-                        292,334,256,343,236,341,218,357,216"></polygon>
-                    <polygon data-object="arena" id="arena" points="323,430,539,430,538,618,322,618"></polygon>
-                    <polygon data-object="arena-barrier" id="arena-barrier" points="300,628,613,626,612,850,298,850"></polygon>
-                    <polygon data-object="tir" id="tir" points="624,626,906,624,905,847,622,848"></polygon>
+                    <polygon data-object="fuel-store" id="fuel-store" points="297,105,438,105,438,362,297,361"></polygon>
+                    <polygon data-object="generator" id="generator" points="563,109,732,108,732,361,564,361"></polygon>
                 </svg>
 
                 <!-- * Информация по объектам -->
+                <!-- ! добавить информацию об объектах - поменять data-object, style, + class-->
                 <!-- Каждый блок с информацией по объекту размещается в <div class="item-block"> с абсолютным позиционированием; 
                     top и left позиционируют его около своего полигона (в необходимом месте).
                     Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
                     Класс вложенного блока включает в том числе значение data-object в формате ___-info -->
-                <div class="item-block" data-object="base" style="top: 195px; left: 509px;">
-                    <div class="item-info base-info">
-                        <div class="item-name">База</div>
-                        Включает <b>уровни (этажи)</b>:
-                        <ul>
-                            <li><b><a href="./level_-2.html">-2 этаж</a></b> (цокольный)</li>
-                            <li><b><a href="">-1 этаж</a></b> (цокольный)</li>
-                            <li><b><a href="">1 этаж</a></b> (основные служебные помещения, выезд для колесных)</li>
-                            <li><b><a href="">2 этаж</a></b> (служебные и жилые помещения)</li>
-                            <li><b><a href="">3 этаж</a></b> (выход для летных)</li>
-                            <li><b><a href="">крыша</a></b></li>
-                        </ul>
-                        Подробнее - по ссылкам выше.
+                <div class="item-block" data-object="fuel-store" style="top: 101px; left: 21px;">
+                    <div class="item-info fuel-store-info">
+                        <div class="item-name">Склад с топливом</div>
+                        Много стеллажей с кубами. <br><br>
+                        <i>Важное замечание</i>: ничего в помещении не взрывать! Даже близко с гранатами не подходить.
                     </div>
                 </div>
 
-                <div class="item-block" data-object="arena" style="top: 428px; left: 541px;">
-                    <div class="item-info arena-info">
-                        <div class="item-name">Арена</div>
-                        Полигон, на котором можно от всей души поснимать друг с друга стружку. Поговаривают, за это даже ничего
-                        не будет.
-                    </div>
-                </div>
-
-                <div class="item-block" data-object="arena-barrier" style="top: 625px; left: 114px;">
-                    <div class="item-info arena-barrier-info">
-                        <div class="item-name">Арена с препятствиями</div>
-                        Очень с препятствиями, прям совсем. Сюда вообще кто-нибудь ходил?
-                    </div>
-                </div>
-
-                <div class="item-block" data-object="tir" style="top: 542px; left: 621px;">
-                    <div class="item-info tir-info">
-                        <div class="item-name">Стрельбище</div>
-                        Еще одно тайное место... 
+                <div class="item-block" data-object="generator" style="top: 104px; left: 735px;">
+                    <div class="item-info generator-info">
+                        <div class="item-name">Генератор</div>
+                        То самое важное помещение всей станции, благодаря которому она функционирует, а ее обитатели довольны. <br><br>
+                        <i>Критически(!) важное замечание</i>: гранаты в помещении не взрывать! Даже близко с ними не подходить! 
+                        И на всякий случай катанами тоже не размахивать.
                     </div>
                 </div>
 
