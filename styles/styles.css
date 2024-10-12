@@ -195,11 +195,14 @@ ul {
     margin: 0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 8px;
+    column-gap: 8px;
 }
 
 .location-list li {
     display: inline-block;
-    margin-right: 7px;
 }
 
 .location-list a {
@@ -374,6 +377,7 @@ ul {
 
 .info-icon {
     position: absolute;
+    z-index: 10;
 }
 
 .hidden-info-icon {
@@ -450,12 +454,12 @@ ul {
 }
 
 .active-polygon {
-    stroke: rgb(185, 4, 16);
+    stroke: rgb(255 255 255);
 	stroke-width: 6;
 }
 
 .active-selected-polygon {
-    stroke: rgb(185, 4, 16);
+    stroke: rgb(255 255 255);
 	stroke-width: 6;
 }
 
