@@ -25,15 +25,13 @@
 /* Объекты (блоки текста и заголовок) */
 
 .fuel-store-info {
-    width: 250px;
+    width: 210px;
     padding-top: 45px;
     padding-bottom: 15px;
-    /*height: 200px;*/
 }
 
 .generator-info {
     width: 280px;
-    /*height: 90px;*/
     padding-top: 45px;
     padding-bottom: 15px;
 }
