@@ -319,19 +319,37 @@ window.onload = function() {
 
 	// перебор объектов, вызов функции
 	for(let i = 0; i < arrObjects.length; i++) {
-		arrObjects[i].addEventListener("click", showHideInfo);
+		//arrObjects[i].addEventListener("click", showHideInfo);
+		arrObjects[i].addEventListener("click", function() { showHideInfo(arrObjects[i]) });
+	}
+
+	// перебор иконок i, вызов функции при клике
+	for(let i = 0; i < arrInfoIcons.length; i++) {
+
+		arrInfoIcons[i].addEventListener("click", function() {
+
+			for(let j = 0; j < arrObjects.length; j++) {
+		
+				// атрибуты иконки и полигона совпадают
+				if(arrInfoIcons[i].dataset.object === arrObjects[j].dataset.object) { 
+						//console.log("Совпадает с кликнутой иконкой!");
+						//console.log(arrObjects[j]);
+					showHideInfo(arrObjects[j]);
+				}
+			}
+		});
 	}
 
 	// * Функция показа/скрытия иконки "i" выбранного полигона, показа/скрытия информации о нем
-	function showHideInfo() {
-		//console.log("Прячем / показываем инфу");
-		//console.log(e.target);
-		//console.log(this);
-		//console.log(obj); 
+	function showHideInfo(obj) {
+			//console.log("Прячем / показываем инфу");
+			//console.log(e.target);
+			//console.log(obj);
+			//console.log(obj); 
 
-		let selectedObj = this.dataset.object; // значение атрибута объекта, по которому кликнули
+		let selectedObj = obj.dataset.object; // значение атрибута объекта, по которому кликнули
 
-		highlightPolygon(this); //  вызов функции выделения полигона 
+		highlightPolygon(obj); //  вызов функции выделения полигона 
 		showHideIcon(); // вызов функции скрытия и показа иконки i
 
 		// показ / скрытие информации
@@ -368,10 +386,10 @@ window.onload = function() {
 
 	// * Функция выделения _выбранного_ полигона (перебор элементов массива объектов)
 	function highlightPolygon(obj) {
-		//console.log(obj);
+			//console.log(obj); //кликнутый полигон
 
 		for(let elem of arrObjects) {
-			//console.log(elem);
+				//console.log(elem); // элемент массива
 
 			if(elem !== obj || elem.classList.contains("active-polygon")) {
 				elem.classList.remove("active-polygon");

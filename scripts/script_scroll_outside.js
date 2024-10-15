@@ -6,9 +6,9 @@ function scrollPageToObj(obj) {
     
     let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
 
-    console.log(`elemRect.top = ${elemRect.top}`);
-    console.log(`bodyRect.top = ${bodyRect.top}`);
-    console.log(`offset = ${offset}`);
+        //console.log(`elemRect.top = ${elemRect.top}`);
+        //console.log(`bodyRect.top = ${bodyRect.top}`);
+        //console.log(`offset = ${offset}`);
 
     let offsetTop;
 
@@ -16,20 +16,20 @@ function scrollPageToObj(obj) {
     if(!document.querySelector(".submenu").classList.contains("is-pinned")) {
         if(document.querySelector(".pinned-submenu").classList.contains("unpinned-flag")) { // кнопка
             offsetTop = offset - 10;
-            console.log("отступ 10");	
+            //console.log("отступ 10");	
         } 
         else {
             offsetTop = offset - 170;	
-            console.log("отступ 220 - не зафиксирована");
+            //console.log("отступ 220 - не зафиксирована");
         }
     } 
     //если панель зафиксирована
     else if (document.querySelector(".burgermenu").style.display === "none") {  // блок бургер-меню
         offsetTop = offset - 175; 
-        console.log("отступ 175 - зафиксирована");
+        //console.log("отступ 175 - зафиксирована");
     } else {
         offsetTop = offset - 70;
-        console.log("отступ 70");	
+        //console.log("отступ 70");	
     }
     //console.log(offsetTop);
 
