@@ -20,7 +20,7 @@ function scrollPageToObj(obj) {
         } 
         else {
             offsetTop = offset - 110;	
-            //console.log("изнач не зафикс / через список / отступ 210");
+            //console.log("изнач не зафикс / через список / отступ 110");
         }
     } 
     //если панель зафиксирована

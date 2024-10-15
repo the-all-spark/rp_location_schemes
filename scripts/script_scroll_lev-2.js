@@ -5,9 +5,32 @@ function scrollPageToObj(obj) {
     let elemRect = obj.getBoundingClientRect();
     
     let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
+    let offsetTop;
+
+    // если панель не зафиксирована
+    if(!document.querySelector(".submenu").classList.contains("is-pinned")) {
+        if(document.querySelector(".pinned-submenu").classList.contains("unpinned-flag")) { // кнопка
+            offsetTop = offset - 10;
+            console.log("отступ 10");	
+        } 
+        else {
+            offsetTop = offset - 90;	
+            console.log("изнач не зафикс / через список / отступ 110");
+        }
+    } 
+    //если панель зафиксирована
+    else if (document.querySelector(".burgermenu").style.display === "none") {  // блок бургер-меню
+        offsetTop = offset - 175; 
+        console.log("отступ 175 - зафиксирована");
+    } else {
+        offsetTop = offset - 107;
+        console.log("зафикс / через панель / отступ 107");	
+    }
+    //console.log(offsetTop);
 
     scrollTo({ 
-        top: `${offset}`, 
+        top: `${offsetTop}`, 
         behavior: 'smooth'
     });
+
 }
