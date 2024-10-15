@@ -103,7 +103,7 @@ window.onload = function() {
 						// определение смещения кнопки бургер-меню и крестика в зависимости от ширины окна
 						window.addEventListener("resize", getBurgerMenuBtnOffset);
 
-						document.querySelector(".nav").style.display = "none"; // основное меню
+						// ! document.querySelector(".nav").style.display = "none"; // основное меню
 						burgermenuBtn.addEventListener("click", showMenu);
 					}
 					
@@ -136,7 +136,7 @@ window.onload = function() {
 					burgermenu.classList.remove("burgermenu-nav-shown");
 
 					// показать основное меню в шапке
-					document.querySelector(".nav").style.display = "block";
+					// ! document.querySelector(".nav").style.display = "block";
 
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
 					submenu.classList.remove("is-pinned");
