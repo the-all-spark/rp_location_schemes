@@ -476,6 +476,7 @@ ul {
     position: sticky;
     bottom: 30px;
     margin-left: -70px;
+    -webkit-tap-highlight-color: transparent; /* чтобы не мерцала рамка при клике*/
 }
 
 .up-btn:hover {
