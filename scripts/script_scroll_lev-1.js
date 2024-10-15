@@ -19,7 +19,7 @@ function scrollPageToObj(obj) {
             // console.log("отступ 10");	
         } 
         else {
-            offsetTop = offset - 210;	
+            offsetTop = offset - 110;	
             //console.log("изнач не зафикс / через список / отступ 210");
         }
     } 

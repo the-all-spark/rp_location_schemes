@@ -141,7 +141,7 @@ ul {
     cursor: not-allowed;
 }
 
-/* -----------  Список локаций на схеме -----------  */
+/* -----------  Список локаций на схеме, вспомогательные тексты -----------  */
 
 .general-info {
     width: 1000px;
@@ -168,6 +168,11 @@ ul {
 .common-help-text {
     margin-bottom: 0;
     margin-top: 0;
+    text-align: left;
+}
+
+.orientation-help-text {
+    margin-bottom: 0;
     text-align: left;
 }
 
