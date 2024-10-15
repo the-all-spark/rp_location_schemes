@@ -79,10 +79,10 @@ window.onload = function() {
 	getBurgerMenuBtnOffset();
 
 	const sentinel = document.createElement('div');
-	//submenu.before(sentinel);
-	//submenu.after(sentinel);
-	document.querySelector(".sign-block").before(sentinel);
+	//document.querySelector(".sign-block").before(sentinel);
+	submenu.before(sentinel);
 
+	submenu
 	switchPinnedEffect(); // вызов функции
 
 	// функция переключения между реакцией элементов при прилипании и отлипании панели подменю/списка
@@ -112,7 +112,7 @@ window.onload = function() {
 						//console.log(pinnedSubmenuIcon);
 	
 						submenu.classList.add("is-pinned");
-						document.querySelector(".is-pinned").style.borderBottom = "2px solid #1b1b1b";
+						document.querySelector(".is-pinned").style.borderBottom = "1px solid #1b1b1b";
 						pinnedSubmenuIcon.classList.add("is-hidden");
 
 						if(shownEye.classList.contains("unpinned-flag")) {
