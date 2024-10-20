@@ -401,6 +401,10 @@ ul {
     position: relative;
 }
 
+.map-block img {
+    user-select: none; /* запрет перемещения картинки */
+}
+
 .map-block svg {
     position: absolute;
     top: 0px;

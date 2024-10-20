@@ -1,5 +1,17 @@
 window.onload = function() {
+
+	// * --- Отменить перетаскивание ссылок и изображений
 	
+	let allA = document.querySelectorAll("a");
+	let allImg = document.querySelectorAll("img");
+
+	allA.forEach( (elem) => {
+		elem.addEventListener("dragstart", function(event) { event.preventDefault(); } );
+	})
+	allImg.forEach( (elem) => {
+		elem.addEventListener("dragstart", function(event) { event.preventDefault(); } );
+	})
+
 	// * --- Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
 
 	let questionIcon = document.querySelector(".signs-icon img:nth-of-type(1)");
