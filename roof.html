@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- ! поменять title -->
+    <title>TF:R | База: крыша</title>
+    <link rel="icon" type="image/x-icon" href="./assets/tfr_favicon.svg">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css"> <!-- Стили общие -->
+    <link rel="stylesheet" href="./styles/styles_roof.css"> <!-- ! Стили страниц: "База: крыша" -->
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script_scroll_lev-2.js"></script> <!-- !! js " -->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <!-- Навигация по страницам со схемами -->
+            <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
+            <!-- ! добавить ссылки + active (текущая) и developed -->
+            <ul class="nav">
+                <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                <li class="developed"><a href="./level_-1.html">База: уровень -1</a></li>
+                <li class="disabled"><a href="#">База: уровень 1</a></li>
+                <li class="disabled"><a href="#">База: уровень 2</a></li>
+                <li class="disabled"><a href="#">База: уровень 3</a></li>
+                <li class="active developed"><a href="./roof.html" title="Текущая страница">База: крыша</a></li>
+            </ul>
+
+        </header>
+
+        <main>
+            <!-- ! поменять название -->
+            <h1>База: крыша</h1>
+
+            <!-- Вводный текст к странице / этажу -->
+            <!-- ! поменять текст + уровень доступа -->
+            <div class="general-info">
+                <b>Крыша базы на скале.</b> <br>
+                Здесь располагаются важные для функционирования станции и её обитателей помещения (и их содержимое). 
+                
+                <div  class="access-level">
+                    <img src="./assets/unlock-icon.svg" alt="Общий доступ" title="Общий доступ">
+                    <b><i>Уровень доступа:</i></b> общий (открыт для всех).
+                </div>
+            </div>
+
+            <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
+            <div class="help-block">
+                <p class="orientation-help-text"><i>Для просмотра на экране смартфона рекомендуется использовать <b>альбомную 
+                    ориентацию</b>.</i></p>
+                <p class="common-help-text"><i>Чтобы посмотреть местоположение объекта <ins>кликните</ins> на его название ниже:</i></p>
+            </div>         
+        
+            <div class="submenu">
+
+                <!--Дубликат основного меню - Бургер-меню и кнопка -->
+                <div class="burgermenu">
+                    <div class="burgermenu-btn-open">
+                        <img src="./assets/burgermenu-btn.svg" alt="Меню" title="Меню">
+                    </div>
+                    <div class="burgermenu-btn-close">
+                        <img src="./assets/cross_close_burgermenu_btn.svg" alt="Закрыть меню" title="Закрыть меню">
+                    </div>
+                    
+                    <!-- ! добавить ссылки + active (текущая) и developed -->
+                    <ul class="nav">
+                        <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                        <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                        <li class="developed"><a href="./level_-1.html">База: уровень -1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 2</a></li>
+                        <li class="disabled"><a href="#">База: уровень 3</a></li>
+                        <li class="active developed"><a href="./roof.html" title="Текущая страница">База: крыша</a></li>
+                    </ul>
+                </div>
+
+                <!-- Список локаций -->
+                <!-- ! поменять список локаций на карте -->
+                <ul class="location-list">
+                    <li><a href="#tower-N" title="Перейти к вышкам (север)">Вышки в северном секторе</a></li>
+                    <li><a href="#tower-S" title="Перейти к вышкам (юг)">Вышки в южном секторе</a></li>
+                    <li><a href="#landing-place" title="Перейти к месту для посадки">Место для посадки</a></li>
+                </ul>
+
+                <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
+                <div class="submenu-switch-btn">
+                    <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
+                        title="Список объектов закреплен">
+                    <img class="unpinned-submenu" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
+                        title="Список объектов не закреплен. Закрепить?">
+                    <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
+                    <img class="hidden-eye-btn" src="./assets/hidden-eye.svg" alt="Список объектов скрыт"
+                        title="Кликните, чтобы скрыть список объектов">
+                </div>
+            </div>
+
+            <div class="help-block">
+                <div class="map-help-text">
+                    <p><i>Дополнительная информация доступна при <ins>клике</ins> на подсвеченный объект или иконку</i></p>
+                    <img class="icon-in-text" src="./assets/info-icon.svg" alt="i" width="20">
+                </div>
+            </div>
+            
+            <!-- Условные обозначения к _текущей_ схеме, иконки открытия и закрытия -->
+            <div class="sign-block">
+                <div class="signs-icon">
+                    <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
+                    <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
+                </div>
+                <div class="signs-image">
+                    <!-- ! поменять УЗ на новое изображение -->
+                    <img src="./assets/signs/signs_roof.jpg" alt='Условные обозначения к схеме "База: крыша"'>
+                </div>
+            </div>
+            
+            <!-- Блок текущей страницы: "База: уровень -2" -->
+            <div class="map-block">
+
+                <!-- * Изображение-подложка - width: 1000px -->
+                <!-- ! поменять изображение-карту -->
+                <img src="./assets/levels/roof.jpg" alt="База: крыша">
+
+                <!-- * Иконки "i" над каждый объектом -->
+                <!-- ! расставить иконки над объектами - поменять позиционирование в стилях страницы, добавить data-object -->
+                <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
+                    и информации по объектам в формате ___-info-icon -->
+                <div class="tower-N-info-icon info-icon" data-object="tower-N">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по вышкам (север)">
+                </div>
+                <div class="tower-S-info-icon info-icon" data-object="tower-S">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по вышкам (юг)">
+                </div>
+                <div class="landing-place-info-icon info-icon" data-object="landing-place">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по вышкам (юг)">
+                </div>
+
+                <!-- * Объекты с координатами -->
+                <!-- ! отметить объекты на холсте - изменить data-object, id и point -->
+                <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
+                    атрибут data-object="..." - для связки объекта и информации о нем -->
+                <svg>
+                    <polygon data-object="tower-N" id="tower-N" points="162,76,538,76,538,153,161,153"></polygon>
+                    <polygon data-object="tower-S" id="tower-S" points="160,369,428,370,428,489,161,488"></polygon>
+                    <polygon data-object="landing-place" id="landing-place" points="584,77,806,77,805,412,583,413"></polygon>
+                </svg>
+
+                <!-- * Информация по объектам -->
+                <!-- ! добавить информацию об объектах - поменять data-object, style, + class-->
+                <!-- Каждый блок с информацией по объекту размещается в <div class="item-block"> с абсолютным позиционированием; 
+                    top и left позиционируют его около своего полигона (в необходимом месте).
+                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
+                    Класс вложенного блока включает в том числе значение data-object в формате ___-info -->
+                <div class="item-block" data-object="tower-N" style="top: 156px; left: 158px;">
+                    <div class="item-info tower-N-info">
+                        <div class="item-name">Вышки в северном секторе</div>
+                        Много стеллажей с кубами. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание">
+                        Ничего в помещении не взрывать! Даже близко с гранатами не подходить.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="tower-S" style="top: 490px;left: 158px;">
+                    <div class="item-info tower-S-info">
+                        <div class="item-name">Вышки в южном секторе</div>
+                        То самое важное помещение всей станции.
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="landing-place" style="top: 73px;left: 808px;">
+                    <div class="item-info landing-place-info">
+                        <div class="item-name">Место для посадки</div>
+                        То самое важное помещение всей станции, благодаря которому она функционирует, а ее обитатели довольны. <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> 
+                        <span style="color:#B90410;"><b>Критично!</b></span> <br>
+                        Гранаты в помещении не взрывать! Даже близко с ними не подходить! 
+                        И на всякий случай катанами тоже не размахивать.
+                    </div>
+                </div>
+
+                <!-- Кнопка "Вверх" -->
+                <div class="up-btn">
+                    <img src="./assets/up-icon.svg" alt="Кнопка вверх" title="Вверх">
+                </div>
+
+            </div>
+            <!-- Конец блока -->
+
+        </main>
+    
+        <!-- Footer -->
+        <footer>
+            <a href="https://vk.com/transformersrefraction" target="_blank" title="Перейти на сайт">
+                <img id="tfr-logo" src="./assets/tf-r-logo.svg" alt="Логотип РП">
+            </a>
+            <p>© Transformers: Refraction |RP|, 2024</p>
+        </footer>
+
+    </div>
+    
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+/* ---------------------- Блок "База: крыша"---------------------- */
+/*
+    #tower-N - Вышки в северном секторе
+    #tower-S - Вышки в южном секторе
+    #landing-place - Место для посадки
+*/
+
+.signs-image img {
+    width: 250px;
+}
+
+/*! */
+.map-block {
+    height: 600px;
+    border: 2px solid transparent;
+}
+
+/*! */
+.map-block svg {
+    height: 600px;
+}
+
+/* Иконки i объектов */
+
+.tower-N-info-icon {
+    top: 84px;
+    left: 501px;
+}
+
+.tower-S-info-icon {
+    top: 380px;
+    left: 389px;
+}
+
+.landing-place-info-icon {
+    top: 87px;
+    left: 769px;
+}
+
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
+
+.tower-N-info {
+    width: 300px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.tower-S-info {
+    width: 380px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.landing-place-info {
+    width: 160px;
+    padding-top: 65px;
+    padding-bottom: 15px;
+}
+
+.landing-place-info .item-name {
+    border-left: 2px solid transparent;
+}
