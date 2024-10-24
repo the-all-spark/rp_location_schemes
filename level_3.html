@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- ! поменять title -->
+    <title>TF:R | База: уровень 3</title>
+    <link rel="icon" type="image/x-icon" href="./assets/tfr_favicon.svg">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css"> <!-- Стили общие -->
+    <link rel="stylesheet" href="./styles/styles_level_3.css"> <!-- ! Стили страниц: "База: уровень 3" -->
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script_scroll_lev-2.js"></script> <!-- ! js -->
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <!-- Навигация по страницам со схемами -->
+            <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
+            <!-- ! добавить ссылки + active (текущая) и developed -->
+            <ul class="nav">
+                <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                <li class="developed"><a href="./level_-1.html">База: уровень -1</a></li>
+                <li class="disabled"><a href="#">База: уровень 1</a></li>
+                <li class="disabled"><a href="#">База: уровень 2</a></li>
+                <li class="active developed"><a href="./level_3.html">База: уровень 3</a></li>
+                <li class="developed"><a href="./roof.html" title="Текущая страница">База: крыша</a></li>
+            </ul>
+
+        </header>
+
+        <main>
+            <!-- ! поменять название -->
+            <h1>База: уровень 3</h1>
+
+            <!-- Вводный текст к странице / этажу -->
+            <!-- ! поменять текст + уровень доступа -->
+            <div class="general-info">
+                <b>Крыша базы на скале.</b> <br>
+                Место, где можно постоять подумать о вечном, пафосно глядя вдаль. <br>
+                <img src="./assets/warning-icon.svg" alt="Важное замечание"> <i>Примечание для колесных:</i> 
+                главное не забудьте, что вы не умеете летать, иначе даже медик потом по деталькам не соберет. 
+                
+                <div  class="access-level">
+                    <img src="./assets/unlock-icon.svg" alt="Общий доступ" title="Общий доступ">
+                    <b><i>Уровень доступа:</i></b> общий (открыт для всех).
+                </div>
+            </div>
+
+            <!-- Список локаций на схеме с возможностью быстрого перехода к ним по клику -->
+            <div class="help-block">
+                <p class="orientation-help-text"><i>Для просмотра на экране смартфона рекомендуется использовать <b>альбомную 
+                    ориентацию</b>.</i></p>
+                <p class="common-help-text"><i>Чтобы посмотреть местоположение объекта <ins>кликните</ins> на его название ниже:</i></p>
+            </div>         
+        
+            <div class="submenu">
+
+                <!--Дубликат основного меню - Бургер-меню и кнопка -->
+                <div class="burgermenu">
+                    <div class="burgermenu-btn-open">
+                        <img src="./assets/burgermenu-btn.svg" alt="Меню" title="Меню">
+                    </div>
+                    <div class="burgermenu-btn-close">
+                        <img src="./assets/cross_close_burgermenu_btn.svg" alt="Закрыть меню" title="Закрыть меню">
+                    </div>
+                    
+                    <!-- ! добавить ссылки + active (текущая) и developed -->
+                    <ul class="nav">
+                        <li class="developed"><a href="./index.html">Окрестности базы</a></li>
+                        <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
+                        <li class="developed"><a href="./level_-1.html">База: уровень -1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 1</a></li>
+                        <li class="disabled"><a href="#">База: уровень 2</a></li>
+                        <li class="active developed"><a href="./level_3.html">База: уровень 3</a></li>
+                        <li class="developed"><a href="./roof.html" title="Текущая страница">База: крыша</a></li>
+                    </ul>
+                </div>
+
+                <!-- Список локаций -->
+                <!-- ! поменять список локаций на карте -->
+                <ul class="location-list">
+                    <li><a href="#medical-box" title="Перейти к набору самопомощи">Набор самопомощи</a></li>
+                    <li><a href="#exit" title="Перейти к выходу для летных">Выход для летных</a></li>
+                </ul>
+
+                <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
+                <div class="submenu-switch-btn">
+                    <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
+                        title="Список объектов закреплен">
+                    <img class="unpinned-submenu" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
+                        title="Список объектов не закреплен. Закрепить?">
+                    <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
+                    <img class="hidden-eye-btn" src="./assets/hidden-eye.svg" alt="Список объектов скрыт"
+                        title="Кликните, чтобы скрыть список объектов">
+                </div>
+            </div>
+
+            <div class="help-block">
+                <div class="map-help-text">
+                    <p><i>Дополнительная информация доступна при <ins>клике</ins> на подсвеченный объект или иконку</i></p>
+                    <img class="icon-in-text" src="./assets/info-icon.svg" alt="i" width="20">
+                </div>
+            </div>
+            
+            <!-- Условные обозначения к _текущей_ схеме, иконки открытия и закрытия -->
+            <div class="sign-block">
+                <div class="signs-icon">
+                    <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
+                    <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
+                </div>
+                <div class="signs-image">
+                    <!-- ! поменять УЗ на новое изображение -->
+                    <img src="./assets/signs/signs_level_3.jpg" alt='Условные обозначения к схеме "База: уровень 3"'>
+                </div>
+            </div>
+            
+            <!-- Блок текущей страницы: "База: уровень -2" -->
+            <div class="map-block">
+
+                <!-- * Изображение-подложка - width: 1000px -->
+                <!-- ! поменять изображение-карту -->
+                <img src="./assets/levels/level_3.jpg" alt="База: уровень 3">
+
+                <!-- * Иконки "i" над каждый объектом -->
+                <!-- ! расставить иконки над объектами - поменять позиционирование в стилях страницы, добавить data-object -->
+                <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
+                    и информации по объектам в формате ___-info-icon -->
+                <div class="medical-box-info-icon info-icon" data-object="medical-box">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по набору самопомощи">
+                </div>
+                <div class="exit-info-icon info-icon" data-object="exit">
+                    <img src="./assets/info-icon.svg" alt="Имеется информация по выходу для летных">
+                </div>
+
+                <!-- * Объекты с координатами -->
+                <!-- ! отметить объекты на холсте - изменить data-object, id и point -->
+                <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
+                    атрибут data-object="..." - для связки объекта и информации о нем -->
+                <svg>
+                    <polygon data-object="medical-box" id="medical-box" points="587,197,668,197,668,211,588,212"></polygon>
+                    <polygon data-object="exit" id="exit" points="773,197,788,197,787,290,772,290"></polygon>
+                </svg>
+
+                <!-- * Информация по объектам -->
+                <!-- ! добавить информацию об объектах - поменять data-object, style, + class-->
+                <!-- Каждый блок с информацией по объекту размещается в <div class="item-block"> с абсолютным позиционированием; 
+                    top и left позиционируют его около своего полигона (в необходимом месте).
+                    Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
+                    Класс вложенного блока включает в том числе значение data-object в формате ___-info -->
+                <div class="item-block" data-object="medical-box" style="top:73px; left:583px;">
+                    <div class="item-info medical-box-info">
+                        <div class="item-name">Набор самопомощи</div>
+                        Правда скрытые! Но они есть! <br><br>
+                        <img src="./assets/warning-icon.svg" alt="Важное замечание"> Взрывать все равно запрещается!
+                    </div>
+                </div>
+
+                <div class="item-block" data-object="exit" style="top:193px; left:791px;">
+                    <div class="item-info exit-info">
+                        <div class="item-name">Выход для летных</div>
+                        Да, вышки. Да, скрытые. Да, на юге крыши. Проверять не обязательно, не тратьте время.
+                    </div>
+                </div>
+
+                <!-- Кнопка "Вверх" -->
+                <div class="up-btn">
+                    <img src="./assets/up-icon.svg" alt="Кнопка вверх" title="Вверх">
+                </div>
+
+            </div>
+            <!-- Конец блока -->
+
+        </main>
+    
+        <!-- Footer -->
+        <footer>
+            <a href="https://vk.com/transformersrefraction" target="_blank" title="Перейти на сайт">
+                <img id="tfr-logo" src="./assets/tf-r-logo.svg" alt="Логотип РП">
+            </a>
+            <p>© Transformers: Refraction |RP|, 2024</p>
+        </footer>
+
+    </div>
+    
+</body>
+
+</html>
