@@ -1,0 +1,50 @@
+/* ---------------------- Блок "База: уровень 3"---------------------- */
+/*
+    #medical-box - Набор самопомощи
+    #exit - Выход для летных
+*/
+
+.signs-image img {
+    width: 300px;
+}
+
+.map-block {
+    height: 600px;
+    border: 2px solid transparent;
+}
+
+.map-block svg {
+    height: 600px;
+}
+
+/* Иконки i объектов */
+
+.medical-box-info-icon {
+    top: 175px;
+    left: 658px;
+}
+
+.exit-info-icon {
+    top: 223px;
+    left: 792px;
+}
+
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
+
+.medical-box-info {
+    width: 290px;
+    padding-top: 45px;
+    padding-bottom: 15px;
+}
+
+.exit-info {
+    width: 180px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+/*.exit-info .item-name {
+    border-left: 2px solid transparent;
+    text-align: center;
+}*/

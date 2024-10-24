@@ -1,4 +1,14 @@
 /* ---------------------- Блок "База: этаж -1"---------------------- */
+/*
+    #interrogation-room - Допросная
+    #isolation - Изоляторы
+    #forge - Кузница
+    #mini-melt - Мини плавильня
+    #morgue - Морг
+    #melt - Плавильня
+    #torture-room - >Пыточная
+    #prison - Тюремный блок
+*/
 
 .signs-image img {
     width: 350px;
