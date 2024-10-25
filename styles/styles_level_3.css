@@ -33,18 +33,19 @@
 /* Объекты (блоки текста и заголовок) */
 
 .medical-box-info {
-    width: 290px;
+    width: 430px;
     padding-top: 45px;
     padding-bottom: 15px;
 }
 
 .exit-info {
-    width: 180px;
+    width: 170px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
-/*.exit-info .item-name {
+.exit-info .item-name {
     border-left: 2px solid transparent;
-    text-align: center;
-}*/
+    right: 2px;
+    padding: 8px 12px;
+}
