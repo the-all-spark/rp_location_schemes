@@ -33,9 +33,9 @@
 /* Объекты (блоки текста и заголовок) */
 
 .medical-box-info {
-    width: 430px;
-    padding-top: 45px;
-    padding-bottom: 15px;
+    width: 440px;
+    padding-top: 40px;
+    padding-bottom: 10px;
 }
 
 .exit-info {
