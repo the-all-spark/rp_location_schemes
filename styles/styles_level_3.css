@@ -46,6 +46,6 @@
 
 .exit-info .item-name {
     border-left: 2px solid transparent;
-    right: 2px;
-    padding: 8px 12px;
+    right: 5px;
+    padding: 8px 7px;
 }
