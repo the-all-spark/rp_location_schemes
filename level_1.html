@@ -41,12 +41,12 @@
             <!-- ! поменять текст + уровень доступа -->
             <div class="general-info">
                 <b>Первый этаж базы.</b> <br>
-                Если у вас имеются крылья, <del>заходить</del> залетать на станцию лучше отсюда. И вылетать тоже.<br>
-                <img src="./assets/warning-icon.svg" alt="Важное замечание"> <i>Примечание для нелетных:</i> 
-                помните, несмотря на разметку на дороге, она не предназначена для колес. 
+                Здесь располагаются служебные помещения, а также помещения общего пользования.<br>
+                В командный пункт вас, конечно, не пустят просто так и что-нибудь взорвать в лаборатории не разрешат, 
+                но вот покопаться в детальках или разжиться парой-тройкой кубов энергона - вполне.
                 
                 <div  class="access-level">
-                    <img src="./assets/unlock-icon.svg" alt="Смешанный доступ" title="Смешанный доступ">
+                    <img src="./assets/lock_unlock_icon.svg" alt="Смешанный доступ" title="Смешанный доступ">
                     <b><i>Уровень доступа:</i></b> смешанный (служебные помещения требуют допуск).
                 </div>
             </div>
@@ -162,13 +162,14 @@
                 <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
                     атрибут data-object="..." - для связки объекта и информации о нем -->
                 <svg>
-                    <polygon data-object="exit1" id="exit1" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="ground-bridge" id="ground-bridge" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="command-post" id="command-post" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="labs" id="labs" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="weapons" id="weapons" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="spare-warehouse" id="spare-warehouse" points="773,197,788,197,787,290,772,290"></polygon>
-                    <polygon data-object="energon-warehouse" id="energon-warehouse" points="773,197,788,197,787,290,772,290"></polygon>
+                    <polygon data-object="exit1" id="exit1" points="444,515,905,513,904,582,443,582"></polygon>
+                    <polygon data-object="ground-bridge" id="ground-bridge" points="590,263,660,263,660,305,620,304,620,377,653,378,654,353,
+                      714,352,714,304,829,304,829,433,583,433,583,378,600,378,600,303,590,303"></polygon>
+                    <polygon data-object="command-post" id="command-post" points="557,77,832,77,832,191,557,192"></polygon>
+                    <polygon data-object="labs" id="labs" points="158,82,292,81,294,58,450,58,451,227,296,226,286,221,158,222"></polygon>
+                    <polygon data-object="weapons" id="weapons" points="149,290,295,289,294,377,149,377"></polygon>
+                    <polygon data-object="spare-warehouse" id="spare-warehouse" points="149,385,295,385,294,445,149,445"></polygon>
+                    <polygon data-object="energon-warehouse" id="energon-warehouse" points="148,452,294,452,293,538,148,539"></polygon>
                 </svg>
 
                 <!-- * Информация по объектам -->
