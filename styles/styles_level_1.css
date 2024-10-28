@@ -63,19 +63,19 @@
 /* Объекты (блоки текста и заголовок) */
 
 .exit1-info {
-    width: 170px;
+    width: 260px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
 .ground-bridge-info {
-    width: 170px;
+    width: 370px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
 .command-post-info {
-    width: 170px;
+    width: 370px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
@@ -87,19 +87,19 @@
 }
 
 .weapons-info {
-    width: 170px;
+    width: 200px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
 .spare-warehouse-info {
-    width: 170px;
+    width: 200px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
 .energon-warehouse-info {
-    width: 170px;
+    width: 200px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
