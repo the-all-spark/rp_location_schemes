@@ -1,0 +1,121 @@
+/* ---------------------- Блок "База: уровень 2"---------------------- */
+/*
+    #exit1 - Выезд из базы
+    #ground-bridge - Земной мост
+    #command-post - Командный пункт
+    #labs - Лаборатории
+    #weapons - Оружейная
+    #spare-warehouse - Склад деталей
+    #energon-warehouse - клад энергона
+*/
+
+
+
+
+
+
+
+
+
+.signs-image img {
+    width: 350px;
+}
+
+.map-block {
+    height: 600px;
+    border: 2px solid transparent;
+}
+
+.map-block svg {
+    height: 600px;
+}
+
+/* Иконки i объектов */
+
+.exit1-info-icon {
+    top: 522px;
+    left: 460px;
+}
+
+.ground-bridge-info-icon {
+    top: 314px;
+    left: 793px;
+}
+
+.command-post-info-icon {
+    top: 88px;
+    left: 791px;
+}
+
+.labs-info-icon {
+    top: 86px;
+    left: 411px;
+}
+
+.weapons-info-icon {
+    top: 319px;
+    left: 158px;
+}
+
+.spare-warehouse-info-icon {
+    top: 410px;
+    left: 155px;
+}
+
+.energon-warehouse-info-icon {
+    top: 506px;
+    left: 169px;
+}
+
+/* ----- Информация по объектам ----- */
+/* Объекты (блоки текста и заголовок) */
+
+.exit1-info {
+    width: 260px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.ground-bridge-info {
+    width: 370px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.command-post-info {
+    width: 370px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.labs-info {
+    width: 170px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.weapons-info {
+    width: 200px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.spare-warehouse-info {
+    width: 200px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.energon-warehouse-info {
+    width: 200px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+/*
+.exit1-info .item-name {
+    border-left: 2px solid transparent;
+    right: 5px;
+    padding: 8px 7px;
+}
+*/
