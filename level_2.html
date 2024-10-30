@@ -18,7 +18,7 @@
     <link rel="icon" type="image/x-icon" href="./assets/tfr_favicon.svg">
     <link rel="stylesheet" href="./styles/normalize.css">
     <link rel="stylesheet" href="./styles/styles.css"> <!-- Стили общие -->
-    <link rel="stylesheet" href="./styles/styles_level_1.css"> <!-- ! Стили страниц: "База: уровень 1" -->
+    <link rel="stylesheet" href="./styles/styles_level_2.css"> <!-- ! Стили страниц: "База: уровень 2" -->
     <script src="./scripts/script.js"></script>
     <script src="./scripts/script_scroll_lev-2.js"></script> <!-- ! js -->
 </head>
@@ -93,24 +93,71 @@
 
                 <!-- Список локаций -->
                 <!-- ! поменять список локаций на карте -->
-                <ul class="location-list">
-                    <li><a href="#exit1" title="Перейти к выезду из базы">Выезд из базы</a></li>
-                    
+                <div class="main-zone location-block">
+                    <div class="main-zone-title">
+                        <p class="m-z-title">Общий зал</p>
+                        <!-- УЗ для блока -->
+                        <div class="sign-block main-zone-signs">
+                            <div class="signs-icon">
+                                <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
+                                <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
+                            </div>
+                            <div class="signs-image">
+                                <img src="  " alt='Условные обозначения к блоку "Общий зал"'>
+                            </div>
+                        </div>
+                    </div>
 
+                    <ul class="location-list main-zone-list">
+                        <li><a href="#bar" title="Перейти к бару">Бар</a></li>
+                        <li><a href="#balcony" title="Перейти к балкону">Балкон</a></li>
+                    </ul>
+                </div>
 
-
-
-                </ul>
-
+                <div class="medical-block location-block">
+                    <p class="medical-block-title">Мед.блок</p>
+                    <ul class="location-list medical-block-list">
+                        <li><a href="#sanitary-processing" title="Перейти к сектору санитарной обработки">Сектор сан.обработки</a></li>
+                        <li><a href="#med-sector" title="Перейти к мед.отсеку">Мед.отсек</a></li>
+                        <li><a href="#sanitary-sector" title="Перейти к сан.отсеку">Сан.отсек</a></li>
+                        <li><a href="#staffroom" title="Перейти к ординаторской">Ординаторская</a></li>
+                        <li><a href="#consulting-room" title="Перейти к кабинету глав.врача">Кабинет глав.врача</a></li>
+                        <li><a href="#med-isolator" title="Перейти к мед.изолятору">Мед.изолятор</a></li>  
+                    </ul>
+                </div>
+                
+                <div class="living-block location-block">
+                    <p class="living-block-title">Жилой блок</p>
+                    <ul class="location-list living-others-list">
+                        <li><a href="#all-sanitary-sector" title="Перейти к сан.отсекам">Сан.отсеки</a></li>
+                    </ul>
+                    <div class="living-sectors">
+                        <span class="living-sectors-title">Жилые отсеки: </span>
+                        <ul class="location-list living-list-sectors">
+                            <li><a href="#liv-sector-1" title="Перейти к отсеку 1">1</a></li>
+                            <li><a href="#liv-sector-2" title="Перейти к отсеку 2">2</a></li>
+                            <li><a href="#liv-sector-3" title="Перейти к отсеку 3">3</a></li>
+                            <li><a href="#liv-sector-4" title="Перейти к отсеку 4">4</a></li>
+                            <li><a href="#liv-sector-5" title="Перейти к отсеку 5">5</a></li>
+                            <li><a href="#liv-sector-6" title="Перейти к отсеку 6">6</a></li>
+                            <li><a href="#liv-sector-7" title="Перейти к отсеку 7">7</a></li>
+                            <li><a href="#liv-sector-8" title="Перейти к отсеку 8">8</a></li>
+                            <li><a href="#liv-sector-9" title="Перейти к отсеку 9">9</a></li>
+                            <li><a href="#liv-sector-10" title="Перейти к отсеку 10">10</a></li>
+                            <li><a href="#liv-sector-11" title="Перейти к отсеку 111">11</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
                 <div class="submenu-switch-btn">
-                    <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
-                        title="Список объектов закреплен">
-                    <img class="unpinned-submenu" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
-                        title="Список объектов не закреплен. Закрепить?">
-                    <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
+                    <!-- <img class="pinned-submenu" src="./assets/pinned_icon.svg" alt="Список объектов закреплен" 
+                        title="Список объектов закреплен"> -->
+                    <img class="unpinned-submenu submenu-disabled-icon" src="./assets/unpinned_icon.svg" alt="Список объектов не закреплен"
+                        title="Список объектов не закреплен." style="display: block;">
+                    <!-- <img class="shown-eye-btn" src="./assets/shown-eye.svg" alt="Список объектов отображен">
                     <img class="hidden-eye-btn" src="./assets/hidden-eye.svg" alt="Список объектов скрыт"
-                        title="Кликните, чтобы скрыть список объектов">
+                        title="Кликните, чтобы скрыть список объектов"> -->
                 </div>
             </div>
 
@@ -144,9 +191,9 @@
                 <!-- ! расставить иконки над объектами - поменять позиционирование в стилях страницы, добавить data-object -->
                 <!-- Имя класса должно содержать значение href ссылки в списке и значение атрибута data-object полигона 
                     и информации по объектам в формате ___-info-icon -->
-                <div class="exit1-info-icon info-icon" data-object="exit1">
+                <!--  <div class="exit1-info-icon info-icon" data-object="exit1">
                     <img src="./assets/info-icon.svg" alt="Имеется информация по выезду из базы">
-                </div>
+                </div> -->
                 
                 
 
@@ -158,7 +205,7 @@
                 <!-- Холст <svg> с элементами <polygon> (points - координаты x,y точек), id - для быстрого перехода по ссылке-якорю,
                     атрибут data-object="..." - для связки объекта и информации о нем -->
                 <svg>
-                    <polygon data-object="exit1" id="exit1" points="444,515,905,513,904,582,443,582"></polygon>
+                   <!-- <polygon data-object="exit1" id="exit1" points="444,515,905,513,904,582,443,582"></polygon> --> 
                     
                     
 
@@ -172,7 +219,7 @@
                     top и left позиционируют его около своего полигона (в необходимом месте).
                     Значения в атрибутах data-object должны совпадать с data-object в тегах <polygon>;
                     Класс вложенного блока включает в том числе значение data-object в формате ___-info -->
-                <div class="item-block" data-object="exit1" style="top:322px; left:441px;">
+                <!-- <div class="item-block" data-object="exit1" style="top:322px; left:441px;">
                     <div class="item-info exit1-info">
                         <div class="item-name">Выход из базы</div>
                         Преимущественно для колесных. <br> 
@@ -181,7 +228,7 @@
                         <img src="./assets/warning-icon.svg" alt="Важное замечание">  
                         Закрывайте за собой двери!
                     </div>
-                </div>
+                </div> -->
 
                 
 
