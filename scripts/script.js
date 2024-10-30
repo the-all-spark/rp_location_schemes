@@ -12,6 +12,7 @@ window.onload = function() {
 		elem.addEventListener("dragstart", function(event) { event.preventDefault(); } );
 	})
 
+	// ! подкорректировать для всех условных знаков на странице
 	// * --- Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
 
 	let questionIcon = document.querySelector(".signs-icon img:nth-of-type(1)");
@@ -105,7 +106,8 @@ window.onload = function() {
 				if (!entry.isIntersecting) {
 					//console.log('Sticky-элемент активирован!');
 
-					if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+					// если иконка присутствует на странице
+					if(pinnedSubmenuIcon !== null && pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						burgermenuBlock.style.display = "none"; // если панель откреплена, стили блока бургер-меню "не скачут"
 					} else {
 						// отобразить иконку бургер-меню, скрыть основное меню в шапке
@@ -118,7 +120,7 @@ window.onload = function() {
 						burgermenuBtn.addEventListener("click", showMenu);
 					}
 					
-					if(!pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+					if(pinnedSubmenuIcon !== null && !pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						//console.log("Панель закреплена и ею можно управлять!");
 						//console.log(pinnedSubmenuIcon);
 	
@@ -148,13 +150,16 @@ window.onload = function() {
 
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
 					submenu.classList.remove("is-pinned");
-					shownEye.classList.remove("is-shown");
-					hiddenEye.classList.remove("is-shown");
 
-					if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
-						pinnedSubmenuIcon.classList.add("is-hidden");
-					} else {
-						pinnedSubmenuIcon.classList.remove("is-hidden");
+					if(shownEye !== null && hiddenEye !== null && pinnedSubmenuIcon !== null) {
+						shownEye.classList.remove("is-shown");
+						hiddenEye.classList.remove("is-shown");
+
+						if(pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
+							pinnedSubmenuIcon.classList.add("is-hidden");
+						} else {
+							pinnedSubmenuIcon.classList.remove("is-hidden");
+						}
 					}
 				}
 			}, 
@@ -189,7 +194,10 @@ window.onload = function() {
 	}
 
 	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
-	shownEye.addEventListener("mouseover", switchEye);
+	// если иконка присутствует на странице
+	if(shownEye !== null) {
+		shownEye.addEventListener("mouseover", switchEye);
+	}
 
 	function switchEye() {
 		if(submenu.classList.contains("is-pinned")) { // глазики появляются, только если панель закреплена
@@ -205,7 +213,10 @@ window.onload = function() {
 	}
 
 	// * ---- При клике на глаз панель перестает быть sticky и возвращается на место (position меняются)
-	hiddenEye.addEventListener("click", hideSubmenu);
+	// если иконка присутствует на странице
+	if(hiddenEye !== null) { 
+		hiddenEye.addEventListener("click", hideSubmenu);
+	}
 
 	function hideSubmenu() {
 		//console.log('Скрыть панель со списком объектов');
@@ -221,17 +232,21 @@ window.onload = function() {
 		pinnedSubmenuIcon.classList.add("unpinned-flag");
 	}
 	
-	// * При клике на перечеркнутую кнопку список с объектами закрепляется
+	// * При клике на перечеркнутую кнопку список с объектами закрепляется только если присутствуют иконки глаза и закрепления меню
 	unpinnedSubmenuIcon.addEventListener("click", function() {
 		unpinnedSubmenuIcon.classList.remove("is-shown");
-		pinnedSubmenuIcon.classList.remove("is-hidden");
-		pinnedSubmenuIcon.classList.remove("unpinned-flag");
 
-		submenu.style.position = "sticky";
-		shownEye.classList.remove("is-hidden");
-		shownEye.classList.remove("unpinned-flag");
+		if(shownEye !== null && pinnedSubmenuIcon !== null) {
+			pinnedSubmenuIcon.classList.remove("is-hidden");
+			pinnedSubmenuIcon.classList.remove("unpinned-flag");
+
+			submenu.style.position = "sticky";
+			shownEye.classList.remove("is-hidden");
+			shownEye.classList.remove("unpinned-flag");
+			
+			switchPinnedEffect();
+		}
 		
-		switchPinnedEffect();
 	});	
 
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
