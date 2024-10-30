@@ -1,21 +1,145 @@
 /* ---------------------- Блок "База: уровень 2"---------------------- */
 /*
-    #exit1 - Выезд из базы
-    #ground-bridge - Земной мост
-    #command-post - Командный пункт
-    #labs - Лаборатории
-    #weapons - Оружейная
-    #spare-warehouse - Склад деталей
-    #energon-warehouse - клад энергона
+Общий зал:
+    #bar - Бар
+    #balcony - Балкон
+
+Мед.блок:
+    #sanitary-processing - Сектор сан.обработки
+    #med-sector - Мед.отсек
+    #sanitary-sector - Сан.отсек
+    #staffroom - Ординаторская
+    #consulting-room - Кабинет глав.врача
+    #med-isolator - Мед.изолятор
+
+Жилые отсеки:
+    #liv-sector-1 - 1 отсек
+    #liv-sector-2
+    #liv-sector-3
+    #liv-sector-4
+    #liv-sector-5
+    #liv-sector-6
+    #liv-sector-7
+    #liv-sector-8
+    #liv-sector-9
+    #liv-sector-10
+    #liv-sector-11
 */
 
+.submenu {
+    position: relative;
+}
+
+.unpinned-submenu.submenu-disabled-icon:hover {
+    cursor: not-allowed;
+}
+
+.location-block  {
+    display: grid;
+    grid-template-columns: 15% auto;
+    column-gap: 10px;
+}
+
+.location-list {
+    margin-left: 10px;
+}
+
+/* Общий зал */
+.main-zone {
+    grid-template-areas: "main-zone-title main-zone-list";
+    grid-template-rows: 100%;
+    margin-top: 10px;
+}
+.main-zone-title {
+    grid-area: main-zone-title;
+    align-self: center;
+    display: grid;
+    grid-template-areas: "m-z-title m-z-signs";
+    grid-template-rows: 100%;
+    grid-template-columns: auto 25%;
+}
+.main-zone-list {
+    grid-area: main-zone-list;
+}
+
+.m-z-title {
+    grid-area: m-z-title;
+}
+.main-zone-signs.sign-block {
+    grid-area: m-z-signs;
+    display: inline;
+    justify-self: end;
+    align-self: center;
+    width: auto;
+    margin: 0;
+    position: static;
+}
+
+.main-zone-signs .signs-icon {
+    display: inline;
+    height: auto;
+    padding: 0;
+}
+.main-zone-signs .signs-icon img {
+    position: static;
+}
+
+.main-zone-signs .signs-image {
+    top: 0; /*! подкорректировать */
+    left: 0;
+    right: auto;
+}
+
+/* Мед.отсек */
+.medical-block {
+    grid-template-areas: "medical-block-title medical-block-list";
+    grid-template-rows: 100%;
+}
+.medical-block-title {
+    grid-area: medical-block-title;
+}
+.medical-block-list {
+    grid-area: medical-block-list;
+}
+
+/* Жилой блок */
+.living-block {
+    grid-template-areas: 
+        "living-block-title living-others-list"
+        "... living-sectors";
+    grid-template-rows: auto;
+}
+.living-block-title {
+    grid-area: living-block-title;
+}
+.living-others-list {
+    grid-area: living-others-list;
+}
+.living-sectors {
+    grid-area: living-sectors;
+    display: grid;
+    grid-template-areas: "l-s-title l-list-s";
+    grid-template-rows: auto;
+    grid-template-columns: 15% auto;
+}
+.living-sectors-title {
+    grid-area: l-s-title;
+    margin-left: 10px;
+    align-self: center;
+}
+.living-list-sectors {
+    grid-area: l-list-s;
+}
+
+.location-list.living-list-sectors a {
+    padding: 8px 15px;
+}
 
 
 
 
 
-
-
+/* ! старые стили */
 
 .signs-image img {
     width: 350px;
