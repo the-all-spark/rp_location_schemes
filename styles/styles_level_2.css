@@ -44,29 +44,14 @@
     margin-left: 10px;
 }
 
-/* Общий зал */
-.main-zone {
-    grid-template-areas: "main-zone-title main-zone-list";
-    grid-template-rows: 100%;
-    margin-top: 10px;
-}
-.main-zone-title {
-    grid-area: main-zone-title;
+.lvl2-location-title {
     align-self: center;
     display: grid;
-    grid-template-areas: "m-z-title m-z-signs";
     grid-template-rows: 100%;
     grid-template-columns: auto 25%;
 }
-.main-zone-list {
-    grid-area: main-zone-list;
-}
 
-.m-z-title {
-    grid-area: m-z-title;
-}
-.main-zone-signs.sign-block {
-    grid-area: m-z-signs;
+.sign-block.lvl2-sign-block {
     display: inline;
     justify-self: end;
     align-self: center;
@@ -75,19 +60,40 @@
     position: static;
 }
 
-.main-zone-signs .signs-icon {
+.lvl2-sign-block .signs-icon {
     display: inline;
     height: auto;
     padding: 0;
 }
-.main-zone-signs .signs-icon img {
+.lvl2-sign-block .signs-icon img {
     position: static;
 }
-
-.main-zone-signs .signs-image {
-    top: 0; /*! подкорректировать */
-    left: 0;
+.lvl2-sign-block .signs-image {
     right: auto;
+}
+
+/* Общий зал */
+.main-zone {
+    grid-template-areas: "main-zone-title main-zone-list";
+    margin-top: 10px;
+    grid-template-rows: 100%;
+}
+.main-zone-title {
+    grid-area: main-zone-title;
+    grid-template-areas: "m-z-title m-z-signs";
+}
+.main-zone-list {
+    grid-area: main-zone-list;
+}
+.m-z-title {
+    grid-area: m-z-title;
+}
+.main-zone-signs {
+    grid-area: m-z-signs;
+}
+.main-zone-signs .signs-image {
+    top: 19px;
+    left: 113px;
 }
 
 /* Мед.отсек */
@@ -97,9 +103,20 @@
 }
 .medical-block-title {
     grid-area: medical-block-title;
+    grid-template-areas: "m-b-title m-b-signs";
 }
 .medical-block-list {
     grid-area: medical-block-list;
+}
+.m-b-title {
+    grid-area: m-b-title;
+}
+.medical-block-signs {
+    grid-area: m-b-signs;
+}
+.medical-block-signs .signs-image {
+    top: 97px;
+    left: 116px;
 }
 
 /* Жилой блок */
