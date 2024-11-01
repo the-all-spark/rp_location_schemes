@@ -15,22 +15,77 @@ window.onload = function() {
 	// ! подкорректировать для всех условных знаков на странице
 	// * --- Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
 
-	let questionIcon = document.querySelector(".signs-icon img:nth-of-type(1)");
-	questionIcon.addEventListener("click", showHideSigns);
+	let signsImageAll = document.querySelectorAll(".signs-image"); // коллекция изображений УЗ  (1 эл. - если только общие)
+	//console.log(signsImageAll);
 
+	let signsIconAll = Array.from(document.querySelectorAll(".signs-icon")); // коллекция иконок открыть/закрыть 
+	//console.log(signsIconAll);
+
+	for(let i = 0; i < signsIconAll.length; i++) {
+		let questionIcon = signsIconAll[i].children[0]; // иконка - ?
+
+		let chosenDataBlock = questionIcon.parentElement.dataset.block; // значение data-block блока с УЗ
+		if(chosenDataBlock !== undefined) { 
+			questionIcon.addEventListener("click", function() { showHideSignsSeveral(signsIconAll[i],chosenDataBlock) });
+		} else {
+			questionIcon.addEventListener("click", showHideSigns); // УЗ только 1 на странице
+		}
+	}
+
+	// * функция отображения/скрытия условных знаков (если их несколько на странице)
+	// принимает текущий блок иконок (открытия и закрытия) и значение атрибута data-block
+	function showHideSignsSeveral(icons,data) {
+		//console.log(icons);
+		//console.log(data);
+
+		let openIcon = icons.children[0]; // иконка открытия - ?
+		let closeIcon = icons.children[1]; // иконка закрытия - x
+
+		let signImg = document.querySelector(`.signs-image[data-block="${data}"]`); // соотв. изображение с УЗ
+		//console.log(signImg);
+
+		signImg.classList.add("shown-signs"); // показать усл. знаки
+		openIcon.style.display = "none"; 
+
+		closeIcon.style.display = "block";
+		closeIcon.style.zIndex = "9000";
+		closeIcon.style.position = "absolute"; // !
+
+		// другое позиционирование иконки закрытия УЗ для общих УЗ
+		if(data === "general") {
+			closeIcon.style.top = "7px"; // !
+			closeIcon.style.right = "4px"; // !
+		} else {
+			closeIcon.style.top = "-15px"; // !
+			closeIcon.style.right = "0"; // !
+		}
+		
+		closeIcon.addEventListener("click", function() {
+			openIcon.style.display = "block";
+			openIcon.style.zIndex = "999";
+			//closeIcon.style.zIndex = "-1";
+			closeIcon.style.display = "none";
+			signImg.classList.remove("shown-signs"); // скрыть усл. знаки
+		});
+	}
+
+	// * функция отображения/скрытия условных знаков (если одни на странице)
 	function showHideSigns() {
-        document.querySelector(".signs-image").classList.add("shown-signs"); // показать усл. знаки
+		let questionIcon = document.querySelector(".signs-icon img:nth-of-type(1)"); // иконка открытия - ? 
+
+        signsImageAll[0].classList.add("shown-signs"); // показать усл. знаки
         questionIcon.style.display = "none";
 
-        let closeIcon = document.querySelector(".signs-icon img:nth-of-type(2)"); // иконка закрытия
+        let closeIcon = document.querySelector(".signs-icon img:nth-of-type(2)"); // иконка закрытия - x
         closeIcon.style.display = "block";
         closeIcon.style.zIndex = "9000";
 
         closeIcon.addEventListener("click", function() {
             questionIcon.style.display = "block";
             questionIcon.style.zIndex = "999";
-            closeIcon.style.zIndex = "-1";
-            document.querySelector(".signs-image").classList.remove("shown-signs"); // скрыть усл. знаки
+            //closeIcon.style.zIndex = "-1";
+			closeIcon.style.display = "none";
+            signsImageAll[0].classList.remove("shown-signs"); // скрыть усл. знаки
         });
 	}
 
@@ -339,7 +394,7 @@ window.onload = function() {
 
 	// * ----- При клике на объект открывается информация по нему, прячется иконка i
 
-	// перебор объектов, вызов функции
+	// перебор объектов, вызов функции при клике
 	for(let i = 0; i < arrObjects.length; i++) {
 		//arrObjects[i].addEventListener("click", showHideInfo);
 		arrObjects[i].addEventListener("click", function() { showHideInfo(arrObjects[i]) });
