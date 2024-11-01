@@ -34,12 +34,6 @@ window.onload = function() {
         });
 	}
 
-	// * ---- Прилипание и отлипание списка объектов
-	// При прилипании списка с объектами появляется иконка глаза (= панель отображается)
-	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
-	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
-	*/
-
 	// * КНОПКИ УПРАВЛЕНИЯ ПАНЕЛЬЮ С ОБЪЕКТАМИ
 
 	let submenu = document.querySelector(".submenu");
@@ -63,6 +57,7 @@ window.onload = function() {
 
 			burgermenuBlock.style.top = "-1px"; // само меню
 			burgermenuBlock.style.left = "-1px";
+			//burgermenuBlock.style.position = "sticky";
 
 			burgermenuCloseBtn.style.top = 0; // крестик закрытия
 			burgermenuCloseBtn.style.left = 0;
@@ -73,6 +68,7 @@ window.onload = function() {
 
 			burgermenuBlock.style.top = "-1px"; 
 			burgermenuBlock.style.left = "-86px";
+			//burgermenuBlock.style.position = "sticky";
 
 			burgermenuCloseBtn.style.top = 0;
 			burgermenuCloseBtn.style.left = "calc(50% - 16px)";
@@ -83,19 +79,23 @@ window.onload = function() {
 
 			burgermenuBlock.style.top = "-1px"; 
 			burgermenuBlock.style.left = "-86px";
+			//burgermenuBlock.style.position = "sticky";
 
 			burgermenuCloseBtn.style.top = 0;
 			burgermenuCloseBtn.style.left = 0;
 		}
 	}
-
 	getBurgerMenuBtnOffset();
+
+	// * ---- Прилипание и отлипание списка объектов
+	// При прилипании списка с объектами появляется иконка глаза (= панель отображается)
+	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
+	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
+	*/
 
 	const sentinel = document.createElement('div');
 	//document.querySelector(".sign-block").before(sentinel);
 	submenu.before(sentinel);
-
-	submenu
 	switchPinnedEffect(); // вызов функции
 
 	// функция переключения между реакцией элементов при прилипании и отлипании панели подменю/списка
@@ -232,7 +232,7 @@ window.onload = function() {
 		pinnedSubmenuIcon.classList.add("unpinned-flag");
 	}
 	
-	// * При клике на перечеркнутую кнопку список с объектами закрепляется только если присутствуют иконки глаза и закрепления меню
+	// * При клике на перечеркнутую кнопку список с объектами закрепляется, только если присутствуют иконки глаза и закрепления меню
 	unpinnedSubmenuIcon.addEventListener("click", function() {
 		unpinnedSubmenuIcon.classList.remove("is-shown");
 
@@ -269,14 +269,13 @@ window.onload = function() {
 		//console.log(arrLocationListItems[i]);
 		let idName = arrLocationListItems[i].hash.slice(1); // значение в href без символа #
 
-		// выделение полигона при клике, прокручивание страницы до него
-		arrLocationListItems[i].onclick = function (e) {
+		// выделение полигона при клике, скрытие прочих выделений, прокручивание страницы до полигона
+		arrLocationListItems[i].addEventListener("click", function (e) {
 			e.preventDefault();
+			hidePreviousInfo(); // вызов функции
 			switchToObject(idName);
-		};
+		});
 
-		// скрытие всей предыдущей инф-ции при наведении
-		arrLocationListItems[i].addEventListener("mouseover", function() { hidePreviousInfo() }); 
 	}
 
 	// * функция выделяет границей полигон, на который совершен переход + прокручивает страницу
@@ -290,7 +289,7 @@ window.onload = function() {
 
 			if(polygons[i].id === id) {
 				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
-				scrollPageToObj(polygons[i]); // вызов функции
+				scrollPageToObj(polygons[i]); // ! вызов функции из другого файла
 
 				// при клике на уже выделенный объект
 				polygons[i].addEventListener("click", function() { 
@@ -425,7 +424,6 @@ window.onload = function() {
 				elem.classList.remove("active-selected-polygon");
 			} 
 		}
-
 	}
 
 	// * Функция показа / скрытия иконки i над полигоном (объектом)
@@ -438,7 +436,7 @@ window.onload = function() {
 		}
 	}
 	
-	// * Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
+	// * ---- Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
 	let upBtn = document.querySelector(".up-btn");
 	upBtn.addEventListener("click", function() {
 		//event.preventDefault();
