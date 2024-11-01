@@ -51,10 +51,8 @@
             <!-- ! поменять текст + уровень доступа -->
             <div class="general-info">
                 <b>Второй этаж базы.</b> <br>
-            
+                Именно здесь обитатели станции проводят больше всего времени (и я не про жилые отсеки или мед.блок...).
 
-
-                
                 <div  class="access-level">
                     <img src="./assets/lock_unlock_icon.svg" alt="Смешанный доступ" title="Смешанный доступ">
                     <b><i>Уровень доступа:</i></b> смешанный (служебные помещения требуют допуск).
@@ -96,14 +94,14 @@
                 <div class="main-zone location-block">
                     <div class="main-zone-title lvl2-location-title">
                         <p class="m-z-title">Общий зал</p>
-                        <!-- УЗ для блока -->
+                        <!-- УЗ для блока - общий зал-->
                         <div class="sign-block main-zone-signs lvl2-sign-block">
-                            <div class="signs-icon">
+                            <div class="signs-icon" data-block="main-zone">
                                 <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
                                 <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                             </div>
-                            <div class="signs-image">
-                                <img src="" alt='Условные обозначения к блоку "Общий зал"'>
+                            <div class="signs-image" data-block="main-zone">
+                                <img src="./assets/signs/signs_level_2_main-zone.jpg" alt='Условные обозначения к блоку "Общий зал"'>
                             </div>
                         </div>
                     </div>
@@ -117,14 +115,14 @@
                 <div class="medical-block location-block">
                     <div class="medical-block-title lvl2-location-title">
                         <p class="m-b-title">Мед.блок</p>
-                        <!-- УЗ для блока -->
+                        <!-- УЗ для блока - мед.блок -->
                         <div class="sign-block medical-block-signs lvl2-sign-block">
-                            <div class="signs-icon">
+                            <div class="signs-icon" data-block="medical-block">
                                 <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
                                 <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                             </div>
-                            <div class="signs-image">
-                                <img src="" alt='Условные обозначения к блоку "Мед.блок"'>
+                            <div class="signs-image" data-block="medical-block">
+                                <img src="./assets/signs/signs_level_2_medical-block.jpg" alt='Условные обозначения к блоку "Мед.блок"'>
                             </div>
                         </div>
                     </div>
@@ -142,14 +140,14 @@
                 <div class="living-block location-block">
                     <div class="living-block-title lvl2-location-title">
                         <p class="l-b-title">Жилой блок</p>
-                        <!-- УЗ для блока -->
+                        <!-- УЗ для блока - жилой блок -->
                         <div class="sign-block living-block-signs lvl2-sign-block">
-                            <div class="signs-icon">
+                            <div class="signs-icon" data-block="living-block">
                                 <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
                                 <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                             </div>
-                            <div class="signs-image">
-                                <img src="" alt='Условные обозначения к блоку "Жилой блок"'>
+                            <div class="signs-image" data-block="living-block">
+                                <img src="./assets/signs/signs_level_2_living-block.jpg" alt='Условные обозначения к блоку "Жилой блок"'>
                             </div>
                         </div>
                     </div>
@@ -196,13 +194,13 @@
             
             <!-- Условные обозначения к _текущей_ схеме, иконки открытия и закрытия -->
             <div class="sign-block">
-                <div class="signs-icon">
+                <div class="signs-icon" data-block="general">
                     <img src="./assets/open-icon.svg" alt="Иконка для открытия условных обозначений" title="Открыть условные знаки">
                     <img src="./assets/close-icon_.svg" alt="Иконка для закрытия условных обозначений" title="Закрыть условные знаки">
                 </div>
-                <div class="signs-image">
+                <div class="signs-image" data-block="general">
                     <!-- ! поменять УЗ на новое изображение -->
-                    <img src="  " alt='Условные обозначения к схеме "База: уровень 2"'>
+                    <img src="./assets/signs/signs_level_2_general.jpg" alt='Условные обозначения к схеме "База: уровень 2". Общее'>
                 </div>
             </div>
             

@@ -75,6 +75,10 @@
     right: auto;
 }
 
+.signs-image[data-block="general"] img {
+    width: 310px;
+}
+
 /* Общий зал */
 .main-zone {
     grid-template-areas: "main-zone-title main-zone-list";
@@ -95,8 +99,8 @@
     grid-area: m-z-signs;
 }
 .main-zone-signs .signs-image {
-    top: 19px;
-    left: 115px;
+    top: 14px;
+    left: 112px;
 }
 
 /* Мед.отсек */
@@ -119,7 +123,7 @@
 }
 .medical-block-signs .signs-image {
     top: 97px;
-    left: 115px;
+    left: 112px;
 }
 
 /* Жилой блок */
@@ -141,7 +145,7 @@
 }
 .living-block-signs .signs-image {
     top: 179px;
-    left: 115px;
+    left: 112px;
 }
 .living-others-list {
     grid-area: living-others-list;
@@ -167,6 +171,10 @@
 
 .signs-image img {
     width: 350px;
+}
+
+.living-block-signs .signs-image img {
+    width: 250px;
 }
 
 .map-block {
