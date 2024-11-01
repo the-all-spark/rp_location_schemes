@@ -12,7 +12,10 @@
     #consulting-room - Кабинет глав.врача
     #med-isolator - Мед.изолятор
 
-Жилые отсеки:
+Жилой блок:
+#all-sanitary-sector - Сан.отсеки
+
+  Жилые отсеки:
     #liv-sector-1 - 1 отсек
     #liv-sector-2
     #liv-sector-3
@@ -93,7 +96,7 @@
 }
 .main-zone-signs .signs-image {
     top: 19px;
-    left: 113px;
+    left: 115px;
 }
 
 /* Мед.отсек */
@@ -116,7 +119,7 @@
 }
 .medical-block-signs .signs-image {
     top: 97px;
-    left: 116px;
+    left: 115px;
 }
 
 /* Жилой блок */
@@ -128,6 +131,17 @@
 }
 .living-block-title {
     grid-area: living-block-title;
+    grid-template-areas: "l-b-title l-b-signs";
+}
+.l-b-title {
+    grid-area: l-b-title;
+}
+.living-block-signs {
+    grid-area: l-b-signs;
+}
+.living-block-signs .signs-image {
+    top: 179px;
+    left: 115px;
 }
 .living-others-list {
     grid-area: living-others-list;
@@ -147,16 +161,9 @@
 .living-list-sectors {
     grid-area: l-list-s;
 }
-
 .location-list.living-list-sectors a {
     padding: 8px 15px;
 }
-
-
-
-
-
-/* ! старые стили */
 
 .signs-image img {
     width: 350px;
@@ -171,92 +178,121 @@
     height: 600px;
 }
 
+
 /* Иконки i объектов */
 
-.exit1-info-icon {
-    top: 522px;
-    left: 460px;
+/* Общий зал*/
+.bar-info-icon {
+    top: 188px;
+    left: 398px;
 }
 
-.ground-bridge-info-icon {
-    top: 314px;
-    left: 793px;
+.balcony-info-icon {
+    top: 2px;
+    left: 529px;
 }
 
-.command-post-info-icon {
-    top: 88px;
-    left: 791px;
+/* Мед.блок */
+.sanitary-processing-info-icon {
+    top: 241px;
+    left: 364px;
 }
 
-.labs-info-icon {
-    top: 86px;
-    left: 411px;
+.med-sector-info-icon {
+    top: 342px;
+    left: 212px;
 }
 
-.weapons-info-icon {
+.sanitary-sector-info-icon {
+    top: 313px;
+    left: 414px;
+}
+
+.staffroom-info-icon {
+    top: 390px;
+    left: 331px;
+}
+
+.consulting-room-info-icon {
     top: 319px;
-    left: 158px;
+    left: 32px;
 }
 
-.spare-warehouse-info-icon {
-    top: 410px;
-    left: 155px;
+.med-isolator-info-icon {
+    top: 107px;
+    left: 194px;
 }
 
-.energon-warehouse-info-icon {
-    top: 506px;
-    left: 169px;
+/* Жилой блок, жилые отсеки */
+.all-sanitary-sector-info-icon {
+    top: 388px;
+    left: 606px;
 }
 
 /* ----- Информация по объектам ----- */
 /* Объекты (блоки текста и заголовок) */
-
-.exit1-info {
+.bar-info {
     width: 260px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
-.ground-bridge-info {
-    width: 370px;
+.balcony-info {
+    width: 260px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
-.command-post-info {
-    width: 370px;
+.sanitary-processing-info {
+    width: 210px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
-.labs-info {
-    width: 170px;
-    padding-top: 45px;
-    padding-bottom: 10px;
-}
-
-.weapons-info {
-    width: 200px;
-    padding-top: 45px;
-    padding-bottom: 10px;
-}
-
-.spare-warehouse-info {
-    width: 200px;
-    padding-top: 45px;
-    padding-bottom: 10px;
-}
-
-.energon-warehouse-info {
-    width: 200px;
-    padding-top: 45px;
-    padding-bottom: 10px;
-}
-
-/*
-.exit1-info .item-name {
+.sanitary-processing-info .item-name {
     border-left: 2px solid transparent;
     right: 5px;
     padding: 8px 7px;
 }
-*/
+
+.med-sector-info {
+    width: 450px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.sanitary-sector-info {
+    width: 190px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.staffroom-info {
+    width: 230px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.consulting-room-info {
+    width: 180px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.consulting-room-info .item-name {
+    border-left: 2px solid transparent;
+    right: 5px;
+    padding: 8px 7px;
+}
+
+.med-isolator-info {
+    width: 210px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
+
+.all-sanitary-sector-info {
+    width: 210px;
+    padding-top: 45px;
+    padding-bottom: 10px;
+}
