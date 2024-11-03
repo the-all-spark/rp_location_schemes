@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'JotiOne-circle';
+    src: url(../fonts/JotiOne-Regular.ttf);
+}
+
 /* ---------------------- Блок "База: уровень 2"---------------------- */
 /*
 Общий зал:
@@ -177,6 +182,10 @@
     width: 250px;
 }
 
+.medical-block-signs .signs-image img {
+    width: 700px;
+}
+
 .map-block {
     height: 600px;
     border: 2px solid transparent;
@@ -235,6 +244,73 @@
 .all-sanitary-sector-info-icon {
     top: 388px;
     left: 606px;
+}
+
+/* Иконки с номером */
+.liv-sector-circle {
+    /*display: none;*/
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 19px;
+    font-family: "JotiOne-circle";
+}
+
+.liv-sector-circle p {
+    margin: 0 auto;
+}
+
+.l-s-1-circle {
+    top: 426px;
+    left: 719px;
+}
+.l-s-2-circle {
+    top: 380px;
+    left: 840px;
+}
+.l-s-3-circle {
+    top: 278px;
+    left: 840px;
+}
+.l-s-4-circle {
+    top: 191px;
+    left: 677px;
+}
+.l-s-5-circle {
+    top: 191px;
+    left: 768px;
+}
+.l-s-6-circle {
+    top: 52px;
+    left: 672px;
+}
+.l-s-7-circle {
+    top: 52px;
+    left: 758px;
+}
+.l-s-8-circle {
+    top: 52px;
+    left: 811px;
+}
+.l-s-9-circle {
+    top: 52px;
+    left: 869px;
+}
+.l-s-10-circle {
+    top: 53px;
+    left: 930px;
+}
+.l-s-11-circle {
+    top: 203px;
+    left: 906px;
 }
 
 /* ----- Информация по объектам ----- */
