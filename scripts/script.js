@@ -315,6 +315,8 @@ window.onload = function() {
     let infoIcons = document.querySelectorAll(".info-icon"); // иконки i над блоком
 	let arrInfoIcons =  Array.from(infoIcons);
 
+	let sectorNumberIcons = document.querySelectorAll(".liv-sector-circle"); // иконки с цифрой над отсеком
+	
 	// * ---- При переходе (клике) по ссылке из списка локаций подсвечивается нужный объект 
 
 	let locationListItems = document.querySelectorAll(".location-list a");
@@ -328,9 +330,16 @@ window.onload = function() {
 		arrLocationListItems[i].addEventListener("click", function (e) {
 			e.preventDefault();
 			hidePreviousInfo(); // вызов функции
-			switchToObject(idName);
-		});
 
+			// если в списке выбран отсек - появление иконки с номером
+			if(arrLocationListItems[i].parentElement.parentElement.classList.contains("living-list-sectors")) {
+				let selectedSector = document.querySelector('.liv-sector-circle[data-object = "' + idName + '"]');
+				selectedSector.classList.add("shown-liv-sector-circle"); // отображаем номер отсека
+				switchToObject(idName);
+			} else {
+				switchToObject(idName);
+			}
+		});
 	}
 
 	// * функция выделяет границей полигон, на который совершен переход + прокручивает страницу
@@ -390,9 +399,18 @@ window.onload = function() {
 				arrInfoIcons[k].classList.remove("hidden-info-icon");
 			}
 		}
+
+		// проверяем по иконкам с номерами отсеков
+		for(let m = 0; m < sectorNumberIcons.length; m++) {
+			if(sectorNumberIcons[m].classList.contains("shown-liv-sector-circle")) {
+				sectorNumberIcons[m].classList.remove("shown-liv-sector-circle");
+			}
+		}
+
 	}
 
-	// * ----- При клике на объект открывается информация по нему, прячется иконка i
+	// !
+	// * ----- При клике на объект открывается информация по нему, прячется иконка i 
 
 	// перебор объектов, вызов функции при клике
 	for(let i = 0; i < arrObjects.length; i++) {
