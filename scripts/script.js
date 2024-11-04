@@ -369,7 +369,6 @@ window.onload = function() {
 	// в файле ./scripts/script_scroll_...
 
 	// * функция скрывает все выделенные ранее объекты и открытые блоки с информацией, если есть
-	// * при наведении на объект из списка
 	function hidePreviousInfo() {
 		//console.log("Прячем все выделения и инфу");
 		//console.log(arrObjects);
@@ -412,7 +411,7 @@ window.onload = function() {
 	// !
 	// * ----- При клике на объект открывается информация по нему, прячется иконка i 
 
-	// перебор объектов, вызов функции при клике
+	// перебор объектов, вызов функции при клике (в том числе для отсеков)
 	for(let i = 0; i < arrObjects.length; i++) {
 		//arrObjects[i].addEventListener("click", showHideInfo);
 		arrObjects[i].addEventListener("click", function() { showHideInfo(arrObjects[i]) });
@@ -420,11 +419,9 @@ window.onload = function() {
 
 	// перебор иконок i, вызов функции при клике
 	for(let i = 0; i < arrInfoIcons.length; i++) {
-
 		arrInfoIcons[i].addEventListener("click", function() {
 
 			for(let j = 0; j < arrObjects.length; j++) {
-		
 				// атрибуты иконки и полигона совпадают
 				if(arrInfoIcons[i].dataset.object === arrObjects[j].dataset.object) { 
 						//console.log("Совпадает с кликнутой иконкой!");
@@ -439,12 +436,24 @@ window.onload = function() {
 	function showHideInfo(obj) {
 			//console.log("Прячем / показываем инфу");
 			//console.log(e.target);
-			//console.log(obj);
-			//console.log(obj); 
+			//console.log(obj); // polygon
 
 		let selectedObj = obj.dataset.object; // значение атрибута объекта, по которому кликнули
 
 		highlightPolygon(obj); //  вызов функции выделения полигона 
+
+		if(selectedObj.startsWith("liv-sector")) {
+			// убираем отображенные ранее иконки с номером отсека
+			for(let i = 0; i < sectorNumberIcons.length; i++) {
+				if(sectorNumberIcons[i].classList.contains("shown-liv-sector-circle")) {
+					sectorNumberIcons[i].classList.remove("shown-liv-sector-circle");
+				} 
+			}
+			let selectedSectorCircle = document.querySelector('.liv-sector-circle[data-object = "' + selectedObj + '"]');
+			selectedSectorCircle.classList.add("shown-liv-sector-circle"); // отображаем номер отсека
+
+		} 
+			
 		showHideIcon(); // вызов функции скрытия и показа иконки i
 
 		// показ / скрытие информации
@@ -465,6 +474,13 @@ window.onload = function() {
 					// если показана информация - убираем иконку i (добавляем класс hidden-info-icon)
 					selectedObjInfo.classList.add("shown-item");
 					infoIcon.classList.add("hidden-info-icon");
+				}
+
+				// убираем отображенные ранее иконки с номером отсека, если есть
+				for(let i = 0; i < sectorNumberIcons.length; i++) {
+					if(sectorNumberIcons[i].classList.contains("shown-liv-sector-circle")) {
+						sectorNumberIcons[i].classList.remove("shown-liv-sector-circle");
+					}
 				}
 
 			} else {
@@ -499,7 +515,7 @@ window.onload = function() {
 		}
 	}
 
-	// * Функция показа / скрытия иконки i над полигоном (объектом)
+	// * Функция показа / скрытия иконки i и иконок с номером над полигоном (объектом)
 	function showHideIcon() {
 		// для всех объектов: если иконка i не показана - показываем
 		for(let i = 0; i < arrInfoIcons.length; i++) {
