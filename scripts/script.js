@@ -105,56 +105,111 @@ window.onload = function() {
 	// * Отслеживание ширины окна браузера и изменение позиционирования бургер-меню и его иконок
 	function getBurgerMenuBtnOffset() {
 
-		// отслеживаем ширину экрана браузера (значение в px)
-		if(window.innerWidth <= 1170) {
-			burgermenuBtn.style.top = "15px"; // кнопка меню
-			burgermenuBtn.style.left = "15px";
-
-			burgermenuBlock.style.top = "-1px"; // само меню
-			burgermenuBlock.style.left = "-1px";
-			//burgermenuBlock.style.position = "sticky";
-
-			burgermenuCloseBtn.style.top = 0; // крестик закрытия
-			burgermenuCloseBtn.style.left = 0;
-
-		} else if(window.innerWidth <= 1200) {
-			burgermenuBtn.style.top = "15px"; 
-			burgermenuBtn.style.left = "15px";
-
-			burgermenuBlock.style.top = "-1px"; 
-			burgermenuBlock.style.left = "-86px";
-			//burgermenuBlock.style.position = "sticky";
-
-			burgermenuCloseBtn.style.top = 0;
-			burgermenuCloseBtn.style.left = "calc(50% - 16px)";
+		// для зафиксированного на странице бургер-меню
+		if(burgermenuBlock.classList.contains("bm-fixed")) {
+			burgermenuBlock.style.top = "16px"; 
+			burgermenuBlock.style.left = "117px";
 
 		} else {
-			burgermenuBtn.style.top = "15px"; 
-			burgermenuBtn.style.left = "-70px";
+			// отслеживаем ширину экрана браузера (значение в px)
+			if(window.innerWidth <= 1170) {
+				burgermenuBtn.style.top = "15px"; // кнопка меню
+				burgermenuBtn.style.left = "15px";
 
-			burgermenuBlock.style.top = "-1px"; 
-			burgermenuBlock.style.left = "-86px";
-			//burgermenuBlock.style.position = "sticky";
+				burgermenuBlock.style.top = "-1px"; // само меню
+				burgermenuBlock.style.left = "-1px";
+				//burgermenuBlock.style.position = "sticky";
 
-			burgermenuCloseBtn.style.top = 0;
-			burgermenuCloseBtn.style.left = 0;
+				burgermenuCloseBtn.style.top = 0; // крестик закрытия
+				burgermenuCloseBtn.style.left = 0;
+
+			} else if(window.innerWidth <= 1200) {
+				burgermenuBtn.style.top = "15px"; 
+				burgermenuBtn.style.left = "15px";
+
+				burgermenuBlock.style.top = "-1px"; 
+				burgermenuBlock.style.left = "-86px";
+				//burgermenuBlock.style.position = "sticky";
+
+				burgermenuCloseBtn.style.top = 0;
+				burgermenuCloseBtn.style.left = "calc(50% - 16px)";
+
+			} else {
+				burgermenuBtn.style.top = "15px"; 
+				burgermenuBtn.style.left = "-70px";
+
+				burgermenuBlock.style.top = "-1px"; 
+				burgermenuBlock.style.left = "-86px";
+				//burgermenuBlock.style.position = "sticky";
+
+				burgermenuCloseBtn.style.top = 0;
+				burgermenuCloseBtn.style.left = 0;
+			}
 		}
+
 	}
 	getBurgerMenuBtnOffset();
 
-	// * ---- Прилипание и отлипание списка объектов
-	// При прилипании списка с объектами появляется иконка глаза (= панель отображается)
-	/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
-	  Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
-	*/
+	// * ---- Отображение фиксированного бургер-меню на страницах, где нет закрепленной панели объектов
+	if(burgermenuBlock.classList.contains("bm-fixed")) {
+		
+		// отслеживаемый элемент для отображения блока
+		const sentinel = document.createElement('div');
+		let accessLevelBlock = document.querySelector(".access-level");
+		accessLevelBlock.before(sentinel);
 
-	const sentinel = document.createElement('div');
-	//document.querySelector(".sign-block").before(sentinel);
-	submenu.before(sentinel);
-	switchPinnedEffect(); // вызов функции
+		showHideBurgermenu(sentinel);
+
+	} else {
+
+		// * ---- Прилипание и отлипание списка объектов
+		// При прилипании списка с объектами появляется иконка глаза (= панель отображается)
+		/*создаем перед 'sticky'-элементом "сентинель" и следим за его видимостью. 
+		Когда сентинель исчезнет из поля зрения, элемент перейдет в режим прилипания.
+		*/
+
+		const sentinel = document.createElement('div');
+		//document.querySelector(".sign-block").before(sentinel);
+		submenu.before(sentinel);
+		switchPinnedEffect(sentinel); // вызов функции
+
+	}
+
+	// функция показа/скрытия бургер меню
+	function showHideBurgermenu(sentinel) {
+		new IntersectionObserver(
+			([entry]) => {
+
+				//Сентинель скрыт - показать меню
+				if (!entry.isIntersecting) {
+					burgermenuBlock.style.display = "grid";
+					burgermenuBlock.style.position = "fixed";
+					burgermenuBlock.style.top = "16px"; 
+					burgermenuBlock.style.left = "117px";
+
+					burgermenuBtn.classList.add("burgermenu-btn-open-shown");
+					// определение смещения кнопки бургер-меню и крестика в зависимости от ширины окна
+					window.addEventListener("resize", getBurgerMenuBtnOffset);
+					burgermenuBtn.addEventListener("click", showMenu);
+				}
+
+				// Сентинель отображается - скрыть меню
+				if (entry.isIntersecting) {
+					burgermenuBlock.style.display = "none";
+					burgermenuBtn.classList.remove("burgermenu-btn-open-shown");
+					burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
+					burgermenuBlock.classList.remove("burgermenu-shown");
+					burgermenu.classList.remove("burgermenu-nav-shown");
+				} 
+
+			}, 
+				{ rootMargin: '0px 0px 0px 0px', threshold: [0] }
+		).observe(sentinel);
+
+	}
 
 	// функция переключения между реакцией элементов при прилипании и отлипании панели подменю/списка
-	function switchPinnedEffect() {
+	function switchPinnedEffect(sentinel) {
 		new IntersectionObserver(
 			([entry]) => {
 				// * "прилипание" блока (когда элемент не наблюдается)
@@ -165,7 +220,7 @@ window.onload = function() {
 					if(pinnedSubmenuIcon !== null && pinnedSubmenuIcon.classList.contains("unpinned-flag")) {
 						burgermenuBlock.style.display = "none"; // если панель откреплена, стили блока бургер-меню "не скачут"
 					} else {
-						// отобразить иконку бургер-меню, скрыть основное меню в шапке
+						// отобразить иконку бургер-меню
 						burgermenuBlock.style.display = "grid";
 						burgermenuBtn.classList.add("burgermenu-btn-open-shown");
 
@@ -226,6 +281,10 @@ window.onload = function() {
 	// * функция отображения меню при клике на кнопку бургер-меню
 	function showMenu() {
 		//console.log('Показать меню!');
+		if(burgermenuBlock.classList.contains("bm-fixed")) {
+			burgermenuBlock.style.top = 0; 
+			burgermenuBlock.style.left = "101px";
+		}
 
 		// поменять кнопку на крестик
 		burgermenuCloseBtn.classList.add("burgermenu-btn-close-shown");
@@ -240,6 +299,11 @@ window.onload = function() {
 	// * функция скрытия меню при клике на крестик
 	function closeMenu() {
 		//console.log('Скрыть меню!');
+
+		if(burgermenuBlock.classList.contains("bm-fixed")) {
+			burgermenuBlock.style.top = "16px"; 
+			burgermenuBlock.style.left = "117px";
+		}
 
 		burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
 		burgermenuBtn.classList.add("burgermenu-btn-open-shown");
@@ -441,7 +505,7 @@ window.onload = function() {
 		});
 	}
 
-	// * Функция показа/скрытия иконки "i" выбранного полигона, показа/скрытия информации о нем
+	// * Функция показа/скрытия иконки "i" или номера для выбранного полигона, показа/скрытия информации о нем
 	function showHideInfo(obj) {
 			//console.log("Прячем / показываем инфу");
 			//console.log(e.target);
