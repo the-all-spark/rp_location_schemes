@@ -337,6 +337,7 @@ window.onload = function() {
 				selectedSector.classList.add("shown-liv-sector-circle"); // отображаем номер отсека
 				switchToObject(idName);
 			} else {
+				// для других объектов списка
 				switchToObject(idName);
 			}
 		});
@@ -352,7 +353,15 @@ window.onload = function() {
 			polygons[i].classList.remove("active-polygon");
 
 			if(polygons[i].id === id) {
-				polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
+
+				// если кликнули на списке отсеков - добавляем класс "active-polygon" вместо "active-selected-polygon"
+				// т.к. повторного клика для открытия информации об объекте не надо
+				if(id.startsWith("liv-sector")) {
+					polygons[i].classList.add("active-polygon");
+				} else {
+					polygons[i].classList.add("active-selected-polygon"); // выделение объекта из списка
+				}
+			
 				scrollPageToObj(polygons[i]); // ! вызов функции из другого файла
 
 				// при клике на уже выделенный объект
@@ -436,24 +445,31 @@ window.onload = function() {
 	function showHideInfo(obj) {
 			//console.log("Прячем / показываем инфу");
 			//console.log(e.target);
-			//console.log(obj); // polygon
+			//console.log(obj); // polygon по которому кликнули
 
 		let selectedObj = obj.dataset.object; // значение атрибута объекта, по которому кликнули
-
 		highlightPolygon(obj); //  вызов функции выделения полигона 
 
+		// * для отсеков (этаж 2)
 		if(selectedObj.startsWith("liv-sector")) {
+			let selectedSectorCircle = document.querySelector('.liv-sector-circle[data-object = "' + selectedObj + '"]');
+
 			// убираем отображенные ранее иконки с номером отсека
 			for(let i = 0; i < sectorNumberIcons.length; i++) {
+
 				if(sectorNumberIcons[i].classList.contains("shown-liv-sector-circle")) {
 					sectorNumberIcons[i].classList.remove("shown-liv-sector-circle");
 				} 
+				selectedSectorCircle.classList.add("shown-liv-sector-circle"); // отображаем номер отсека
 			}
-			let selectedSectorCircle = document.querySelector('.liv-sector-circle[data-object = "' + selectedObj + '"]');
-			selectedSectorCircle.classList.add("shown-liv-sector-circle"); // отображаем номер отсека
 
+			// для полигона без выделения скрываем иконку с номером отсека
+			if(!obj.classList.contains("active-polygon")) {
+				selectedSectorCircle.classList.remove("shown-liv-sector-circle");
+			}
 		} 
 			
+		// * для прочих объектов
 		showHideIcon(); // вызов функции скрытия и показа иконки i
 
 		// показ / скрытие информации
