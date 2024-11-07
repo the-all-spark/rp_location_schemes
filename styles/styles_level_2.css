@@ -407,6 +407,11 @@
     .submenu {
         width: 940px;
     }
+    .main-zone-signs .signs-image,
+    .medical-block-signs .signs-image,
+    .living-block-signs .signs-image {
+        left: 102px;
+    }
 }
 
 @media screen and (max-width: 1070px) {
@@ -419,6 +424,13 @@
         margin: 0 auto;
     }
     .submenu {
-        width: 850px;
+        width: 930px;
+        margin: 0;
+        margin-left: 110px;
+    }
+    .main-zone-signs .signs-image,
+    .medical-block-signs .signs-image,
+    .living-block-signs .signs-image {
+        left: 95px;
     }
 }
