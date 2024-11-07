@@ -5,11 +5,10 @@ function scrollPageToObj(obj) {
     let elemRect = obj.getBoundingClientRect();
     
     let offset   = elemRect.top - bodyRect.top; // значение top элемента относительно body 
-    //let offsetTop = offset - 90;
+    let offsetTop = offset - 25;
 
     scrollTo({ 
-        top: `${offset}`, 
+        top: `${offsetTop}`, 
         behavior: 'smooth'
     });
-
 }
