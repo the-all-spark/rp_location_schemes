@@ -401,8 +401,24 @@
 
 /* --------------- Media Queries ----------------- */
 
-@media screen and (max-width: 1070px) {
+@media screen and (max-width: 1130px) {
+    .general-info,
+    .help-block,
     .submenu {
-        width: 900px;
+        width: 940px;
+    }
+}
+
+@media screen and (max-width: 1070px) {
+    .general-info {
+        width: 850px;
+        margin: 0 auto;
+    }
+    .help-block {
+        width: 850px;
+        margin: 0 auto;
+    }
+    .submenu {
+        width: 850px;
     }
 }
