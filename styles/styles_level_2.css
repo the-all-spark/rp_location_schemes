@@ -38,6 +38,10 @@
     position: relative;
 }
 
+.submenu-switch-btn {
+    right: 1.5em;
+}
+
 .unpinned-submenu.submenu-disabled-icon:hover {
     cursor: not-allowed;
 }
@@ -82,6 +86,17 @@
 
 .signs-image[data-block="general"] img {
     width: 310px;
+}
+
+/* Закрепленное бургер-меню (без закрепления панели объектов*/
+.bm-fixed-done {
+    width: auto;
+}
+
+.bm-fixed-done .burgermenu-btn-open-shown {
+    padding: 15px;
+    background-color: white;
+    border-radius: 0 0 7px 0;
 }
 
 /* Общий зал */
@@ -382,4 +397,12 @@
     width: 210px;
     padding-top: 45px;
     padding-bottom: 10px;
+}
+
+/* --------------- Media Queries ----------------- */
+
+@media screen and (max-width: 1070px) {
+    .submenu {
+        width: 900px;
+    }
 }
