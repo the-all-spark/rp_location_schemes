@@ -12,14 +12,10 @@ window.onload = function() {
 		elem.addEventListener("dragstart", function(event) { event.preventDefault(); } );
 	})
 
-	// ! подкорректировать для всех условных знаков на странице
 	// * --- Показать условные знаки при клике на иконку с вопросом (иконка меняется на "х")
 
 	let signsImageAll = document.querySelectorAll(".signs-image"); // коллекция изображений УЗ  (1 эл. - если только общие)
-	//console.log(signsImageAll);
-
 	let signsIconAll = Array.from(document.querySelectorAll(".signs-icon")); // коллекция иконок открыть/закрыть 
-	//console.log(signsIconAll);
 
 	for(let i = 0; i < signsIconAll.length; i++) {
 		let questionIcon = signsIconAll[i].children[0]; // иконка - ?
@@ -49,21 +45,28 @@ window.onload = function() {
 
 		closeIcon.style.display = "block";
 		closeIcon.style.zIndex = "9000";
-		closeIcon.style.position = "absolute"; // !
+		closeIcon.style.position = "absolute"; 
 
 		// другое позиционирование иконки закрытия УЗ для общих УЗ
+		// проверка, что браузер - Firefox
+		let isFirefox = navigator.userAgent.indexOf("Firefox") != -1;
+
+		// для общих УЗ
 		if(data === "general") {
-			closeIcon.style.top = "7px"; // !
-			closeIcon.style.right = "4px"; // !
+			closeIcon.style.top = "7px"; 
+			closeIcon.style.right = "4px"; 
+		} else if(isFirefox) {
+			// для прочих условных знаков + если браузер - Firefox
+			closeIcon.style.top = "2px";
+			closeIcon.style.right = 0;
 		} else {
-			closeIcon.style.top = "-15px"; // !
-			closeIcon.style.right = "0"; // !
+			closeIcon.style.top = "-15px";
+			closeIcon.style.right = 0; 
 		}
-		
+
 		closeIcon.addEventListener("click", function() {
 			openIcon.style.display = "block";
 			openIcon.style.zIndex = "999";
-			//closeIcon.style.zIndex = "-1";
 			closeIcon.style.display = "none";
 			signImg.classList.remove("shown-signs"); // скрыть усл. знаки
 		});
@@ -83,7 +86,6 @@ window.onload = function() {
         closeIcon.addEventListener("click", function() {
             questionIcon.style.display = "block";
             questionIcon.style.zIndex = "999";
-            //closeIcon.style.zIndex = "-1";
 			closeIcon.style.display = "none";
             signsImageAll[0].classList.remove("shown-signs"); // скрыть усл. знаки
         });
@@ -120,8 +122,6 @@ window.onload = function() {
 			// отслеживаем ширину экрана браузера (значение в px) - для прочих станиц
 			if(window.innerWidth <= 1070) {
 				// для ширины <= 1070
-				//console.log("<= 1070");
-				
 				burgermenuBlock.style.top = "-1px"; // само меню
 				burgermenuBlock.style.left = "-1px";
 
@@ -133,8 +133,6 @@ window.onload = function() {
 
 			} else if(window.innerWidth <= 1200) {
 				// для ширины > 1070, но <= 1200
-				//console.log("<= 1200");
-			
 				burgermenuBlock.style.top = "-2px"; 
 				burgermenuBlock.style.left = "-41px";
 
@@ -145,9 +143,7 @@ window.onload = function() {
 				burgermenuCloseBtn.style.left = "calc(50% - 60px)";
 	
 			} else {
-				// для ширины > 1200
-				//console.log("другое");
-				
+				// для ширины > 1200				
 				burgermenuBlock.style.top = "-1px"; 
 				burgermenuBlock.style.left = "-86px";
 
@@ -480,7 +476,6 @@ window.onload = function() {
 
 	}
 
-	// !
 	// * ----- При клике на объект открывается информация по нему, прячется иконка i 
 
 	// перебор объектов, вызов функции при клике (в том числе для отсеков)
@@ -496,8 +491,6 @@ window.onload = function() {
 			for(let j = 0; j < arrObjects.length; j++) {
 				// атрибуты иконки и полигона совпадают
 				if(arrInfoIcons[i].dataset.object === arrObjects[j].dataset.object) { 
-						//console.log("Совпадает с кликнутой иконкой!");
-						//console.log(arrObjects[j]);
 					showHideInfo(arrObjects[j]);
 				}
 			}

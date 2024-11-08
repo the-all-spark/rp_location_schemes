@@ -376,15 +376,15 @@
 }
 
 .consulting-room-info {
-    width: 180px;
+    width: 185px;
     padding-top: 45px;
     padding-bottom: 10px;
 }
 
 .consulting-room-info .item-name {
     border-left: 2px solid transparent;
-    right: 5px;
-    padding: 8px 7px;
+    right: 8px;
+    padding: 8px 4px;
 }
 
 .med-isolator-info {
