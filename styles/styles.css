@@ -91,12 +91,36 @@ a {
 
 /* ----------- Шапка, Меню ----------- */
 
+header {
+    display: grid;
+    grid-template-areas: "nav-levels nav-addition";
+    grid-template-columns: auto 15%;
+    grid-template-rows: 100%;
+    width: 97%;
+    margin: 0 auto;
+}
+
+.nav-levels {
+    grid-area: nav-levels;
+}
+
+.nav-addition {
+    grid-area: nav-addition;
+}
+
+.nav.nav-addition a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
 ul {
     padding-left: 30px;
 }
 
 .nav {
-    padding: 30px;
+    padding: 30px 15px;
     display: block;
     text-align: center;
     margin: 0;
@@ -128,14 +152,23 @@ ul {
     border: 1px solid rgb(49 49 49); 
 }
 
-/* Разработанные блоки */
+/* Пункты меню: Разработанные блоки */
 .developed a:hover{
     background-color: #6e6e6e;
     border: 1px solid transparent; /*при наведении кнопки не скачут*/
     color: white;
 }
 
-/* Пока недоступные (неразработанные) блоки */
+/* Пункты меню: с иконками*/
+.developed a:hover svg rect.stroked{
+    stroke: white;
+}
+.developed a:hover svg rect.filled,
+.developed a:hover svg.filled * {
+    fill: white;
+}
+
+/* Пункты меню: Пока недоступные (неразработанные) блоки */
 .disabled a {
     background-color: rgb(204, 203, 203);
     color: rgb(113, 113, 113);
@@ -495,6 +528,9 @@ ul {
 /* --------------- Media Queries ----------------- */
 
 @media screen and (max-width: 1200px) {
+    header {
+        grid-template-columns: auto 18%;
+    }
     .up-btn {
         display: inline-block;
         bottom: 10px;
