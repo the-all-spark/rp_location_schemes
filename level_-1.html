@@ -31,7 +31,7 @@
             <!-- Навигация по страницам со схемами -->
             <!-- developed - разработанные страницы/локации, disabled - еще не разработанные -->
             <!-- ! добавить ссылки + active (текущая) и developed -->
-            <ul class="nav">
+            <ul class="nav nav-levels">
                 <li class="developed"><a href="./index.html">Окрестности базы</a></li>
                 <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
                 <li class="active developed"><a href="./level_-1.html" title="Текущая страница">База: уровень -1</a></li>
@@ -39,6 +39,43 @@
                 <li class="developed"><a href="./level_2.html">База: уровень 2</a></li>
                 <li class="developed"><a href="./level_3.html">База: уровень 3</a></li>
                 <li class="developed"><a href="./roof.html">База: крыша</a></li>
+            </ul>
+
+            <!-- Дополнительное меню: персонажи и расселение -->
+            <ul class="nav nav-addition">
+                <li class="disabled">
+                    <a href="./characters.html">
+                        <svg class="filled" width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="9.93424" cy="4.91855" rx="2.48355" ry="2.45926" fill="black"/>
+                            <path d="M4.9671 8.19751H14.9013V11.8864L9.93421 12.7062L4.9671 11.8864V8.19751Z" fill="black"/>
+                            <path d="M6.6228 13.1161H9.93421H13.2456V14.3457L11.5899 15.5753H8.2785L6.6228 14.3457V13.1161Z" fill="black"/>
+                            <rect y="7.37781" width="4.13926" height="4.09877" fill="black"/>
+                            <rect width="4.13926" height="4.09877" transform="matrix(-1 0 0 1 20 7.37781)" fill="black"/>
+                            <rect width="3.9613" height="4.40583" transform="matrix(0.978269 0.207339 -0.211274 0.977427 3.90601 19.792)" fill="black"/>
+                            <rect width="3.90514" height="4.40038" transform="matrix(0.939948 -0.341318 0.347284 0.93776 12.8354 20.8735)" fill="black"/>
+                            <rect width="2.2912" height="5.1406" transform="matrix(0.944054 -0.329791 0.335607 0.942002 0.382629 9.65942)" fill="black"/>
+                            <rect width="2.2912" height="5.1406" transform="matrix(-0.944054 -0.329791 -0.335607 0.942002 19.6174 9.65942)" fill="black"/>
+                            <rect width="1.99201" height="4.44959" transform="matrix(0.944054 -0.329791 0.335607 0.942002 11.9589 15.7825)" fill="black"/>
+                            <rect width="1.99331" height="4.20953" transform="matrix(0.97828 0.207287 -0.21122 0.977439 5.96063 15.324)" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.45068 -1.33514e-05V4.5H6.45068V-1.33514e-05H7.45068Z" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.4367 -1.33514e-05V4.5H12.424V-1.33514e-05H13.4367Z" fill="black"/>
+                            <path d="M6.20886 4.09875H7.86456V5.73826H6.20886V4.09875Z" fill="black"/>
+                            <path d="M12.0038 4.09875H13.6595V5.73826H12.0038V4.09875Z" fill="black"/>
+                        </svg>
+                        <span>Персонажи</span>
+                    </a>
+                </li>
+                <li class="disabled">
+                    <a href="./settlement.html">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect class="stroked" x="-1" y="1" width="8.58824" height="12.7059" transform="matrix(-1 0 0 1 18 0)" stroke="black" stroke-width="2"/>
+                            <rect class="stroked" x="-1" y="1" width="8.58824" height="18" transform="matrix(-1 0 0 1 8.58826 0)" stroke="black" stroke-width="2"/>
+                            <rect class="filled" width="5.29412" height="7.64706" transform="matrix(-1 0 0 1 15.2941 1)" fill="black"/>
+                            <rect class="filled" width="5" height="9" transform="matrix(-1 0 0 1 6 10)" fill="black"/>
+                        </svg>
+                        <span>Расселение</span>
+                    </a>
+                </li>
             </ul>
 
         </header>
