@@ -162,10 +162,11 @@ window.onload = function() {
 		
 		// отслеживаемый элемент для отображения блока
 		const sentinel = document.createElement('div');
+		sentinel.className = "sentinel";
 		let accessLevelBlock = document.querySelector(".access-level");
 		accessLevelBlock.before(sentinel);
 
-		showHideBurgermenu(sentinel);
+		showHideBurgermenu();
 	} else {
 
 		// * ---- Прилипание и отлипание списка объектов (панель объектов)
@@ -175,12 +176,15 @@ window.onload = function() {
 		*/
 
 		const sentinel = document.createElement('div');
+		sentinel.className = "sentinel";
 		submenu.before(sentinel);
-		switchPinnedEffect(sentinel); // вызов функции
+		switchPinnedEffect(); // вызов функции
 	}
 
 	// функция показа/скрытия закрепленного бургер меню
-	function showHideBurgermenu(sentinel) {
+	function showHideBurgermenu() {
+		let sentinel = document.querySelector(".sentinel");
+
 		new IntersectionObserver(
 			([entry]) => {
 
@@ -215,7 +219,9 @@ window.onload = function() {
 	}
 
 	// функция переключения между реакцией элементов при прилипании и отлипании панели подменю/списка
-	function switchPinnedEffect(sentinel) {
+	function switchPinnedEffect() {
+		let sentinel = document.querySelector(".sentinel");
+
 		new IntersectionObserver(
 			([entry]) => {
 				// * "прилипание" блока (когда элемент не наблюдается)
@@ -295,7 +301,6 @@ window.onload = function() {
 
 		burgermenuBlock.classList.add("burgermenu-shown");
 		burgermenuAll.forEach((menu) => menu.classList.add("burgermenu-nav-shown"));
-
 	}
 
 	// * функция скрытия меню при клике на крестик
@@ -349,22 +354,23 @@ window.onload = function() {
 	}
 	
 	// * При клике на перечеркнутую кнопку список с объектами закрепляется, только если присутствуют иконки глаза и закрепления меню
-	unpinnedSubmenuIcon.addEventListener("click", function() {
-		unpinnedSubmenuIcon.classList.remove("is-shown");
+	if(unpinnedSubmenuIcon !== null) {
+		unpinnedSubmenuIcon.addEventListener("click", function() {
+			unpinnedSubmenuIcon.classList.remove("is-shown");
 
-		if(shownEye !== null && pinnedSubmenuIcon !== null) {
-			pinnedSubmenuIcon.classList.remove("is-hidden");
-			pinnedSubmenuIcon.classList.remove("unpinned-flag");
+			if(shownEye !== null && pinnedSubmenuIcon !== null) {
+				pinnedSubmenuIcon.classList.remove("is-hidden");
+				pinnedSubmenuIcon.classList.remove("unpinned-flag");
 
-			submenu.style.position = "sticky";
-			shownEye.classList.remove("is-hidden");
-			shownEye.classList.remove("unpinned-flag");
-			
-			switchPinnedEffect();
-		}
-		
-	});	
-
+				submenu.style.position = "sticky";
+				shownEye.classList.remove("is-hidden");
+				shownEye.classList.remove("unpinned-flag");
+				
+				switchPinnedEffect();
+			}
+		});	
+	}
+	
 	// * ОБЪЕКТЫ, ПОЛИГОНЫ, ИНФОРМАЦИЯ
 
 	let objects = document.querySelectorAll("svg polygon"); // объекты (полигоны)
