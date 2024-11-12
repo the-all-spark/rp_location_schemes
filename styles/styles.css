@@ -158,12 +158,15 @@ ul {
     color: white;
 }
 
-/* Пункты меню: с иконками*/
-.developed a:hover svg rect.stroked{
+/* Пункты меню: с иконками - наведение, активная*/
+.developed a:hover svg rect.stroked,
+.active a svg rect.stroked {
     stroke: white;
 }
 .developed a:hover svg rect.filled,
-.developed a:hover svg.filled * {
+.developed a:hover svg.filled *,
+.active a svg rect.filled,
+.active a svg.filled * {
     fill: white;
 }
 
