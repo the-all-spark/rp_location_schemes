@@ -119,7 +119,7 @@ ul {
     padding-left: 30px;
 }
 
-.nav {
+.nav:not(.bm-nav-addition) {
     padding: 30px 15px;
     display: block;
     text-align: center;
@@ -143,7 +143,6 @@ ul {
     font-family: 'Noto Sans Regular';
     font-size: 14px;
     border: 1px solid black; /*при наведении кнопки не скачут*/
-    
 }
 
 .active a {
@@ -266,10 +265,10 @@ ul {
 
 .burgermenu {
     display: none;
-    /*display: inline-block;*/
-    /*border: 1px solid rgb(190, 190, 190);
-    width: auto;
-    padding: 15px 15px 0;*/
+}
+
+.burgermenu .nav {
+    display: none;
 }
 
 .burgermenu-btn-open,
@@ -282,17 +281,11 @@ ul {
     display: block;
 }
 
-.burgermenu .nav {
-    display: none;
-    /*display: inline-block;*/
-    /*padding: 20px;*/
-}
-
 .burgermenu-shown {
-    grid-template-areas: "button"
-                         "menu";
-    grid-template-rows: 25px 1fr;
-    grid-template-columns: 100%;
+    grid-template-areas: "buttons bm-nav-addition"
+                         "bm-nav-levels bm-nav-levels";
+    grid-template-rows: 50px auto;
+    grid-template-columns: 35px auto;
     border: 1px solid rgb(190, 190, 190);
     width: 200px;
     padding: 15px 15px 2px;
@@ -305,16 +298,36 @@ ul {
 
 .burgermenu-btn-open-shown,
 .burgermenu-btn-close-shown {
+    grid-area: buttons;
     display: block;
-    grid-area: button;
     position: absolute;
 }
 
-.nav.burgermenu-nav-shown {
+.bm-nav-levels.burgermenu-nav-shown {
+    grid-area: bm-nav-levels;
     display: block;
-    grid-area: menu;
     padding: 20px;
     text-align: center;
+}
+
+.bm-nav-addition.burgermenu-nav-shown {
+    grid-area: bm-nav-addition;
+    display: flex;
+    flex-direction: row;
+    column-gap: 15px;
+    align-items: center;
+    justify-content: end;
+    margin: 0;
+}
+
+.bm-nav-addition.burgermenu-nav-shown a {
+    display: flex;
+    text-decoration: none;
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
 }
 
 .burgermenu-btn-open-shown:hover,
