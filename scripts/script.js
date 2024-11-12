@@ -102,7 +102,7 @@ window.onload = function() {
 	let burgermenuBlock = document.querySelector(".burgermenu"); // блок бургер-меню
 	let burgermenuBtn = document.querySelector(".burgermenu-btn-open"); // иконка бургер-меню
 	let burgermenuCloseBtn = document.querySelector(".burgermenu-btn-close"); // крестик закрытия бургер-меню
-	let burgermenu = document.querySelector(".burgermenu .nav"); // само бургер-меню
+	let burgermenuAll = document.querySelectorAll(".burgermenu .nav"); // само бургер-меню //!
 
 	// * Отслеживание ширины окна браузера и изменение позиционирования бургер-меню и его иконок
 	function getBurgerMenuBtnOffset() {
@@ -203,7 +203,9 @@ window.onload = function() {
 					burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
 					burgermenuBlock.classList.remove("burgermenu-shown");
 					burgermenuBlock.classList.remove("bm-fixed-done");
-					burgermenu.classList.remove("burgermenu-nav-shown");
+
+					// для обоих бургер-меню
+					burgermenuAll.forEach((menu) => menu.classList.remove("burgermenu-nav-shown"));
 				} 
 
 			}, 
@@ -260,7 +262,7 @@ window.onload = function() {
 					burgermenuBtn.classList.remove("burgermenu-btn-open-shown");
 					burgermenuCloseBtn.classList.remove("burgermenu-btn-close-shown");
 					burgermenuBlock.classList.remove("burgermenu-shown");
-					burgermenu.classList.remove("burgermenu-nav-shown");
+					burgermenuAll.forEach((menu) => menu.classList.remove("burgermenu-nav-shown"));
 
 					document.querySelector(".submenu").style.borderBottom = "2px solid transparent";
 					submenu.classList.remove("is-pinned");
@@ -292,7 +294,7 @@ window.onload = function() {
 		burgermenuCloseBtn.addEventListener("click", closeMenu);
 
 		burgermenuBlock.classList.add("burgermenu-shown");
-		burgermenu.classList.add("burgermenu-nav-shown");
+		burgermenuAll.forEach((menu) => menu.classList.add("burgermenu-nav-shown"));
 
 	}
 
@@ -304,7 +306,7 @@ window.onload = function() {
 		burgermenuBtn.classList.add("burgermenu-btn-open-shown");
 
 		burgermenuBlock.classList.remove("burgermenu-shown");
-		burgermenu.classList.remove("burgermenu-nav-shown");
+		burgermenuAll.forEach((menu) => menu.classList.remove("burgermenu-nav-shown"));
 	}
 
 	// * ---- При наведении на глаз иконка меняется на перечеркнутую, при уходе курсора - обратно
