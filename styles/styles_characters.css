@@ -31,3 +31,48 @@
     font-weight: bold;
     background-color: white;
 }
+
+/* Карточки */
+
+.cards-block {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    column-gap: 15px;
+    row-gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.cards-block p {
+    font-size: 15px;
+}
+
+.card {
+    width: 20%;
+    height: auto;
+    padding: 20px;
+    border: 1px solid rgb(190, 190, 190);
+}
+
+.card .character-photo {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.character-photo img {
+    width: 100%;
+}
+
+.name-ru,
+.name-en {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.name-en {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
