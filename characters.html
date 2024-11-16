@@ -81,7 +81,7 @@
             <div class="submenu">
 
                 <!--Дубликат основного меню - Бургер-меню и кнопка -->
-                <div class="burgermenu">
+                <div class="burgermenu bm-fixed">
                     <div class="burgermenu-btn-open">
                         <img src="./assets/burgermenu-btn.svg" alt="Меню" title="Меню">
                     </div>
@@ -90,8 +90,8 @@
                     </div>
 
                     <ul class="nav bm-nav-addition">
-                        <li class="developed">
-                            <a href="./characters.html">
+                        <li class="active developed">
+                            <a href="./characters.html" title="Текущая страница">
                                 <svg class="filled" width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <ellipse cx="9.93424" cy="4.91855" rx="2.48355" ry="2.45926" fill="black"/>
                                     <path d="M4.9671 8.19751H14.9013V11.8864L9.93421 12.7062L4.9671 11.8864V8.19751Z" fill="black"/>
@@ -124,7 +124,7 @@
                     </ul>
                     
                     <ul class="nav bm-nav-levels">
-                        <li class="active developed"><a href="./index.html" title="Текущая страница">Окрестности базы</a></li>
+                        <li class="developed"><a href="./index.html">Окрестности базы</a></li>
                         <li class="developed"><a href="./level_-2.html">База: уровень -2</a></li>
                         <li class="developed"><a href="./level_-1.html">База: уровень -1</a></li>
                         <li class="developed"><a href="./level_1.html">База: уровень 1</a></li>
@@ -136,11 +136,23 @@
 
                 <!-- Подменю страницы -->
                 <ul class="submenu-list">
-                    <li><a href="#all" title="Показать всех">Все</a></li>
-                    <li><a href="#autobots" title="Показать автоботов">Автоботы</a></li>
-                    <li><a href="#decepticons" title="Показать десептиконов">Десептиконы</a></li>
+                    <li><a href="#all" title="Показать всех" class="selected-list-item">Все</a></li>
+                    <li><a href="#autobots" title="Показать автоботов">
+                        <img src="./assets/characters/autobots_menu_icon.svg" alt="Автобот" 
+                        title="Фракция: автобот">
+                        <span>Автоботы</span></a></li>
+                    <li><a href="#decepticons" title="Показать десептиконов">
+                        <img src="./assets/characters/decepticons_menu_icon.svg" alt="Десептикон" 
+                        title="Фракция: десептикон">
+                        <span>Десептиконы</span></a></li>
                     <li><a href="#neutrals" title="Показать нейтралов">Нейтралы</a></li>
                 </ul>
+
+                <!-- Кнопки управления видимостью списка объектов и его "прилипанием" к верху страницы -->
+                <div class="submenu-switch-btn">
+                    <img class="unpinned-submenu submenu-disabled-icon" src="./assets/unpinned_icon.svg" alt="Подменю не закреплено"
+                        title="Подменю не закреплено" style="display: block;">
+                </div>
 
             </div>  
 
@@ -148,7 +160,10 @@
             <div class="cards-block">
 
                 <div class="card wj-card">
-                    <img src="" alt="Автобот" title="Фракция: автобот">
+                    <div class="fraction-icon">
+                        <img src="./assets/characters/autobots_icon.svg" alt="Автобот" 
+                        title="Фракция: автобот">
+                    </div>
                     <div class="character-photo">
                         <img src="./assets/characters/autobots/wheeljack.jpg" 
                         alt="Уилджек, автобот">
@@ -171,7 +186,10 @@
 
                 <!-- ! копия -->
                 <div class="card wj-card">
-                    <img src="" alt="Автобот" title="Фракция: автобот">
+                    <div class="fraction-icon">
+                        <img src="./assets/characters/decepticons_icon.svg" alt="Десептикон" 
+                        title="Фракция: десептикон">
+                    </div>
                     <div class="character-photo">
                         <img src="./assets/characters/autobots/wheeljack.jpg" 
                         alt="Уилджек, автобот">
