@@ -537,7 +537,7 @@ ul {
     -webkit-tap-highlight-color: transparent; /* чтобы не мерцала рамка при клике*/
 }
 
-.up-btn:hover {
+.up-btn img:hover {
     cursor: pointer;
 }
 

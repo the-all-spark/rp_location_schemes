@@ -1,3 +1,28 @@
+.submenu {
+    position: relative;
+}
+
+.unpinned-submenu.submenu-disabled-icon:hover {
+    cursor: not-allowed;
+}
+
+.up-btn {
+    bottom: 10px;
+    margin-left: 15px;
+}
+
+/* Закрепленное бургер-меню (без закрепления панели объектов*/
+
+.bm-fixed-done {
+    width: auto;
+}
+
+.bm-fixed-done .burgermenu-btn-open-shown {
+    padding: 15px;
+    background-color: white;
+    border-radius: 0 0 7px 0;
+}
+
 /* ----- Подсписок на странице "Персонажи" ----- */
 
 .submenu-list {
@@ -19,10 +44,13 @@
 }
 
 .submenu-list a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
     text-decoration: none;
-    height: 20px;
-    padding: 8px 20px;
+    height: 30px;
+    padding: 12px 18px;
     border: 1px solid rgb(190, 190, 190);
     border-radius: 2px;
     text-align: center;
@@ -32,6 +60,10 @@
     background-color: white;
 }
 
+.submenu-list .selected-list-item {
+    border: 1px solid black;
+}
+
 /* Карточки */
 
 .cards-block {
@@ -39,10 +71,9 @@
     width: 80%;
     margin: 0 auto;
     margin-top: 30px;
-    column-gap: 15px;
-    row-gap: 15px;
+    column-gap: 1.5%;
+    row-gap: 20px;
     flex-wrap: wrap;
-    justify-content: space-between;
 }
 
 .cards-block p {
@@ -50,10 +81,21 @@
 }
 
 .card {
+    position: relative;
     width: 20%;
     height: auto;
     padding: 20px;
     border: 1px solid rgb(190, 190, 190);
+}
+
+.card p:last-of-type {
+    margin-bottom: 0;
+}
+
+.card .fraction-icon {
+    position: absolute;
+    top: 4px;
+    right: 2px;
 }
 
 .card .character-photo {
@@ -76,3 +118,39 @@
     margin-bottom: 20px;
 }
 
+/* --------------- Media Queries ----------------- */
+
+@media screen and (max-width: 1345px) {
+    .cards-block {
+        column-gap: 1.2%;
+    }
+}
+
+@media screen and (max-width: 1270px) {
+    .cards-block {
+        width: 88%;
+    }
+}
+
+@media screen and (max-width: 1155px) {
+    .card {
+        width: 27%;
+    }
+    .cards-block {
+        column-gap: 3%;
+        row-gap: 30px;
+    }
+    .up-btn {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 1095px) {
+    .card {
+        width: 27%;
+    }
+    .cards-block {
+        column-gap: 2%;
+        row-gap: 20px;
+    }
+}
