@@ -159,13 +159,17 @@ window.onload = function() {
 
 	// * ---- Отображение фиксированного бургер-меню на страницах, где нет закрепленной панели объектов
 	if(burgermenuBlock.classList.contains("bm-fixed")) {
-		
 		// отслеживаемый элемент для отображения блока
+		let accessLevelBlock = document.querySelector(".access-level");
 		const sentinel = document.createElement('div');
 		sentinel.className = "sentinel";
-		let accessLevelBlock = document.querySelector(".access-level");
-		accessLevelBlock.before(sentinel);
 
+		if(accessLevelBlock != null) {
+			accessLevelBlock.before(sentinel);
+		} else {
+			document.querySelector("h1").after(sentinel);
+		}
+		
 		showHideBurgermenu();
 	} else {
 
@@ -606,7 +610,7 @@ window.onload = function() {
 	}
 	
 	// * ---- Прокручивание страницы вверх при клике на кнопку "стрелка вверх"
-	let upBtn = document.querySelector(".up-btn");
+	let upBtn = document.querySelector(".up-btn img");
 	upBtn.addEventListener("click", function() {
 		//event.preventDefault();
 		const anchor = document.querySelector(".container");
