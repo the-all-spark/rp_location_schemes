@@ -1,8 +1,8 @@
 window.onload = function() {
     
-    //  Выделение пункта подменю - изначально "Все"
+    // * ----- Выделение пункта подменю (изначально "Все")
     let submenuList = document.querySelectorAll(".submenu-list a");
-    console.log(submenuList);
+    console.log(submenuList); // ! список подменю
 
     for(let i = 0; i < submenuList.length; i++) {
         console.log(submenuList[i].hash.replace("#",''));
@@ -11,50 +11,31 @@ window.onload = function() {
         }
     }
 
-    //! потом вызвать для каждого элемента массива
-    constructCard(characters[0]);  //! пример на одном персе - characters[0]
+    // * ----- Вывод всех карточек при открытии страницы "Персонажи"
 
-    // TODO - Вывод всех карточек при открытии страницы "Персонажи"
-    // TODO Вывод карточки
-    // Вывод иконки фракции fraction (автобот | десептикон)
-    // Вывод фотографии персонажа photo //! определить размер изображения
-    // Вывод имени персонажа на русском и английском
-    // Вывод альтмода altmode
-    // Вывод роста height
-    // Вывод профессии profession
-    // Вывод вооружения arming
+    console.log(characters); // ! список персонажей
+    //функция построение карточек вызывается для каждого объекта в массиве
+    characters.forEach((character) => constructCard(character)); 
 
     // * Функция сборки и вывода карточки персонажа
+    // Вывод карточки в порядке: иконки фракции (fraction: автобот | десептикон), 
+    // фотографии персонажа (photo), имени персонажа на русском и английском, 
+    // альтмода (altmode), роста (height), профессии (profession), вооружения (arming)
+
     function constructCard(person) {
-        console.log(person); //! пример на одном персе - characters[0]
 
-        // TODO конструирование по элементам
+        // конструирование по элементам
         let fractionIcon = showFractionIcon(person); // фракция (иконка)
-        console.log(fractionIcon); 
-
         let photo = showPhoto(person); // фото
-        console.log(photo);
-
         let nameRU = showNameRU(person); // имя на русском
-        console.log(nameRU);
-
         let nameENG = showNameENG(person); // имя на английском
-        console.log(nameENG);
-
         let altmode = showAltmode(person); // альтмод
-        console.log(altmode);
-
         let heightSize = showHeight(person); // рост
-        console.log(heightSize);
-
         let profession = showProfession(person); // профессия
-        console.log(profession);
-
         let arming = showArming(person); // вооружение
-        console.log(arming);
         
-        // TODO сборка элементов в блок
-        let card = document.createElement("div"); // контейнер для персонажа //! будет наполняться
+        // сборка элементов в блок
+        let card = document.createElement("div"); // контейнер для персонажа
         card.classList.add("card");
         card.classList.add(`${person.nameENG}-card`);
         console.log(card); 
@@ -68,10 +49,9 @@ window.onload = function() {
         card.append(profession); // присоединение профессии
         card.append(arming); // присоединение вооружения
 
-        // TODO вывод блока на страницу
+        // вывод блока на страницу
         let cardBlock = document.querySelector(".cards-block"); 
-        cardBlock.prepend(card); // ! вывод блока с карточкой вначале текущих
-        console.log(cardBlock); 
+        cardBlock.append(card);
     }
 
     // * Функция вывода иконки фракции персонажа
@@ -87,7 +67,9 @@ window.onload = function() {
                 src = "./assets/characters/autobots_icon.svg"; break;
             case "десептикон":
                 src = "./assets/characters/decepticons_icon.svg"; break;
-            // ! default - нейтралы, предаконы
+            case "предакон":
+                src = "./assets/characters/decepticons_icon.svg"; break; //! исправить иконку
+            // ! default - нейтралы
         }
 
         imgBlock.setAttribute("src", src);
@@ -104,7 +86,19 @@ window.onload = function() {
         divBlock.className = "character-photo";
 
         let imgBlock = document.createElement("img");
-        imgBlock.setAttribute("src", `./assets/characters/${person.photo}`);
+
+        let folder;
+        switch(person.fraction) {
+            case "автобот":
+                folder = "autobots"; break;
+            case "десептикон":
+                folder = "decepticons"; break;
+            case "предакон":
+                folder = "predacons"; break;
+            // ! default - нейтралы
+        }
+
+        imgBlock.setAttribute("src", `./assets/characters/${folder}/${person.photo}`);
         imgBlock.setAttribute("alt", `${person.nameRU}, ${person.fraction}`);
 
         divBlock.prepend(imgBlock);
@@ -197,8 +191,6 @@ window.onload = function() {
 
 
 
-
-
 }
 
 /* объект персонажа:
@@ -210,6 +202,8 @@ window.onload = function() {
     - height (значение в м)
     - profession (текст)
     - arming (текст)
+    - universe: вселенная (IDW | TFP | G1 | WFC)
+    - isOC: true (если ОС), false (если канон)
 */
 
 /* Массив персонажей:*/
@@ -217,26 +211,39 @@ let characters = [
     {
         nameRU: "Уилджек",
         nameENG: "Wheeljack",
-        photo: "autobots/wheeljack.jpg",
+        photo: "wheeljack.jpg",
         fraction: "автобот",
         altmode: "спорткар Lancia Stratos Turbo",
         height: 7,
         profession: "инженер, техник, пилот, мечник, недоученый (практик и экспериментатор), вояка, бунтарь",
         arming: "два встроенных в манипуляторы среднемощных бластера; катаны, граната",
+        universe: "TFP",
+        isOC: true, //! потом поменять
     },
     {
-        //! пример - потом удалить
-        nameRU: "----",
-        nameENG: "---",
-        photo: "autobots/wheeljack.jpg",
+        nameRU: "Саундвейв",
+        nameENG: "Soundwave",
+        photo: "soundwave.jpg",
         fraction: "десептикон",
-        altmode: "спорткар",
-        height: 10,
-        profession: "инженер, техник, пилот",
-        arming: "катаны, граната",
+        altmode: "беспилотник",
+        height: 7.6,
+        profession: "разведчик, связист, воин, гладиатор",
+        arming: "лазерные пушки, щупальца, встроенные в манипуляторы клинки",
+        universe: "TFP",
+        isOC: false,
+    },
+    {
+        nameRU: "Даркстил",
+        nameENG: "Darksteel",
+        photo: "",
+        fraction: "предакон",
+        altmode: "грифон",
+        height: "11.5",
+        profession: "клон древнего предакона, воин",
+        arming: "плазменный огнемёт, когти",
+        universe: "TFP",
+        isOC: false,
     },
 
 
 ]
-
-console.log(characters);
