@@ -27,6 +27,7 @@ window.onload = function() {
         // конструирование по элементам
         let fractionIcon = showFractionIcon(person); // фракция (иконка)
         let photo = showPhoto(person); // фото
+        let briefInfo = showBriefInfo(person);  // информация о вселенной и ОС (если надо)
         let nameRU = showNameRU(person); // имя на русском
         let nameENG = showNameENG(person); // имя на английском
         let altmode = showAltmode(person); // альтмод
@@ -42,6 +43,7 @@ window.onload = function() {
 
         card.append(fractionIcon); // присоединение фракции
         card.append(photo); // присоединение фото
+        card.append(briefInfo); // присоединение краткой информации (вселенная, ОС)
         card.append(nameRU); // присоединение имени на русском
         card.append(nameENG); // присоединение имени на английском
         card.append(altmode); // присоединение альтмода
@@ -102,6 +104,29 @@ window.onload = function() {
         imgBlock.setAttribute("alt", `${person.nameRU}, ${person.fraction}`);
 
         divBlock.prepend(imgBlock);
+        return divBlock;
+    }
+
+    // * Функция вывода вселенной и плашки "ОС" (если есть)
+    function showBriefInfo(person) {
+        let divBlock = document.createElement("div"); // контейнер
+        divBlock.className = "brief-info-block";
+
+        if(person.isOC) {
+            let pOCBlock = document.createElement("p");
+            pOCBlock.className = "isOC-block";
+            pOCBlock.append("OC");
+            divBlock.append(pOCBlock);
+            divBlock.style.width = "40%";
+        } else {
+            divBlock.style.width = "20%";
+        }
+        
+        let pUniverseBlock = document.createElement("p");
+        pUniverseBlock.className = "universe";
+        pUniverseBlock.append(`${person.universe}`);
+        divBlock.append(pUniverseBlock);
+
         return divBlock;
     }
 
@@ -215,10 +240,10 @@ let characters = [
         fraction: "автобот",
         altmode: "спорткар Lancia Stratos Turbo",
         height: 7,
-        profession: "инженер, техник, пилот, мечник, недоученый (практик и экспериментатор), вояка, бунтарь",
+        profession: "инженер, техник, пилот, мечник, недоученый, вояка, бунтарь",
         arming: "два встроенных в манипуляторы среднемощных бластера; катаны, граната",
         universe: "TFP",
-        isOC: true, //! потом поменять
+        isOC: false,
     },
     {
         nameRU: "Саундвейв",
@@ -235,7 +260,7 @@ let characters = [
     {
         nameRU: "Даркстил",
         nameENG: "Darksteel",
-        photo: "",
+        photo: "Darksteel.jpg",
         fraction: "предакон",
         altmode: "грифон",
         height: "11.5",
