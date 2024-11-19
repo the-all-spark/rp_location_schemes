@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Transformers';
+    src: url(../fonts/Transformers_Movie.ttf);
+}
+
 .submenu {
     position: relative;
 }
@@ -117,6 +122,22 @@
 .name-en {
     margin-top: 0;
     margin-bottom: 20px;
+}
+
+.brief-info-block {
+    display: flex;
+    column-gap: 10px;
+    margin-left: auto;
+    margin-top: 5px;
+}
+
+.brief-info-block p {
+    border: 1px solid rgb(190, 190, 190);
+    margin: 0 auto;
+    font-family: Transformers;
+    color: rgb(125, 125, 125);
+    padding: 2px 7px;
+    text-align: center;
 }
 
 /* --------------- Media Queries ----------------- */
