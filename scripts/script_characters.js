@@ -1,12 +1,13 @@
 window.onload = function() {
     
     // * ----- Выделение пункта подменю (изначально "Все")
+    // ! обернуть в универсальную функцию выделения пункта из списка
     let submenuList = document.querySelectorAll(".submenu-list a");
-    console.log(submenuList); // ! список подменю
+    console.log(submenuList); // ! список всех подменю
 
     for(let i = 0; i < submenuList.length; i++) {
         console.log(submenuList[i].hash.replace("#",''));
-        if(submenuList[i].hash.replace("#",'') === "all") {
+        if(submenuList[i].hash.replace("#",'') === "all") { // ! передать id без #
             submenuList[i].classList.add("selected-list-item");
         }
     }
@@ -70,7 +71,7 @@ window.onload = function() {
             case "десептикон":
                 src = "./assets/characters/decepticons_icon.svg"; break;
             case "предакон":
-                src = "./assets/characters/decepticons_icon.svg"; break; //! исправить иконку
+                src = "./assets/characters/predacons_icon.svg"; break;
             // ! default - нейтралы
         }
 
@@ -263,7 +264,7 @@ let characters = [
         photo: "Darksteel.jpg",
         fraction: "предакон",
         altmode: "грифон",
-        height: "11.5",
+        height: 11.5,
         profession: "клон древнего предакона, воин",
         arming: "плазменный огнемёт, когти",
         universe: "TFP",
