@@ -1,5 +1,5 @@
 window.onload = function() {
-    
+
     // * ----- Выделение пункта подменю при открытии станицы "Персонажи"
     let fractionList = document.querySelectorAll(".submenu-list-fractions a");
     console.log(fractionList); // ! список всех пунктов списка фракций
@@ -106,8 +106,8 @@ window.onload = function() {
             showWarning(selectedHash);
         }
 
-        // выделение пункта меню
-        markMenuItem(fractionList, selectedHash);
+        markMenuItem(fractionList, selectedHash); // выделение пункта меню
+        showHideUpBtn(); // проверка скролла (скрытие/отображение кнопки вверх)
 
     }
 
@@ -121,11 +121,19 @@ window.onload = function() {
         pMessage.className = "message";
         pMessage.append(message);
         document.querySelector(".cards-block").append(pMessage);
-
-        //! document.querySelector(".up-btn").style.display = "none"; // 
-        // ! сделать проверку наличия прокрутки страницы
     }
 
+    // * функция проверки скролла и отображение/скрытие кнопки вверх
+    function showHideUpBtn() {
+        if(document.documentElement.scrollHeight === window.innerHeight) {
+            //console.log("Скролла нет");
+            document.querySelector(".up-btn").style.display = "none";
+        } else {
+            //console.log("Скролл есть");
+            document.querySelector(".up-btn").style.display = "block";
+        }
+    }
+    
     // TODO * ----- Выбор вселенной
     /*function showUniverse() {
         console.log("Выбор вселенной");
@@ -395,9 +403,24 @@ let characters = [
         height: 7,
         profession: "инженер, техник, пилот, мечник, недоученый, вояка, бунтарь",
         arming: "два встроенных в манипуляторы среднемощных бластера; катаны, граната",
+        universe: "IDW",
+        isOC: true,
+    },
+    {
+        //! копия - потом убрать
+        nameRU: "-----",
+        nameENG: "new",
+        photo: "soundwave.jpg",
+        fraction: "десептикон",
+        altmode: "беспилотник",
+        height: 7.6,
+        profession: "разведчик, связист, воин, гладиатор",
+        arming: "лазерные пушки, щупальца, встроенные в манипуляторы клинки",
         universe: "TFP",
         isOC: true,
-    }
+    },
 
+
+     
 
 ]
