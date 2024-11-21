@@ -21,11 +21,6 @@ html {
     min-height: 100vh; /*отображаем блок на весь экран*/
 } 
 
-/*main {
-    flex: 1;
-    margin-bottom: 30px;
-}*/
-
 footer {
     padding: 30px;
     text-align: center;

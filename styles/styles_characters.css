@@ -3,6 +3,11 @@
     src: url(../fonts/Transformers_Movie.ttf);
 }
 
+main {
+    flex: 1;
+    margin-bottom: 30px;
+}
+
 .submenu {
     position: relative;
 }
@@ -167,6 +172,15 @@
     color: rgb(125, 125, 125);
     padding: 2px 7px;
     text-align: center;
+}
+
+/* Предупреждение (сообщение) */
+
+.cards-block .message {
+    margin: 0 auto;
+    padding: 20px 0;
+    font-size: 20px;
+    color: #B90410;
 }
 
 /* --------------- Media Queries ----------------- */
