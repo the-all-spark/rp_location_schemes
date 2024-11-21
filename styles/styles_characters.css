@@ -1,7 +1,7 @@
-@font-face {
+/*@font-face {
     font-family: 'Transformers';
     src: url(../fonts/Transformers_Movie.ttf);
-}
+}*/
 
 main {
     flex: 1;
@@ -168,7 +168,9 @@ main {
 .brief-info-block p {
     border: 1px solid rgb(190, 190, 190);
     margin: 0 auto;
-    font-family: Transformers;
+    /*font-family: Transformers;*/
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
     color: rgb(125, 125, 125);
     padding: 2px 7px;
     text-align: center;
