@@ -1,28 +1,143 @@
 window.onload = function() {
     
-    // * ----- Выделение пункта подменю (изначально "Все")
-    // ! обернуть в универсальную функцию выделения пункта из списка
-    let submenuList = document.querySelectorAll(".submenu-list a");
-    console.log(submenuList); // ! список всех подменю
+    // * ----- Выделение пункта подменю при открытии станицы "Персонажи"
+    let fractionList = document.querySelectorAll(".submenu-list-fractions a");
+    console.log(fractionList); // ! список всех пунктов списка фракций
 
-    for(let i = 0; i < submenuList.length; i++) {
-        console.log(submenuList[i].hash.replace("#",''));
-        if(submenuList[i].hash.replace("#",'') === "all") { // ! передать id без #
-            submenuList[i].classList.add("selected-list-item");
-        }
-    }
+    let universeList = document.querySelectorAll(".submenu-list-universe a");
+    console.log(universeList); // ! список всех пунктов списка вселенных
+
+    markMenuItem(fractionList, "all"); // изначально выделяется пункт "Все" во фракциях
+    markMenuItem(universeList, "all"); // ... и "Все" во вселенных
 
     // * ----- Вывод всех карточек при открытии страницы "Персонажи"
-
     console.log(characters); // ! список персонажей
     //функция построение карточек вызывается для каждого объекта в массиве
     characters.forEach((character) => constructCard(character)); 
+
+
+
+
+
+    // * ФУНКЦИИ
+
+    // * Функция выделения пункта меню (и фракций, и вселенных)
+    function markMenuItem(list, selectedHash) {
+        //console.log(list);
+        //console.log(selectedHash);
+
+        for(let i = 0; i < list.length; i++) {
+
+            // убираем предыдущее выделение пункта меню
+            if(list[i].classList.contains("selected-list-item")) {
+                list[i].classList.remove("selected-list-item");
+                list[i].style.cursor = "pointer";
+            }
+           
+            let hash = list[i].hash.replace("#",'');
+            if(hash === selectedHash) {
+                list[i].classList.add("selected-list-item");
+                list[i].style.cursor = "not-allowed";
+                list[i].removeEventListener("click", showFractionMembers); // если пункт выбран, убираем обработчик   
+            } else {
+                list[i].addEventListener("click", showFractionMembers); // для остальных - добавляем
+            } 
+        }  
+    }
+
+    // Функция перевода написания фракции из RU в ENG 
+    function fromRUtoENG(fraction) {
+        switch(fraction) {
+            case "автобот":
+                return "autobots";
+            case "десептикон":
+                return "decepticons";
+            case "предакон":
+                return "predacons";
+            case "нейтрал":
+                return "neutrals";
+        }
+    }
+
+    // Функция перевода написания фракции из ENG в RU
+    function fromENGtoRU(hash) {
+        switch(hash) {
+            case "autobots":
+                return "Автоботы"; 
+            case "decepticons":
+                return "Десептиконы";
+            case "predacons":
+                return "Предаконы";
+            case "neutrals":
+                return "Нейтралы"; 
+        }   
+    }
+    
+    // * Функция выбора персонажей конкретной фракции (или всех)
+    // ! не должно работать для вселенных
+    function showFractionMembers() {
+        console.log(this); // пункт меню, по которому кликнули
+        let selectedHash = this.hash.replace("#",'');
+        console.log(`Выбор фракции: ${selectedHash}`);
+
+        document.querySelector(".cards-block").innerHTML = ''; // очищаем что выведено ранее
+
+        let count = 0; // количество выведенных персонажей
+
+        // если выбран хэш "all" - выводим всех
+        if(selectedHash === "all") {
+            characters.forEach((character) => constructCard(character)); 
+            count = characters.length;
+        }
+
+        // вывод только тех, чья фракция соответствует выбранному пункту (хэшу)
+        let fraction;
+        for(let i = 0; i < characters.length; i++) {
+            fraction = fromRUtoENG(characters[i].fraction); // перевод написания фракции из RU в ENG 
+            if(fraction === selectedHash){
+                constructCard(characters[i]);
+                count++;
+            }
+        }
+
+        //console.log(count);
+        // если персонажей данной фракции нет - вывод сообщения-предупреждения на страницу
+        if(count === 0) {
+            showWarning(selectedHash);
+        }
+
+        // выделение пункта меню
+        markMenuItem(fractionList, selectedHash);
+
+    }
+
+    // * Функция вывода на страницу предупреждения, что персонажей данной фракции нет
+    // принимает хэш, соотв. фракции (на англ.)
+    function showWarning(hash) {
+        let selectedHashRU = fromENGtoRU(hash); // перевод написания хэша из ENG в RU
+        let message = `Персонажи фракции "${selectedHashRU}" на сайте отсутствуют.`;
+
+        let pMessage = document.createElement("p");
+        pMessage.className = "message";
+        pMessage.append(message);
+        document.querySelector(".cards-block").append(pMessage);
+
+        //! document.querySelector(".up-btn").style.display = "none"; // 
+        // ! сделать проверку наличия прокрутки страницы
+    }
+
+    // TODO * ----- Выбор вселенной
+    /*function showUniverse() {
+        console.log("Выбор вселенной");
+
+        // markMenuItem(universeList, selectedHash); //! подкорректировать
+    }*/
 
     // * Функция сборки и вывода карточки персонажа
     // Вывод карточки в порядке: иконки фракции (fraction: автобот | десептикон), 
     // фотографии персонажа (photo), имени персонажа на русском и английском, 
     // альтмода (altmode), роста (height), профессии (profession), вооружения (arming)
-
+    
     function constructCard(person) {
 
         // конструирование по элементам
@@ -270,6 +385,19 @@ let characters = [
         universe: "TFP",
         isOC: false,
     },
+    {
+        //! копия - потом убрать
+        nameRU: "------",
+        nameENG: "some",
+        photo: "wheeljack.jpg",
+        fraction: "автобот",
+        altmode: "спорткар Lancia Stratos Turbo",
+        height: 7,
+        profession: "инженер, техник, пилот, мечник, недоученый, вояка, бунтарь",
+        arming: "два встроенных в манипуляторы среднемощных бластера; катаны, граната",
+        universe: "TFP",
+        isOC: true,
+    }
 
 
 ]
