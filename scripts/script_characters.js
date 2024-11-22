@@ -12,8 +12,12 @@ window.onload = function() {
 
     // * ----- Вывод всех карточек при открытии страницы "Персонажи"
     console.log(characters); // ! список персонажей
+
     //функция построение карточек вызывается для каждого объекта в массиве
-    characters.forEach((character) => constructCard(character)); 
+    characters.forEach((character, index) => constructCard(character, index)); 
+
+    // * ----- Выбор вселенной (возможен сразу при открытии страницы)
+    showUniverse();
 
 
 
@@ -35,14 +39,26 @@ window.onload = function() {
             }
            
             let hash = list[i].hash.replace("#",'');
+            let functionToFiltration = chooseFiltration(list[0]); // выбор обработчика для фильтрации
+
             if(hash === selectedHash) {
                 list[i].classList.add("selected-list-item");
                 list[i].style.cursor = "not-allowed";
-                list[i].removeEventListener("click", showFractionMembers); // если пункт выбран, убираем обработчик   
+                list[i].removeEventListener("click", functionToFiltration); // если пункт выбран, убираем обработчик   
             } else {
-                list[i].addEventListener("click", showFractionMembers); // для остальных - добавляем
+                list[i].addEventListener("click", functionToFiltration); // для остальных - добавляем
             } 
         }  
+    }
+
+    // Функция определения списка для фильтрации
+    function chooseFiltration(element) {
+        switch(element.dataset.list) {
+            case "fractions":
+                return showFractionMembers;
+            case "universes":
+                return showUniverse;
+        }
     }
 
     // Функция перевода написания фракции из RU в ENG 
@@ -74,19 +90,18 @@ window.onload = function() {
     }
     
     // * Функция выбора персонажей конкретной фракции (или всех)
-    // ! не должно работать для вселенных
     function showFractionMembers() {
-        console.log(this); // пункт меню, по которому кликнули
+        //console.log(this); // пункт меню, по которому кликнули
+
         let selectedHash = this.hash.replace("#",'');
         console.log(`Выбор фракции: ${selectedHash}`);
 
         document.querySelector(".cards-block").innerHTML = ''; // очищаем что выведено ранее
-
         let count = 0; // количество выведенных персонажей
 
         // если выбран хэш "all" - выводим всех
         if(selectedHash === "all") {
-            characters.forEach((character) => constructCard(character)); 
+            characters.forEach((character, index) => constructCard(character, index)); 
             count = characters.length;
         }
 
@@ -95,7 +110,7 @@ window.onload = function() {
         for(let i = 0; i < characters.length; i++) {
             fraction = fromRUtoENG(characters[i].fraction); // перевод написания фракции из RU в ENG 
             if(fraction === selectedHash){
-                constructCard(characters[i]);
+                constructCard(characters[i], i);
                 count++;
             }
         }
@@ -104,11 +119,14 @@ window.onload = function() {
         // если персонажей данной фракции нет - вывод сообщения-предупреждения на страницу
         if(count === 0) {
             showWarning(selectedHash);
+            // ! сделать пункты меню вселенных неактивными
+            // ! для каждого элемента меню убрать обработчик события?
+
         }
 
         markMenuItem(fractionList, selectedHash); // выделение пункта меню
         showHideUpBtn(); // проверка скролла (скрытие/отображение кнопки вверх)
-
+        showUniverse(); // выбор вселенной (фильтрация по выведенным на страницу персонажам)
     }
 
     // * Функция вывода на страницу предупреждения, что персонажей данной фракции нет
@@ -135,18 +153,39 @@ window.onload = function() {
     }
     
     // TODO * ----- Выбор вселенной
-    /*function showUniverse() {
-        console.log("Выбор вселенной");
+    function showUniverse() {
+        console.log("Можно выбрать вселенную");
 
-        // markMenuItem(universeList, selectedHash); //! подкорректировать
-    }*/
+        let selectedHash; // пункт меню, который выбран
+
+        // изначально this.hash === undefined, т.к. выделяется "Все" без клика 
+        if(this.hash === undefined) {
+            selectedHash = "all";
+        } else {
+            selectedHash = this.hash.replace("#",'');  
+        }
+        console.log(`На данный момент выбрана категория: ${selectedHash}`);
+        markMenuItem(universeList, selectedHash); // выделение пункта меню
+
+        let displayedCharacters = document.querySelectorAll(".card"); // выведенные персонажи
+        console.log(displayedCharacters);
+
+        // ! выборка персонажей
+        // ! построение карточек
+
+
+
+
+    }
 
     // * Функция сборки и вывода карточки персонажа
     // Вывод карточки в порядке: иконки фракции (fraction: автобот | десептикон), 
     // фотографии персонажа (photo), имени персонажа на русском и английском, 
     // альтмода (altmode), роста (height), профессии (profession), вооружения (arming)
     
-    function constructCard(person) {
+    function constructCard(person, index) {
+        //console.log(person);
+        //console.log(index);
 
         // конструирование по элементам
         let fractionIcon = showFractionIcon(person); // фракция (иконка)
@@ -163,6 +202,8 @@ window.onload = function() {
         let card = document.createElement("div"); // контейнер для персонажа
         card.classList.add("card");
         card.classList.add(`${person.nameENG}-card`);
+        card.setAttribute("id",`n${index}`);
+
         console.log(card); 
 
         card.append(fractionIcon); // присоединение фракции
@@ -395,7 +436,7 @@ let characters = [
     },
     {
         //! копия - потом убрать
-        nameRU: "------",
+        nameRU: "У",
         nameENG: "some",
         photo: "wheeljack.jpg",
         fraction: "автобот",
@@ -408,7 +449,7 @@ let characters = [
     },
     {
         //! копия - потом убрать
-        nameRU: "-----",
+        nameRU: "C",
         nameENG: "new",
         photo: "soundwave.jpg",
         fraction: "десептикон",
