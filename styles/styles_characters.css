@@ -178,7 +178,8 @@ main {
 
 /* Предупреждение (сообщение) */
 
-.cards-block .message {
+.cards-block .message-fraction,
+.cards-block .message-universe {
     margin: 0 auto;
     padding: 20px 0;
     font-size: 20px;

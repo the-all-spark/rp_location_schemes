@@ -2,10 +2,10 @@ window.onload = function() {
 
     // * ----- Выделение пункта подменю при открытии станицы "Персонажи"
     let fractionList = document.querySelectorAll(".submenu-list-fractions a");
-    console.log(fractionList); // ! список всех пунктов списка фракций
+    console.log(fractionList); // ! все пункты списка фракций
 
     let universeList = document.querySelectorAll(".submenu-list-universe a");
-    console.log(universeList); // ! список всех пунктов списка вселенных
+    console.log(universeList); // ! все пункты списка вселенных
 
     markMenuItem(fractionList, "all"); // изначально выделяется пункт "Все" во фракциях
     markMenuItem(universeList, "all"); // ... и "Все" во вселенных
@@ -17,11 +17,7 @@ window.onload = function() {
     characters.forEach((character, index) => constructCard(character, index)); 
 
     // * ----- Выбор вселенной (возможен сразу при открытии страницы)
-    showUniverse();
-
-
-
-
+    showUniverseCharacters();
 
     // * ФУНКЦИИ
 
@@ -51,13 +47,13 @@ window.onload = function() {
         }  
     }
 
-    // Функция определения списка для фильтрации
+    // Функция определения списка (и функции) для фильтрации
     function chooseFiltration(element) {
         switch(element.dataset.list) {
             case "fractions":
                 return showFractionMembers;
             case "universes":
-                return showUniverse;
+                return showUniverseCharacters; 
         }
     }
 
@@ -86,12 +82,16 @@ window.onload = function() {
                 return "Предаконы";
             case "neutrals":
                 return "Нейтралы"; 
+            case "all":
+                return "Все";
         }   
     }
     
     // * Функция выбора персонажей конкретной фракции (или всех)
     function showFractionMembers() {
         //console.log(this); // пункт меню, по которому кликнули
+
+        markMenuItem(universeList, "all"); // при переходе на другую фракцию - выбор категории "Все" по умолчанию
 
         let selectedHash = this.hash.replace("#",'');
         console.log(`Выбор фракции: ${selectedHash}`);
@@ -126,23 +126,98 @@ window.onload = function() {
 
         markMenuItem(fractionList, selectedHash); // выделение пункта меню
         showHideUpBtn(); // проверка скролла (скрытие/отображение кнопки вверх)
-        showUniverse(); // выбор вселенной (фильтрация по выведенным на страницу персонажам)
+    }
+  
+    // * Функция выбора персонажей вселенной (запускается при клике на пункт меню из категории вселенных)
+    function showUniverseCharacters() {
+
+        // скрытие сообщения с предупреждением
+        if(document.querySelector(".message-universe")) {
+            document.querySelector(".message-universe").remove();
+        }
+ 
+        let selectedHash; // пункт меню вселенной, который выбран
+
+        // изначально this.hash === undefined, т.к. выделяется "Все" без клика 
+        if(this.hash === undefined) {
+            selectedHash = "all";
+        } else {
+            selectedHash = this.hash.replace("#",'');  
+        }
+        console.log(`Выбрана категория вселенной: ${selectedHash}`);
+        markMenuItem(universeList, selectedHash); // выделение пункта меню вселенной
+
+        // * Выборка по персонажам фракции 
+
+        let displayedFractionCharacters = document.querySelectorAll(".card"); // выведенные персонажи
+        let count = displayedFractionCharacters.length;
+        console.log(`Всего карточек показано во фракции: ${count}`);
+
+        for(let i = 0; i < displayedFractionCharacters.length; i++) {  
+
+            // изначально показать все
+            if(displayedFractionCharacters[i].style.display === "none")  {
+                displayedFractionCharacters[i].style.display = "block";
+            }
+
+            // поиск записи о вселенной в отдельной карточке
+            let universeText = displayedFractionCharacters[i].querySelector(".universe").innerHTML;
+
+            // если выбрана категория "Все" показываем все карточки
+            // если вселенная карточки не совпадает с выбранной вселенной - скрываем карточку 
+            if(selectedHash === "all") {
+                displayedFractionCharacters[i].style.display = "block";
+            } else if(selectedHash !== universeText) {
+                displayedFractionCharacters[i].style.display = "none";
+                count--;
+            }
+        }
+
+        console.log(`Осталось карточек на странице: ${count}`);
+        if(count === 0) {
+            showWarningUniverse(selectedHash); // вывод предупреждения если ничего не выведено
+        }
+
     }
 
-    // * Функция вывода на страницу предупреждения, что персонажей данной фракции нет
+    // * Функция вывода на страницу предупреждения, что персонажей данной фракции нет 
     // принимает хэш, соотв. фракции (на англ.)
     function showWarning(hash) {
         let selectedHashRU = fromENGtoRU(hash); // перевод написания хэша из ENG в RU
         let message = `Персонажи фракции "${selectedHashRU}" на сайте отсутствуют.`;
 
         let pMessage = document.createElement("p");
-        pMessage.className = "message";
+        pMessage.className = "message-fraction";
         pMessage.append(message);
         document.querySelector(".cards-block").append(pMessage);
     }
 
-    // * функция проверки скролла и отображение/скрытие кнопки вверх
-    function showHideUpBtn() {
+    // * Функция вывода на страницу предупреждения, что персонажей данной вселенной нет 
+    // принимает хэш, соотв. фракции (на англ.)
+    function showWarningUniverse(universe) {
+
+        let selectedFraction = document.querySelector(".selected-list-item");
+        let hash = selectedFraction.hash.replace("#",'');
+        //console.log(hash);
+
+        let fraction = fromENGtoRU(hash); // перевод написания хэша из ENG в RU
+        //console.log(fraction);
+
+        let message;
+        if(fraction === "Все") {
+            message = `В категории "Все" отсутствуют представители вселенной ${universe}.`;
+        } else {
+            message = `Во фракции "${fraction}" отсутствуют представители вселенной "${universe}".`;
+        }
+    
+        let pMessage = document.createElement("p");
+        pMessage.className = "message-universe";
+        pMessage.append(message);
+        document.querySelector(".cards-block").append(pMessage);
+    }
+
+     // * функция проверки скролла и отображение/скрытие кнопки вверх
+     function showHideUpBtn() {
         if(document.documentElement.scrollHeight === window.innerHeight) {
             //console.log("Скролла нет");
             document.querySelector(".up-btn").style.display = "none";
@@ -151,34 +226,8 @@ window.onload = function() {
             document.querySelector(".up-btn").style.display = "block";
         }
     }
-    
-    // TODO * ----- Выбор вселенной
-    function showUniverse() {
-        console.log("Можно выбрать вселенную");
 
-        let selectedHash; // пункт меню, который выбран
-
-        // изначально this.hash === undefined, т.к. выделяется "Все" без клика 
-        if(this.hash === undefined) {
-            selectedHash = "all";
-        } else {
-            selectedHash = this.hash.replace("#",'');  
-        }
-        console.log(`На данный момент выбрана категория: ${selectedHash}`);
-        markMenuItem(universeList, selectedHash); // выделение пункта меню
-
-        let displayedCharacters = document.querySelectorAll(".card"); // выведенные персонажи
-        console.log(displayedCharacters);
-
-        // ! выборка персонажей
-        // ! построение карточек
-
-
-
-
-    }
-
-    // * Функция сборки и вывода карточки персонажа
+    // * ---- Функция сборки и вывода карточки персонажа
     // Вывод карточки в порядке: иконки фракции (fraction: автобот | десептикон), 
     // фотографии персонажа (photo), имени персонажа на русском и английском, 
     // альтмода (altmode), роста (height), профессии (profession), вооружения (arming)
@@ -377,9 +426,6 @@ window.onload = function() {
 
         return pBlock;
     }
-
-
-
 
 }
 
