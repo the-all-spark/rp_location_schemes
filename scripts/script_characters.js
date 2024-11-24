@@ -31,7 +31,6 @@ window.onload = function() {
             // убираем предыдущее выделение пункта меню
             if(list[i].classList.contains("selected-list-item")) {
                 list[i].classList.remove("selected-list-item");
-                list[i].style.cursor = "pointer";
             }
            
             let hash = list[i].hash.replace("#",'');
@@ -39,7 +38,6 @@ window.onload = function() {
 
             if(hash === selectedHash) {
                 list[i].classList.add("selected-list-item");
-                list[i].style.cursor = "not-allowed";
                 list[i].removeEventListener("click", functionToFiltration); // если пункт выбран, убираем обработчик   
             } else {
                 list[i].addEventListener("click", functionToFiltration); // для остальных - добавляем
@@ -91,6 +89,13 @@ window.onload = function() {
     function showFractionMembers() {
         //console.log(this); // пункт меню, по которому кликнули
 
+        // сделать пункты списка вселенных активными
+        universeList.forEach((list) => {
+            if(list.classList.contains("disabled-universe-links")) {
+                list.classList.remove("disabled-universe-links");  
+            }   
+        });  
+
         markMenuItem(universeList, "all"); // при переходе на другую фракцию - выбор категории "Все" по умолчанию
 
         let selectedHash = this.hash.replace("#",'');
@@ -119,9 +124,12 @@ window.onload = function() {
         // если персонажей данной фракции нет - вывод сообщения-предупреждения на страницу
         if(count === 0) {
             showWarning(selectedHash);
-            // ! сделать пункты меню вселенных неактивными
-            // ! для каждого элемента меню убрать обработчик события?
 
+            // пункты списка вселенных сделать неактивными
+            universeList.forEach((list) => {
+                list.removeEventListener("click", showUniverseCharacters)
+                list.classList.add("disabled-universe-links");  
+            });  
         }
 
         markMenuItem(fractionList, selectedHash); // выделение пункта меню
