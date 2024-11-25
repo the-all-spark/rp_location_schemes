@@ -12,9 +12,11 @@ window.onload = function() {
 
     // * ----- Вывод всех карточек при открытии страницы "Персонажи"
     console.log(characters); // ! список персонажей
-
     //функция построение карточек вызывается для каждого объекта в массиве
     characters.forEach((character, index) => constructCard(character, index)); 
+
+    // * ----- Сортировка выведенных карточек по имени на русском
+    sortCards();
 
     // * ----- Выбор вселенной (возможен сразу при открытии страницы)
     showUniverseCharacters();
@@ -134,6 +136,7 @@ window.onload = function() {
 
         markMenuItem(fractionList, selectedHash); // выделение пункта меню
         showHideUpBtn(); // проверка скролла (скрытие/отображение кнопки вверх)
+        sortCards();
     }
   
     // * Функция выбора персонажей вселенной (запускается при клике на пункт меню из категории вселенных)
@@ -435,6 +438,24 @@ window.onload = function() {
         return pBlock;
     }
 
+    // * Функция сортировки карточек на текущей странице 
+    function sortCards() {
+        let displayedCharacters = document.querySelectorAll(".card");
+        //console.log(displayedCharacters);
+    
+        let arrDisplayedCharacters = Array.from(displayedCharacters);
+    
+        let sortedCards = arrDisplayedCharacters.sort((cardA, cardB) => {
+            return cardA.querySelector(".name-ru").innerHTML.localeCompare(cardB.querySelector(".name-ru").innerHTML);
+        });
+
+        //console.log(sortedCards);
+        document.querySelector(".cards-block").append(...sortedCards); // вставка отсортированных карточек
+    }
+
+
+
+
 }
 
 /* объект персонажа:
@@ -490,7 +511,7 @@ let characters = [
     },
     {
         //! копия - потом убрать
-        nameRU: "У",
+        nameRU: "Белый",
         nameENG: "some",
         photo: "wheeljack.jpg",
         fraction: "автобот",
@@ -503,7 +524,7 @@ let characters = [
     },
     {
         //! копия - потом убрать
-        nameRU: "C",
+        nameRU: "Связист",
         nameENG: "new",
         photo: "soundwave.jpg",
         fraction: "десептикон",
