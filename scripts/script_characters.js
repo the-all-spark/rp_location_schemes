@@ -1,12 +1,12 @@
 window.onload = function() {
 
-    // * ----- Выделение пункта подменю при открытии станицы "Персонажи"
     let fractionList = document.querySelectorAll(".submenu-list-fractions a");
     console.log(fractionList); // ! все пункты списка фракций
 
     let universeList = document.querySelectorAll(".submenu-list-universe a");
     console.log(universeList); // ! все пункты списка вселенных
 
+    // * ----- Выделение пункта подменю при открытии станицы "Персонажи"
     markMenuItem(fractionList, "all"); // изначально выделяется пункт "Все" во фракциях
     markMenuItem(universeList, "all"); // ... и "Все" во вселенных
 
@@ -19,13 +19,12 @@ window.onload = function() {
     let sortedCards = sortCards();
     document.querySelector(".cards-block").append(...sortedCards);
 
-
     // * ----- Выбор вселенной (возможен сразу при открытии страницы)
     showUniverseCharacters();
 
-    // * ФУНКЦИИ
-
-    // * Функция выделения пункта меню (и фракций, и вселенных)
+    // * ----------------------------------- ФУНКЦИИ ---------------------------------------
+ 
+    // TODO Функция выделения пункта меню (и фракций, и вселенных)
     function markMenuItem(list, selectedHash) {
         //console.log(list);
         //console.log(selectedHash);
@@ -74,8 +73,8 @@ window.onload = function() {
     }
 
     // Функция перевода написания фракции из ENG в RU
-    function fromENGtoRU(hash) {
-        switch(hash) {
+    function fromENGtoRU(fraction) {
+        switch(fraction) {
             case "autobots":
                 return "Автоботы"; 
             case "decepticons":
@@ -127,7 +126,7 @@ window.onload = function() {
         //console.log(count);
         // если персонажей данной фракции нет - вывод сообщения-предупреждения на страницу
         if(count === 0) {
-            showWarning(selectedHash);
+            showWarningFraction(selectedHash);
 
             // пункты списка вселенных сделать неактивными
             universeList.forEach((list) => {
@@ -191,16 +190,16 @@ window.onload = function() {
 
         console.log(`Осталось карточек на странице: ${count}`);
         if(count === 0) {
-            showWarningUniverse(selectedHash); // вывод предупреждения если ничего не выведено
+            showWarningUniverse(selectedHash); // вывод предупреждения, если ничего не выведено
         }
 
     }
 
-    // * Функция вывода на страницу предупреждения, что персонажей данной фракции нет 
-    // принимает хэш, соотв. фракции (на англ.)
-    function showWarning(hash) {
-        let selectedHashRU = fromENGtoRU(hash); // перевод написания хэша из ENG в RU
-        let message = `Персонажи фракции "${selectedHashRU}" на сайте отсутствуют.`;
+    // ** Функция вывода на страницу предупреждения, что персонажей данной фракции нет 
+    // принимает хэш, соответствующий фракции (на англ.языке)
+    function showWarningFraction(fraction) {
+        let selectedFractionRU = fromENGtoRU(fraction);
+        let message = `Персонажи фракции "${selectedFractionRU}" на сайте отсутствуют.`;
 
         let pMessage = document.createElement("p");
         pMessage.className = "message-fraction";
@@ -208,22 +207,18 @@ window.onload = function() {
         document.querySelector(".cards-block").append(pMessage);
     }
 
-    // * Функция вывода на страницу предупреждения, что персонажей данной вселенной нет 
-    // принимает хэш, соотв. фракции (на англ.)
+    // ** Функция вывода на страницу предупреждения, что персонажи данной вселенной отсутствуют 
+    // принимает хэш, соответствующий вселенной (на англ.языке)
     function showWarningUniverse(universe) {
-
         let selectedFraction = document.querySelector(".selected-list-item");
-        let hash = selectedFraction.hash.replace("#",'');
-        //console.log(hash);
-
-        let fraction = fromENGtoRU(hash); // перевод написания хэша из ENG в RU
-        //console.log(fraction);
+        let fractionHash = selectedFraction.hash.replace("#",'');
+        let fractionRU = fromENGtoRU(fractionHash);
 
         let message;
-        if(fraction === "Все") {
-            message = `В категории "Все" отсутствуют представители вселенной ${universe}.`;
+        if(fractionRU === "Все") {
+            message = `В категории "Все" отсутствуют представители вселенной "${universe}".`;
         } else {
-            message = `Во фракции "${fraction}" отсутствуют представители вселенной "${universe}".`;
+            message = `Во фракции "${fractionRU}" отсутствуют представители вселенной "${universe}".`;
         }
     
         let pMessage = document.createElement("p");
@@ -232,36 +227,21 @@ window.onload = function() {
         document.querySelector(".cards-block").append(pMessage);
     }
 
-     // * функция проверки скролла и отображение/скрытие кнопки вверх
-     function showHideUpBtn() {
-        if(document.documentElement.scrollHeight === window.innerHeight) {
-            //console.log("Скролла нет");
-            document.querySelector(".up-btn").style.display = "none";
-        } else {
-            //console.log("Скролл есть");
-            document.querySelector(".up-btn").style.display = "block";
-        }
-    }
-
-    // * ---- Функция сборки и вывода карточки персонажа
-    // Вывод карточки в порядке: иконки фракции (fraction: автобот | десептикон), 
-    // фотографии персонажа (photo), имени персонажа на русском и английском, 
-    // альтмода (altmode), роста (height), профессии (profession), вооружения (arming)
-    
+    // ** Функция сборки карточки персонажа    
     function constructCard(person, index) {
         //console.log(person);
         //console.log(index);
 
         // конструирование по элементам
-        let fractionIcon = showFractionIcon(person); // фракция (иконка)
-        let photo = showPhoto(person); // фото
-        let briefInfo = showBriefInfo(person);  // информация о вселенной и ОС (если надо)
-        let nameRU = showNameRU(person); // имя на русском
-        let nameENG = showNameENG(person); // имя на английском
-        let altmode = showAltmode(person); // альтмод
-        let heightSize = showHeight(person); // рост
-        let profession = showProfession(person); // профессия
-        let arming = showArming(person); // вооружение
+        let fractionIcon = createFractionIconBlock(person); // фракция (иконка)
+        let photo = createPhotoBlock(person); // фото
+        let briefInfo = createBriefInfoBlock(person);  // информация о вселенной и ОС (если надо)
+        let nameRU = createNameRUBlock(person); // имя на русском
+        let nameENG = createNameENGBlock(person); // имя на английском
+        let altmode = createAltmodeBlock(person); // альтмод
+        let heightSize = createHeightBlock(person); // рост
+        let profession = createProfessionBlock(person); // профессия
+        let arming = createArmingBlock(person); // вооружение
         
         // сборка элементов в блок
         let card = document.createElement("div"); // контейнер для персонажа
@@ -269,76 +249,95 @@ window.onload = function() {
         card.classList.add(`${person.nameENG}-card`);
         card.setAttribute("id",`n${index}`);
 
-        console.log(card); 
+        // добавление блоков в карточку персонажа
+        card.append(fractionIcon); 
+        card.append(photo); 
+        card.append(briefInfo); 
+        card.append(nameRU); 
+        card.append(nameENG); 
+        card.append(altmode); 
+        card.append(heightSize); 
+        card.append(profession); 
+        card.append(arming);
 
-        card.append(fractionIcon); // присоединение фракции
-        card.append(photo); // присоединение фото
-        card.append(briefInfo); // присоединение краткой информации (вселенная, ОС)
-        card.append(nameRU); // присоединение имени на русском
-        card.append(nameENG); // присоединение имени на английском
-        card.append(altmode); // присоединение альтмода
-        card.append(heightSize); // присоединение роста
-        card.append(profession); // присоединение профессии
-        card.append(arming); // присоединение вооружения
+        //console.log(card); 
+        showCard(card); // вывод карточки       
+    }
 
-        // вывод блока на страницу
+    // ** Функция вывода карточки персонажа (получает карточку, добавляет в блок на страницу)
+    function showCard(card) {
         let cardBlock = document.querySelector(".cards-block"); 
         cardBlock.append(card);
     }
 
-    // * Функция вывода иконки фракции персонажа
-    function showFractionIcon(person) {
+    // ** Функция построения блока с иконкой фракции персонажа (возвращает блок)
+    function createFractionIconBlock(person) {
         let divBlock = document.createElement("div"); // контейнер для фракции
         divBlock.className = "fraction-icon";
 
         let imgBlock = document.createElement("img");
-        let src;
-
-        switch(person.fraction) {
-            case "автобот":
-                src = "./assets/characters/autobots_icon.svg"; break;
-            case "десептикон":
-                src = "./assets/characters/decepticons_icon.svg"; break;
-            case "предакон":
-                src = "./assets/characters/predacons_icon.svg"; break;
-            // ! default - нейтралы
-        }
+        let src = getFractionIconPath(person.fraction);
 
         imgBlock.setAttribute("src", src);
         imgBlock.setAttribute("alt", person.fraction);
         imgBlock.setAttribute("title", `Фракция: ${person.fraction}`);
 
         divBlock.prepend(imgBlock);
+
         return divBlock;
     }
 
-    // * Функция вывода фото персонажа
-    function showPhoto(person) {
+    // ** Функция получения пути для отображения иконки фракции (возвращает путь к иконке)
+    function getFractionIconPath(fraction) {
+        let iconFile;
+
+        switch(fraction) {
+            case "автобот":
+                iconFile = "autobots_icon.svg"; break;
+            case "десептикон":
+                iconFile = "decepticons_icon.svg"; break;
+            case "предакон":
+                iconFile = "predacons_icon.svg"; break;
+            /*case "нейтрал":
+                iconFile = "neutrals_icon.svg"; break;*/
+        }
+
+        return `./assets/characters/${iconFile}`;
+    }
+
+    // ** Функция построения блока c фото персонажа (возвращает блок)
+    function createPhotoBlock(person) {
         let divBlock = document.createElement("div"); // контейнер
         divBlock.className = "character-photo";
 
+        let folder = getFolderName(person.fraction);
+
         let imgBlock = document.createElement("img");
-
-        let folder;
-        switch(person.fraction) {
-            case "автобот":
-                folder = "autobots"; break;
-            case "десептикон":
-                folder = "decepticons"; break;
-            case "предакон":
-                folder = "predacons"; break;
-            // ! default - нейтралы
-        }
-
         imgBlock.setAttribute("src", `./assets/characters/${folder}/${person.photo}`);
         imgBlock.setAttribute("alt", `${person.nameRU}, ${person.fraction}`);
 
         divBlock.prepend(imgBlock);
+
         return divBlock;
     }
 
-    // * Функция вывода вселенной и плашки "ОС" (если есть)
-    function showBriefInfo(person) {
+    // ** Функция получения папки, где хранится фото персонажа (в зависимости от фракции) 
+    // (возвращает имя папки)
+    function getFolderName(fraction) {
+        switch(fraction) {
+            case "автобот":
+                return "autobots";
+            case "десептикон":
+                return "decepticons";
+            case "предакон":
+                return "predacons"; 
+            default:
+                return "neutrals";
+        }
+    }
+
+    // ** Функция построения блока вселенной и плашки "ОС" (если есть) (возвращает блок)
+    function createBriefInfoBlock(person) {
         let divBlock = document.createElement("div"); // контейнер
         divBlock.className = "brief-info-block";
 
@@ -346,6 +345,7 @@ window.onload = function() {
             let pOCBlock = document.createElement("p");
             pOCBlock.className = "isOC-block";
             pOCBlock.append("OC");
+
             divBlock.append(pOCBlock);
             divBlock.style.width = "40%";
         } else {
@@ -355,22 +355,23 @@ window.onload = function() {
         let pUniverseBlock = document.createElement("p");
         pUniverseBlock.className = "universe";
         pUniverseBlock.append(`${person.universe}`);
+
         divBlock.append(pUniverseBlock);
 
         return divBlock;
     }
 
-    // * Функция вывода имена на русском
-    function showNameRU(person) {
+    // ** Функция построения блока имени на русском (возвращает блок)
+    function createNameRUBlock(person) {
         let h2Block = document.createElement("h2"); // контейнер
         h2Block.className = "name-ru";
-        h2Block.append(person.nameRU);
+        h2Block.append(`${person.nameRU}`);
 
         return h2Block;
     }
 
-    // * Функция вывода имена на английском
-    function showNameENG(person) {
+    // ** Функция построения блока имени на английском (возвращает блок)
+    function createNameENGBlock(person) {
         let pBlock = document.createElement("p"); // контейнер
         pBlock.className = "name-en";
         pBlock.append(`(${person.nameENG})`);
@@ -378,73 +379,81 @@ window.onload = function() {
         return pBlock;
     }
     
-    // ! код функций ниже похож - подумать как объединить в одну универсальную
-    // * Функция вывода альтмода
-    function showAltmode(person) {
+    // ** Функция построения блока альтмода (возвращает блок)
+    function createAltmodeBlock(person) {
         let pBlock = document.createElement("p"); // контейнер
 
         let title = document.createElement("b");
-        title.append("Альтмод: ");
+        let titleText = "Альтмод: ";
+        title.append(titleText);
+
         pBlock.append(title);
 
         let text = document.createElement("span");
         text.className = "altmode-str";
         text.append(`${person.altmode}`);
+
         pBlock.append(text);
 
         return pBlock;
     }
 
-    // * Функция вывода роста
-    function showHeight(person) {
+    // ** Функция построения блока роста (возвращает блок)
+    function createHeightBlock(person) {
         let pBlock = document.createElement("p"); // контейнер
 
         let title = document.createElement("b");
         title.append("Рост в робомоде: ");
+
         pBlock.append(title);
 
         let text = document.createElement("span");
         text.className = "height-str";
         text.append(`${person.height} м`);
+
         pBlock.append(text);
 
         return pBlock;
     }
 
-    // * Функция вывода профессии
-    function showProfession(person) {
+    // ** Функция построения блока профессии (возвращает блок)
+    function createProfessionBlock(person) {
         let pBlock = document.createElement("p"); // контейнер
 
         let title = document.createElement("b");
         title.append("Профессия: ");
+
         pBlock.append(title);
 
         let text = document.createElement("span");
         text.className = "profession-str";
         text.append(`${person.profession}`);
+
         pBlock.append(text);
 
         return pBlock;
     }
 
-    // * Функция вывода вооружения
-    function showArming(person) {
+    // ** Функция построения блока вооружения (возвращает блок)
+    function createArmingBlock(person) {
         let pBlock = document.createElement("p"); // контейнер
 
         let title = document.createElement("b");
         title.append("Вооружение: ");
+
         pBlock.append(title);
 
         let text = document.createElement("span");
         text.className = "arming-str";
         text.append(`${person.arming}`);
-        pBlock.append(text);
 
+        pBlock.append(text);
+        
         return pBlock;
     }
 
-    // ** Функция сортировки карточек на текущей странице 
-    // возвращает массив отсортированных карточек
+    // ** Функция сортировки карточек на текущей странице (без вывода)
+    // возвращает массив отсортированных карточек 
     function sortCards() {
         let displayedCharacters = document.querySelectorAll(".card");
         //console.log(displayedCharacters);
@@ -458,6 +467,16 @@ window.onload = function() {
         return newCardOrder;
     }
 
+    // ** Функция проверки наличия скролла и отображение/скрытие кнопки "Вверх"
+    function showHideUpBtn() {
+        if(document.documentElement.scrollHeight === window.innerHeight) {
+            // Скролла нет
+            document.querySelector(".up-btn").style.display = "none";
+        } else {
+            //Скролл есть
+            document.querySelector(".up-btn").style.display = "block";
+        }
+    }
 
 
 
@@ -467,7 +486,7 @@ window.onload = function() {
     - nameRU (имя на русском)
     - nameENG (имя на английском)
     - photo (имя файла с расширением)
-    - fraction: автобот | десептикон
+    - fraction: автобот | десептикон | предакон | нейтрал
     - altmode (строка)
     - height (число в м)
     - profession (строка)
