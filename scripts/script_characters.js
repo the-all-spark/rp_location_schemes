@@ -15,8 +15,10 @@ window.onload = function() {
     //функция построение карточек вызывается для каждого объекта в массиве
     characters.forEach((character, index) => constructCard(character, index)); 
 
-    // * ----- Сортировка выведенных карточек по имени на русском
-    sortCards();
+    // * ----- Сортировка выведенных карточек по имени на русском, вывод на страницу
+    let sortedCards = sortCards();
+    document.querySelector(".cards-block").append(...sortedCards);
+
 
     // * ----- Выбор вселенной (возможен сразу при открытии страницы)
     showUniverseCharacters();
@@ -134,9 +136,12 @@ window.onload = function() {
             });  
         }
 
+        // сортировка и вывод карточек на страницу
+        let sortedCards = sortCards();
+        document.querySelector(".cards-block").append(...sortedCards);
+
         markMenuItem(fractionList, selectedHash); // выделение пункта меню
         showHideUpBtn(); // проверка скролла (скрытие/отображение кнопки вверх)
-        sortCards();
     }
   
     // * Функция выбора персонажей вселенной (запускается при клике на пункт меню из категории вселенных)
@@ -438,19 +443,19 @@ window.onload = function() {
         return pBlock;
     }
 
-    // * Функция сортировки карточек на текущей странице 
+    // ** Функция сортировки карточек на текущей странице 
+    // возвращает массив отсортированных карточек
     function sortCards() {
         let displayedCharacters = document.querySelectorAll(".card");
         //console.log(displayedCharacters);
-    
-        let arrDisplayedCharacters = Array.from(displayedCharacters);
-    
-        let sortedCards = arrDisplayedCharacters.sort((cardA, cardB) => {
-            return cardA.querySelector(".name-ru").innerHTML.localeCompare(cardB.querySelector(".name-ru").innerHTML);
+
+        let newCardOrder = Array.from(displayedCharacters).sort((cardA, cardB) => {
+            return cardA.querySelector(".name-ru").innerHTML
+            .localeCompare(cardB.querySelector(".name-ru").innerHTML);
         });
 
-        //console.log(sortedCards);
-        document.querySelector(".cards-block").append(...sortedCards); // вставка отсортированных карточек
+        //console.log(newCardOrder);
+        return newCardOrder;
     }
 
 
@@ -458,15 +463,15 @@ window.onload = function() {
 
 }
 
-/* объект персонажа:
+/* Свойства объекта (1 персонаж):
     - nameRU (имя на русском)
     - nameENG (имя на английском)
-    - photo (ссылка на фото - ./assets/characters/autobots/wheeljack.jpg)
+    - photo (имя файла с расширением)
     - fraction: автобот | десептикон
-    - altmode (текст)
-    - height (значение в м)
-    - profession (текст)
-    - arming (текст)
+    - altmode (строка)
+    - height (число в м)
+    - profession (строка)
+    - arming (строка)
     - universe: вселенная (IDW | TFP | G1 | WFC)
     - isOC: true (если ОС), false (если канон)
 */
