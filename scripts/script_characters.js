@@ -198,6 +198,7 @@ window.onload = function() {
         console.log(`Осталось карточек на странице: ${count}`);
         if (count === 0) {
             showWarningUniverse(selectedUniverse); // вывод предупреждения, если ничего не выведено
+            showHideUpBtn();
         }
     }
 
@@ -540,7 +541,7 @@ let characters = [
         universe: "TFP",
         isOC: false,
     },
-    {
+    /*{
         //! копия - потом убрать
         nameRU: "Белый",
         nameENG: "some",
@@ -552,10 +553,10 @@ let characters = [
         arming: "два встроенных в манипуляторы среднемощных бластера; катаны, граната",
         universe: "IDW",
         isOC: true,
-    },
-    {
+    },*/
+     /*{
         //! копия - потом убрать
-        nameRU: "Связист",
+       nameRU: "Связист",
         nameENG: "new",
         photo: "soundwave.jpg",
         fraction: "десептикон",
@@ -565,7 +566,7 @@ let characters = [
         arming: "лазерные пушки, щупальца, встроенные в манипуляторы клинки",
         universe: "TFP",
         isOC: true,
-    },
+    },*/
 
 
      
